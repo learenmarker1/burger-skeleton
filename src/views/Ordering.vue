@@ -4,15 +4,85 @@
 
     <h1 align="center">{{ uiLabels.ingredients }}</h1>
 
-    <Ingredient
-      ref="ingredient"
-      v-for="item in ingredients"
-      v-show="item.category===showCategory"
-      v-on:increment="addToOrder(item)"
-      :item="item"
-      :lang="lang"
-      :key="item.ingredient_id">
-    </Ingredient>
+    <!-- <div>  BREAD  </div>
+
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===showCategory"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient> -->
+
+-----------
+  <div class="panel">
+    <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
+      BUN
+    </div>
+    <div class="panel-body" v-show="sel == 1">
+      <Ingredient
+        ref="ingredient"
+        v-for="item in ingredients"
+        v-show="item.category===4"
+        v-on:increment="addToOrder(item)"
+        :item="item"
+        :lang="lang"
+        :key="item.ingredient_id">
+      </Ingredient>
+    </div>
+  </div>
+    <div class="panel">
+      <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
+        PATTY
+    </div>
+      <div class="panel-body" v-show="sel == 2">
+        <Ingredient
+          ref="ingredient"
+          v-for="item in ingredients"
+          v-show="item.category===1"
+          v-on:increment="addToOrder(item)"
+          :item="item"
+          :lang="lang"
+          :key="item.ingredient_id">
+        </Ingredient>
+      </div>
+    </div>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+          TOPPINGS
+        </div>
+        <div class="panel-body" v-show="sel == 3">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===2"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+        </Ingredient>
+      </div>
+    </div>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+          SAUCE
+        </div>
+        <div class="panel-body" v-show="sel == 3">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===3"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
+
+--------
 
     <button  v-on:click="next()"> {{ uiLabels.next }} </button>
 
@@ -60,7 +130,9 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
-      showCategory: 1
+      showCategory: 1,
+      sel: 0,
+      categoryHeadline: ["Buns", "Patties", "Toppings", "Sauces"]
     }
   },
   created: function () {
@@ -102,13 +174,38 @@ export default {
   padding-top: 50px;
   width: 40em;
   background: radial-gradient(lightgray, darkgray);
-  color: pink;
+  color: white;
 }
-
+.collapsible {
+  background-color: gray;
+  color: black;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px;
+}
+.content {
+  background-color: lightgray;
+  display: none;
+  overflow: hidden;
+}
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
   background-image: url('~@/assets/exampleImage.jpg');
-  color: white;
+  color: pink;
+}
+/* -------- */
+.panel {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+.panel-title {
+  font-weight: bold;
+  background-color: #ccc;
+  padding: 0.01em 16px;
+  cursor: pointer;
+}
+.panel-body {
+  padding: 0.01em 16px;
 }
 </style>
