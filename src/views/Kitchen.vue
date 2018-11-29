@@ -127,6 +127,4 @@ export default {
   grid-column: 2;
 }
 
-
-
 </style>
