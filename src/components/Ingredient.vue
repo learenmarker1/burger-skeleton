@@ -2,7 +2,7 @@
   <div class="ingredient">
     <label>
       <button v-on:click="incrementCounter">{{ counter }}</button>
-      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-, {{item.stock}} pcs
+      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
   </div>
 </template>
@@ -32,5 +32,5 @@ export default {
 }
 </script>
 <style scoped>
-  
+
 </style>

@@ -18,9 +18,13 @@ export default {
 <style>
 body {
   height:100vh;
-  background: radial-gradient(white, lightblue);
+  background: radial-gradient(lightgray, darkgray);
   background-size: 200% 200%;
+<<<<<<< HEAD
   }
+=======
+  /*animation: Gradient 20s linear infinite;*/
+}
 
 @keyframes Gradient {
   0% {
