@@ -9,7 +9,7 @@ let router = new Router({
     {
       path: '/',
       meta: {
-        title: 'Kraft Burgers',
+        title: 'Babes and Burgers <3',
       },
       name: 'ordering',
       component: Ordering
@@ -17,7 +17,7 @@ let router = new Router({
     {
       path: '/kitchen',
       meta: {
-        title: 'Kitchen',
+        title: 'B&B Staff view',
       },
       name: 'kitchen',
       // route level code-splitting

@@ -1,13 +1,13 @@
 <template>
   <div id="ordering">
-    <img class="example-panel" >
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
-    <h1>{{ uiLabels.ingredients }}</h1>
+    <h1 align="center">{{ uiLabels.ingredients }}</h1>
 
     <Ingredient
       ref="ingredient"
       v-for="item in ingredients"
+      v-show="item.category===1"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
@@ -92,16 +92,13 @@ export default {
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 #ordering {
-  margin:auto;
+  margin: auto;
+  padding-top: 50px;
   width: 40em;
+  background: radial-gradient(lightgray, darkgray);
+  color: pink;
 }
 
-.example-panel {
-  position: fixed;
-  left:0;
-  top:0;
-  z-index: -2;
-}
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
