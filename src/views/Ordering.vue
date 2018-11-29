@@ -7,12 +7,14 @@
     <Ingredient
       ref="ingredient"
       v-for="item in ingredients"
-      v-show="item.category===1"
+      v-show="item.category===showCategory"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
       :key="item.ingredient_id">
     </Ingredient>
+
+    <button  v-on:click="next()"> {{ uiLabels.next }} </button>
 
     <h1>{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
@@ -58,6 +60,7 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
+      showCategory: 1
     }
   },
   created: function () {
@@ -85,6 +88,9 @@ export default {
       }
       this.price = 0;
       this.chosenIngredients = [];
+    },
+    next: function () {
+      this.showCategory += 1;
     }
   }
 }
