@@ -1,9 +1,9 @@
 <template>
   <div id="ordering">
-    <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button id="langButton" v-on:click="switchLang()"><img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40>{{ uiLabels.language }}</button>
 
     <h1 align="center">{{ uiLabels.ingredients }}</h1>
-
+    <!-- <h1 align="center">{{ uiLabels.customizing }}</h1> -->
     <!-- <div>  BREAD  </div>
 
           <Ingredient
@@ -66,14 +66,30 @@
       </div>
     </div>
       <div class="panel">
-        <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+        <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
           SAUCE
         </div>
-        <div class="panel-body" v-show="sel == 3">
+        <div class="panel-body" v-show="sel == 4">
           <Ingredient
             ref="ingredient"
             v-for="item in ingredients"
             v-show="item.category===3"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
+          BABES AND BURGERS FAVOURITES
+        </div>
+        <div class="panel-body" v-show="sel == 5">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===7"
             v-on:increment="addToOrder(item)"
             :item="item"
             :lang="lang"
@@ -176,22 +192,14 @@ export default {
   background: radial-gradient(lightgray, darkgray);
   color: white;
 }
-.collapsible {
-  background-color: gray;
-  color: black;
-  width: 100%;
-  cursor: pointer;
-  font-size: 15px;
-}
-.content {
-  background-color: lightgray;
-  display: none;
-  overflow: hidden;
+#langButton{
+  font-weight: bold;
 }
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
-  background-image: url('~@/assets/exampleImage.jpg');
+  /* background-image: url('~@/assets/exampleImage.jpg'); */
+  background-color: dimgray;
   color: pink;
 }
 /* -------- */
@@ -206,6 +214,6 @@ export default {
   cursor: pointer;
 }
 .panel-body {
-  padding: 0.01em 16px;
+  padding: 0.01em 2px;
 }
 </style>

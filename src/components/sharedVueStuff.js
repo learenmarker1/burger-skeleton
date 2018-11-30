@@ -7,7 +7,8 @@ var sharedVueStuff = {
       orders: {},
       uiLabels: {},
       ingredients: {},
-      lang: "en"
+      lang: "en",
+      // flag: 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
     }
   },
   created: function () {
@@ -32,8 +33,10 @@ var sharedVueStuff = {
     switchLang: function () {
       if (this.lang === "en") {
         this.lang = "sv";
+        // this.flag = 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
       } else {
         this.lang = "en";
+        // this.flag = 'https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg'
       }
       this.$store.state.socket.emit('switchLang', this.lang);
     }
