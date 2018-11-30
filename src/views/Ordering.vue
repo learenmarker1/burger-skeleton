@@ -1,22 +1,19 @@
 <template>
+<body>
   <div id="ordering">
-    <button id="langButton" v-on:click="switchLang()"><img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40>{{ uiLabels.language }}</button>
 
-    <h1 align="center">{{ uiLabels.ingredients }}</h1>
-    <!-- <h1 align="center">{{ uiLabels.customizing }}</h1> -->
-    <!-- <div>  BREAD  </div>
+    <div>
 
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===showCategory"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient> -->
+      <div id="header"> Babes & Burgers
+        <button id="langButton" v-on:click="switchLang()"><img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40>{{ uiLabels.language }}</button>
+      </div>
 
------------
+
+    window.onscroll = function() {scrollFunction()};
+
+  </div>
+    <h1 align="center">{{ uiLabels.customizing }}</h1>
+
   <div class="panel">
     <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
       BUN
@@ -81,6 +78,9 @@
           </Ingredient>
         </div>
       </div>
+
+      <h1 align="center">{{ uiLabels.fromMenu }}</h1>
+
       <div class="panel">
         <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
           BABES AND BURGERS FAVOURITES
@@ -98,7 +98,40 @@
         </div>
       </div>
 
---------
+      <h1 align="center">{{ uiLabels.sideOrder }}</h1>
+
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+          TILLBEHÖR
+        </div>
+        <div class="panel-body" v-show="sel == 6">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===5"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
+          DRINKS
+        </div>
+        <div class="panel-body" v-show="sel == 7">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===6"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
 
     <button  v-on:click="next()"> {{ uiLabels.next }} </button>
 
@@ -119,6 +152,7 @@
       </OrderItem>
     </div>
   </div>
+</body>
 </template>
 <script>
 
@@ -177,6 +211,13 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
+    scrollFunction: function () {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("header").style.fontSize = "30px";
+      } else {
+        document.getElementById("header").style.fontSize = "90px";
+      }
+    },
     next: function () {
       this.showCategory += 1;
     }
@@ -185,6 +226,20 @@ export default {
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
+#header {
+  background-color: #f1f1f1; /* Grey background */
+  padding: 40px 10px; /* Some padding */
+  color: black;
+  text-align: center; /* Centered text */
+  font-size: 50px; /* Big font size */
+  font-weight: bold;
+  position: fixed; /* Fixed position - sit on top of the page */
+  top: 0;
+  opacity: 0.5;
+  width: 59%; /* Full width */
+  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  z-index: 0;
+}
 #ordering {
   margin: auto;
   padding-top: 50px;
@@ -194,6 +249,9 @@ export default {
 }
 #langButton{
   font-weight: bold;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 .ingredient {
   border: 1px solid #ccd;
