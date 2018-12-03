@@ -1,27 +1,23 @@
 <template>
+<body class="wrap">
   <div id="ordering">
-    <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <header>
+      <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
+        <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+        <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
+      {{ uiLabels.language }}
+      </button>
+    </div>
+  </header>
 
-    <h1 align="center">{{ uiLabels.ingredients }}</h1>
+    <h1 align="center">{{ uiLabels.customizing }}</h1>
 
-    <!-- <div>  BREAD  </div>
-
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===showCategory"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient> -->
-
------------
   <div class="panel">
     <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
       BUN
     </div>
     <div class="panel-body" v-show="sel == 1">
+      <button v-on:click="deleteFromOrder(item)"> delete</button>
       <Ingredient
         ref="ingredient"
         v-for="item in ingredients"
@@ -30,7 +26,9 @@
         :item="item"
         :lang="lang"
         :key="item.ingredient_id">
+
       </Ingredient>
+
     </div>
   </div>
     <div class="panel">
@@ -66,10 +64,10 @@
       </div>
     </div>
       <div class="panel">
-        <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+        <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
           SAUCE
         </div>
-        <div class="panel-body" v-show="sel == 3">
+        <div class="panel-body" v-show="sel == 4">
           <Ingredient
             ref="ingredient"
             v-for="item in ingredients"
@@ -82,7 +80,59 @@
         </div>
       </div>
 
---------
+      <h1 align="center">{{ uiLabels.fromMenu }}</h1>
+
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
+          BABES AND BURGERS FAVOURITES
+        </div>
+        <div class="panel-body" v-show="sel == 5">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===7"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
+
+      <h1 align="center">{{ uiLabels.sideOrder }}</h1>
+
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+          TILLBEHÖR
+        </div>
+        <div class="panel-body" v-show="sel == 6">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===5"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
+          DRINKS
+        </div>
+        <div class="panel-body" v-show="sel == 7">
+          <Ingredient
+            ref="ingredient"
+            v-for="item in ingredients"
+            v-show="item.category===6"
+            v-on:increment="addToOrder(item)"
+            :item="item"
+            :lang="lang"
+            :key="item.ingredient_id">
+          </Ingredient>
+        </div>
+      </div>
 
     <button  v-on:click="next()"> {{ uiLabels.next }} </button>
 
@@ -102,8 +152,11 @@
         :key="key">
       </OrderItem>
     </div>
-  </div>
+    <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+</div>
+</body>
 </template>
+
 <script>
 
 //import the components that are used in the template, the name that you
@@ -145,6 +198,10 @@ export default {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
     },
+    deleteFromOrder: function (item) {
+      this.chosenIngredients.push(item);
+      this.price += -item.selling_price;
+    },
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -161,37 +218,69 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
+
     next: function () {
       this.showCategory += 1;
+    },
+    switchFlag: function (){
+      if (document.getElementById("langPic").src === "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png")
+      {
+        document.getElementById("langPic").src = "https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg";
+      } else {
+        document.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
+      }
     }
   }
 }
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("header").style.fontSize = "30px";
+    } else {
+        document.getElementById("header").style.fontSize = "90px";
+    }
+}
+
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
+
+.wrap{
+  margin:0;
+}
+#header {
+  background-color: #f1f1f1; /* Grey background */
+  padding: 10px 10px; /* Some padding */
+  color: pink;
+  text-align: center; /* Centered text */
+  font-size: 20px; /* Big font size */
+  font-weight: bold;
+  position: fixed; /* Fixed position - sit on top of the page */
+  top: 0;
+  /* opacity: 0.5; */
+  width: 57%; /* Full width */
+  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  z-index: 0;
+}
 #ordering {
   margin: auto;
-  padding-top: 50px;
-  width: 40em;
+  padding-top: 150px;
+  width: 47em;
   background: radial-gradient(lightgray, darkgray);
   color: white;
 }
-.collapsible {
-  background-color: gray;
-  color: black;
-  width: 100%;
-  cursor: pointer;
-  font-size: 15px;
-}
-.content {
-  background-color: lightgray;
-  display: none;
-  overflow: hidden;
+#langButton{
+  font-weight: bold;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
-  background-image: url('~@/assets/exampleImage.jpg');
+  /* background-image: url('~@/assets/exampleImage.jpg'); */
+  background-color: dimgray;
   color: pink;
 }
 /* -------- */
@@ -206,6 +295,6 @@ export default {
   cursor: pointer;
 }
 .panel-body {
-  padding: 0.01em 16px;
+  padding: 0.01em 2px;
 }
 </style>
