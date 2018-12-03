@@ -19,5 +19,8 @@
   "sideOrder": "Choose drinks and side orders",
   "ready" : "Done",
   "order" : "My burger",
-  "language" : "Svenska"
+  "language" : "Svenska",
+  "orders_pay_desc": "ORDERS-pay desc",
+  "stockButton": "STOCK",
+  "stockHeader": "STOCK"
 }

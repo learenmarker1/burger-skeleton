@@ -9,6 +9,7 @@
   "pay" : "Betala",
   "sum" :"Summa",
   "ordersFinished" : "Färdiga beställningar",
+  "orders_pay_desc": "ORDRAR-Kassa",
   "ordersInQueue" : "Beställningar att förbereda",
   "ordersTrending" : "Populära beställningar",
   "placeOrder" : "Beställ",
@@ -19,5 +20,7 @@
   "sideOrder": "Välj dryck och tillbehör",
   "ready" : "Klart",
   "order" : "Min burgare",
-  "language" : "English"
+  "language" : "English",
+  "stockButton": "Lagersaldo",
+  "stockHeader": "Lagersaldo"
 }
