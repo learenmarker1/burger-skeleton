@@ -1,28 +1,29 @@
 <template>
-<body class="wrap">
-  <div id="ordering">
-    <header>
-      <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
-        <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-        <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
-      {{ uiLabels.language }}
-      </button>
-    </div>
-  </header>
+  <body class="wrap">
+    <div id="ordering">
+      <header>
+        <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
+          <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+          <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
+          {{ uiLabels.language }}
+        </button>
+      </div>
+    </header>
 
     <h1 align="center">{{ uiLabels.customizing }}</h1>
 
-  <div class="panel">
-    <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
-      BUN
-    </div>
-    <div class="panel-body" v-show="sel == 1">
-      <button v-on:click="deleteFromOrder(item)"> delete</button>
-      <Ingredient
+    <div class="panel">
+      <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
+        BUN
+      </div>
+      <div class="panel-body" v-show="sel == 1">
+        <button v-on:click="deleteFromOrder(item)"> delete</button>
+        <Ingredient
         ref="ingredient"
         v-for="item in ingredients"
         v-show="item.category===4"
         v-on:increment="addToOrder(item)"
+        v-on:decrement="deleteFromOrder(item)"
         :item="item"
         :lang="lang"
         :key="item.ingredient_id">
@@ -31,128 +32,134 @@
 
     </div>
   </div>
-    <div class="panel">
-      <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
-        PATTY
+  <div class="panel">
+    <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
+      PATTY
     </div>
-      <div class="panel-body" v-show="sel == 2">
-        <Ingredient
-          ref="ingredient"
-          v-for="item in ingredients"
-          v-show="item.category===1"
-          v-on:increment="addToOrder(item)"
-          :item="item"
-          :lang="lang"
-          :key="item.ingredient_id">
-        </Ingredient>
-      </div>
-    </div>
-      <div class="panel">
-        <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
-          TOPPINGS
-        </div>
-        <div class="panel-body" v-show="sel == 3">
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===2"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-        </Ingredient>
-      </div>
-    </div>
-      <div class="panel">
-        <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
-          SAUCE
-        </div>
-        <div class="panel-body" v-show="sel == 4">
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===3"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient>
-        </div>
-      </div>
+    <div class="panel-body" v-show="sel == 2">
+      <Ingredient
+      ref="ingredient"
+      v-for="item in ingredients"
+      v-show="item.category===1"
+      v-on:increment="addToOrder(item)"
+      v-on:decrement="deleteFromOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+    TOPPINGS
+  </div>
+  <div class="panel-body" v-show="sel == 3">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===2"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
+</div>
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
+    SAUCE
+  </div>
+  <div class="panel-body" v-show="sel == 4">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===3"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
+</div>
 
-      <h1 align="center">{{ uiLabels.fromMenu }}</h1>
+<h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
-      <div class="panel">
-        <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
-          BABES AND BURGERS FAVOURITES
-        </div>
-        <div class="panel-body" v-show="sel == 5">
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===7"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient>
-        </div>
-      </div>
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
+    BABES AND BURGERS FAVOURITES
+  </div>
+  <div class="panel-body" v-show="sel == 5">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===7"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
+</div>
 
-      <h1 align="center">{{ uiLabels.sideOrder }}</h1>
+<h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
-      <div class="panel">
-        <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-          TILLBEHÖR
-        </div>
-        <div class="panel-body" v-show="sel == 6">
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===5"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
-          DRINKS
-        </div>
-        <div class="panel-body" v-show="sel == 7">
-          <Ingredient
-            ref="ingredient"
-            v-for="item in ingredients"
-            v-show="item.category===6"
-            v-on:increment="addToOrder(item)"
-            :item="item"
-            :lang="lang"
-            :key="item.ingredient_id">
-          </Ingredient>
-        </div>
-      </div>
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+    TILLBEHÖR
+  </div>
+  <div class="panel-body" v-show="sel == 6">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===5"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
+</div>
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
+    DRINKS
+  </div>
+  <div class="panel-body" v-show="sel == 7">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===6"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
+</div>
 
-    <button  v-on:click="next()"> {{ uiLabels.next }} </button>
+<button  v-on:click="next()"> {{ uiLabels.next }} </button>
 
-    <h1>{{ uiLabels.order }}</h1>
-    {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<h1>{{ uiLabels.order }}</h1>
+{{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+<button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
-    <h1>{{ uiLabels.ordersInQueue }}</h1>
-    <div>
-      <OrderItem
-        v-for="(order, key) in orders"
-        v-if="order.status !== 'done'"
-        :order-id="key"
-        :order="order"
-        :ui-labels="uiLabels"
-        :lang="lang"
-        :key="key">
-      </OrderItem>
-    </div>
-    <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+<h1>{{ uiLabels.ordersInQueue }}</h1>
+<div>
+  <OrderItem
+  v-for="(order, key) in orders"
+  v-if="order.status !== 'done'"
+  :order-id="key"
+  :order="order"
+  :ui-labels="uiLabels"
+  :lang="lang"
+  :key="key">
+</OrderItem>
+</div>
+<!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </body>
 </template>
@@ -177,7 +184,7 @@ export default {
     OrderItem
   },
   mixins: [sharedVueStuff], // include stuff that is used in both
-                            // the ordering system and the kitchen
+  // the ordering system and the kitchen
   data: function() { //Not that data is a function!
     return {
       chosenIngredients: [],
@@ -199,16 +206,16 @@ export default {
       this.price += +item.selling_price;
     },
     deleteFromOrder: function (item) {
-      this.chosenIngredients.push(item);
+      this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
     placeOrder: function () {
       var i,
       //Wrap the order in an object
-        order = {
-          ingredients: this.chosenIngredients,
-          price: this.price
-        };
+      order = {
+        ingredients: this.chosenIngredients,
+        price: this.price
+      };
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
       //set all counters to 0. Notice the use of $refs
@@ -235,11 +242,11 @@ export default {
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("header").style.fontSize = "30px";
-    } else {
-        document.getElementById("header").style.fontSize = "90px";
-    }
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.fontSize = "30px";
+  } else {
+    document.getElementById("header").style.fontSize = "90px";
+  }
 }
 
 </script>
