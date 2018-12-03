@@ -22,5 +22,6 @@
   "order" : "Min burgare",
   "language" : "English",
   "stockButton": "Lagersaldo",
-  "stockHeader": "Lagersaldo"
+  "stockHeader": "Lagersaldo",
+  "orderButton": "Till Köket"
 }

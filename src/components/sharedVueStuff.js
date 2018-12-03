@@ -12,6 +12,7 @@ var sharedVueStuff = {
     }
   },
   created: function () {
+    this.$store.state.socket.emit("switchPage");
     this.$store.state.socket.on('initialize', function (data) {
       this.orders = data.orders;
       this.uiLabels = data.uiLabels;

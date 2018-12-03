@@ -13,20 +13,20 @@ var io = require('socket.io')(http);
 // Configure webpack as middleware
 const webpack = require("webpack");
 
-webpackConfig.entry.app.unshift('webpack-hot-middleware/client');
+//webpackConfig.entry.app.unshift('webpack-hot-middleware/client');
 const compiler = webpack(webpackConfig);
 const devMiddleware = require('webpack-dev-middleware'); // eslint-disable-line
 app.use(devMiddleware(compiler, {
-    noInfo: false,
-    publicPath: webpackConfig.output.publicPath,
-    headers: { "Access-Control-Allow-Origin": "*" },
-    stats: {colors: true}
+  noInfo: false,
+  publicPath: webpackConfig.output.publicPath,
+  headers: { "Access-Control-Allow-Origin": "*" },
+  stats: {colors: true}
 }));
 
-const hotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line
-app.use(hotMiddleware(compiler, {
-    log: console.log
-}));
+// const hotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line
+// app.use(hotMiddleware(compiler, {
+//     log: console.log
+// }));
 
 // Read in the "class" to store all our data on the server side
 // If you need to change how data is handled, check the dataHandler.js file!
@@ -37,45 +37,60 @@ data.initializeData();
 
 io.on('connection', function (socket) {
   // Send list of orders and text labels when a client connects
-  socket.emit('initialize', { orders: data.getAllOrders(),
-                          uiLabels: data.getUILabels(),
-                          ingredients: data.getIngredients() });
+  // socket.emit('initialize', { orders: data.getAllOrders(),
+  //                         uiLabels: data.getUILabels(),
+  //                         ingredients: data.getIngredients() });
+  setTimeout(function() {
+    socket.emit('initialize',
+    { orders: data.getAllOrders(),
+      uiLabels: data.getUILabels(),
+      ingredients: data.getIngredients() });
+    }, 200);
 
-  // When someone orders something
-  socket.on('order', function (order) {
-    var orderIdAndName = data.addOrder(order);
-    // send updated info to all connected clients, note the use of io instead of socket
-    socket.emit('orderNumber', orderIdAndName);
-    io.emit('currentQueue', { orders: data.getAllOrders(),
-                          ingredients: data.getIngredients() });
-  });
-  // send UI labels in the chosen language
-  socket.on('switchLang', function (lang) {
-    socket.emit('switchLang', data.getUILabels(lang));
-  });
-  // when order is marked as done, send updated queue to all connected clients
-  socket.on('orderDone', function (orderId) {
-    data.markOrderDone(orderId);
-    io.emit('currentQueue', {orders: data.getAllOrders() });
-  });
 
-  socket.on('orderStarted', function (orderId) {
-    data.markOrderStarted(orderId);
-    io.emit('currentQueue', {orders: data.getAllOrders() });
-  });
+    // When someone orders something
+    socket.on('order', function (order) {
+      var orderIdAndName = data.addOrder(order);
+      // send updated info to all connected clients, note the use of io instead of socket
+      socket.emit('orderNumber', orderIdAndName);
+      io.emit('currentQueue', { orders: data.getAllOrders(),
+        ingredients: data.getIngredients() });
+      });
+      // send UI labels in the chosen language
+      socket.on('switchLang', function (lang) {
+        socket.emit('switchLang', data.getUILabels(lang));
+      });
+      socket.on('switchPage', function (lang) {
+        setTimeout(function() {
+          socket.emit('initialize',
+          { orders: data.getAllOrders(),
+            uiLabels: data.getUILabels(),
+            ingredients: data.getIngredients() });
+          }, 200);
+      });
+      // when order is marked as done, send updated queue to all connected clients
+      socket.on('orderDone', function (orderId) {
+        data.markOrderDone(orderId);
+        io.emit('currentQueue', {orders: data.getAllOrders() });
+      });
 
-  socket.on('orderNotStarted', function (orderId) {
-    data.markOrderNotStarted(orderId);
-    io.emit('currentQueue', {orders: data.getAllOrders() });
-  });
+      socket.on('orderStarted', function (orderId) {
+        data.markOrderStarted(orderId);
+        io.emit('currentQueue', {orders: data.getAllOrders() });
+      });
 
-  socket.on('updateStock', function (item, saldo) {
-    data.changeStock(item, saldo);
-    io.emit('currentQueue', {ingredients: data.getIngredients() });
-  });
-});
+      socket.on('orderNotStarted', function (orderId) {
+        data.markOrderNotStarted(orderId);
+        io.emit('currentQueue', {orders: data.getAllOrders() });
+      });
 
-const port = 8080;
-http.listen(port, function() {
-    console.log("Developer server running on http://localhost:" + port);
-});
+      socket.on('updateStock', function (item, saldo) {
+        data.changeStock(item, saldo);
+        io.emit('currentQueue', {ingredients: data.getIngredients() });
+      });
+    });
+
+    const port = 8080;
+    http.listen(port, function() {
+      console.log("Developer server running on http://localhost:" + port);
+    });

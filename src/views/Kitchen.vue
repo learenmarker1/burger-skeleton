@@ -1,8 +1,11 @@
 <template>
 <div id="orders">
+
   <h1 align = "center" id="header">{{ uiLabels.orders_pay_desc}}</h1>
   <button align = "right" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+
   <div class = "row" align = "center">
+
   <div class = "column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div align = "left">
@@ -18,6 +21,7 @@
     </OrderItemToPrepare>
   </div>
 </div>
+
 <div class = "column middle">
   <h1>{{ uiLabels.ordersFinished }}</h1>
   <div align = "left">
@@ -32,14 +36,17 @@
     </OrderItem>
   </div>
 </div>
+
 <div class = "column right">
 <h1>Här ska ordrarna stå sen!!!</h1>
-<button id = "stockButton" onclick="window.location = '/#/kitchen/stock';"> {{ uiLabels.stockButton }} </button>
+<button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
 </div>
 </div>
 </div>
 </template>
+
+
 <script>
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
@@ -68,8 +75,11 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
-	#orders {
+
+#orders {
     font-size:24pt;
   }
 
@@ -77,16 +87,19 @@ export default {
     text-transform: uppercase;
     font-size: 1.4em;
     color: white;
-  }
+  },
+
   #header{
     font-size: 2em;
     color: white;
-  }
+  },
+
   #order_in_que{
     border: solid darkorange;
     border-radius: 10px;
     background-color: orange;
-  }
+  },
+
   #order_finished{
     border: solid green;
     border-radius: 10px;
@@ -107,7 +120,7 @@ export default {
   }
   .right{
     width: 20%;
-  }
+  },
 
   #stockButton{
     width: auto;
@@ -116,9 +129,11 @@ export default {
     background-color: violet;
     color: white;
     font-size: 1em;
-  }
+  },
 
 button:hover {
      cursor: pointer;
 }
+
+
 </style>

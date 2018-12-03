@@ -1,6 +1,11 @@
+
+import Startview from './views/start.vue'
+import Kitchen from './views/Kitchen.vue'
+import Stockview from './views/stockview.vue'
 import Vue from 'vue'
 import Router from 'vue-router'
 import Ordering from './views/Ordering.vue'
+
 
 Vue.use(Router)
 
@@ -15,6 +20,14 @@ let router = new Router({
       component: Ordering
     },
     {
+      path: '/start',
+      meta: {
+        title: 'Babes and Burgers <3',
+      },
+      name: 'start view',
+      component: Startview
+    },
+    {
       path: '/kitchen',
       meta: {
         title: 'B&B Staff view',
@@ -23,15 +36,15 @@ let router = new Router({
       // route level code-splitting
       // this generates a separate chunk (read.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "read" */ './views/Kitchen.vue')
+      component: Kitchen
     },
     {
-      path: '/kitchen/stock',
+      path: '/stock',
       meta: {
         title: 'B&B Staff view - STOCK',
       },
-      name: 'stock view',
-      component: () => import(/* webpackChunkName: "read" */ './views/stockview.vue')
+      name: 'stockview',
+      component: Stockview
     }
   ]
 })
