@@ -24,6 +24,14 @@ let router = new Router({
       // this generates a separate chunk (read.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "read" */ './views/Kitchen.vue')
+    },
+    {
+      path: '/kitchen/stock',
+      meta: {
+        title: 'B&B Staff view - STOCK',
+      },
+      name: 'stock view',
+      component: () => import(/* webpackChunkName: "read" */ './views/stockview.vue')
     }
   ]
 })

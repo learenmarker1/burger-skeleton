@@ -1,7 +1,11 @@
 <template>
 <div id="orders">
+  <h1 align = "center" id="header">{{ uiLabels.orders_pay_desc}}</h1>
+  <button align = "right" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+  <div class = "row" align = "center">
+  <div class = "column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
-  <div>
+  <div align = "left">
     <OrderItemToPrepare
       v-for="(order, key) in orders"
       v-if="order.status !== 'done'"
@@ -13,8 +17,10 @@
       :key="key">
     </OrderItemToPrepare>
   </div>
+</div>
+<div class = "column middle">
   <h1>{{ uiLabels.ordersFinished }}</h1>
-  <div>
+  <div align = "left">
     <OrderItem
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
@@ -25,6 +31,13 @@
       :key="key">
     </OrderItem>
   </div>
+</div>
+<div class = "column right">
+<h1>Här ska ordrarna stå sen!!!</h1>
+<button id = "stockButton" onclick="window.location = '/#/kitchen/stock';"> {{ uiLabels.stockButton }} </button>
+
+</div>
+</div>
 </div>
 </template>
 <script>
@@ -45,7 +58,7 @@ export default {
   data: function(){
     return {
       chosenIngredients: [],
-      price: 0
+      price: 0,
     }
   },
   methods: {
@@ -63,5 +76,49 @@ export default {
   h1 {
     text-transform: uppercase;
     font-size: 1.4em;
+    color: white;
   }
+  #header{
+    font-size: 2em;
+    color: white;
+  }
+  #order_in_que{
+    border: solid darkorange;
+    border-radius: 10px;
+    background-color: orange;
+  }
+  #order_finished{
+    border: solid green;
+    border-radius: 10px;
+    background-color: lightgreen;
+  }
+  .row {
+    display: flex;
+  }
+  .column {
+    border: solid lightgray;
+    border-bottom:0;
+    border-width: 3px;
+    margin: -2px;
+    padding: 15px;
+  }
+  .left, .middle {
+    width: 40%;
+  }
+  .right{
+    width: 20%;
+  }
+
+  #stockButton{
+    width: auto;
+    border-radius: 10px;
+    border: solid pink;
+    background-color: violet;
+    color: white;
+    font-size: 1em;
+  }
+
+button:hover {
+     cursor: pointer;
+}
 </style>
