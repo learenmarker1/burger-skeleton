@@ -1,25 +1,4 @@
 <template>
-  <div align="center" class ="row">
-    <div id="orders" class="column">
-      <h1>{{ uiLabels.ordersInQueue }}</h1>
-      <div>
-        <OrderItemToPrepare
-        v-for="(order, key) in orders"
-        v-if="order.status !== 'done'"
-        v-on:done="markDone(key)"
-        :order-id="key"
-        :order="order"
-        :ui-labels="uiLabels"
-        :lang="lang"
-        :key="key">
-      </OrderItemToPrepare>
-    </div>
-  </div>
-
-  <div id="finishedOrders" class="column">
-    <h1>{{ uiLabels.ordersFinished }}</h1>
-
-      <OrderItem
 <div id="orders">
 
   <h1 align = "center" id="header">{{ uiLabels.orders_pay_desc}}</h1>
@@ -59,7 +38,7 @@
 </div>
 
 <div class = "column right">
-<h1>Här ska ordrarna stå sen!!!</h1>
+<h1>Här ska ordrarna stÂ sen!!!</h1>
 <button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
 </div>
@@ -82,7 +61,7 @@ export default {
     OrderItemToPrepare
   },
   mixins: [sharedVueStuff], // include stuff that is used in both
-  //the ordering system and the kitchen
+                            //the ordering system and the kitchen
   data: function(){
     return {
       chosenIngredients: [],
