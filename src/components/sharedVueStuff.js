@@ -8,7 +8,7 @@ var sharedVueStuff = {
       uiLabels: {},
       ingredients: {},
       lang: "en",
-      // flag: 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
+      flag: 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
     }
   },
   created: function () {
@@ -39,7 +39,16 @@ var sharedVueStuff = {
         // this.flag = 'https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg'
       }
       this.$store.state.socket.emit('switchLang', this.lang);
-    }
+    },
+    // switchFlag: function(){
+    //   if (this.getElementById("langPic").src == "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png")
+    //   {
+    //     (this.getElementById("langPic").src = "https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg";
+    //   } else {
+    //     (this.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
+    //   }
+    //   this.$store.state.socket.emit('switchFlag', this.flag);
+    // }
   }
 };
 
