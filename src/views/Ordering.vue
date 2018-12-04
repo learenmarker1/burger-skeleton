@@ -293,7 +293,7 @@ function scrollFunction() {
 /* -------- */
 .panel {
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 10px solid #ccc;
 }
 .panel-title {
   font-weight: bold;
