@@ -41,7 +41,7 @@
 </div>
 
 <div class = "column right">
-<h1>Här ska ordrarna stå sen!!!</h1>
+<h1>Här ska ordrarna stÂ sen!!!</h1>
 <button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
 </div>
