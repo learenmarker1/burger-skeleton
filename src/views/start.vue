@@ -8,12 +8,12 @@
       {{ uiLabels.language }}</button>
   <div class = "row">
 
-  <div class = "button">
+  <div class = "button left">
       <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
   </div>
 
 
-  <div class = "button">
+  <div class = "button right">
       <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
     </div>
 
@@ -79,6 +79,12 @@ button:hover {
   flex: 50%;
   margin: -2px;
   padding: 15px;
+}
+.left{
+  align: right;
+}
+.right {
+  align: left;
 }
 
 
