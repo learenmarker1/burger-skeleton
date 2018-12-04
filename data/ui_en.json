@@ -26,8 +26,7 @@
   "orderButton": "To Kitchen",
   "startHeader":  "Welcome!",
   "menu_button": "Choose from our meny",
-  "choose_button": "Make your own burger"
-
-
+  "choose_button": "Make your own burger",
+  "backButton": "Go back"
 
 }

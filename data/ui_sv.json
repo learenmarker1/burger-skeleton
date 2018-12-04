@@ -26,5 +26,6 @@
   "orderButton": "Till Köket",
   "startHeader":  "Välkommen!",
   "menu_button": "Välj från vår meny",
-  "choose_button": "Skräddarsy din hamburgare"
+  "choose_button": "Skräddarsy din hamburgare",
+  "backButton":"Tillbaka"
 }
