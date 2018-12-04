@@ -2,7 +2,10 @@
 <div id="orders">
 
   <h1 align = "center" id="header">{{ uiLabels.orders_pay_desc}}</h1>
-  <button align = "right" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+  <button align = "right" v-on:click="switchLang()">
+    <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+    {{ uiLabels.language }}</button>
+
 
   <div class = "row" align = "center">
 
