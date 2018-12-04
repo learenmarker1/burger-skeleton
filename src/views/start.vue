@@ -6,17 +6,18 @@
     <button align = "right" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
       {{ uiLabels.language }}</button>
+  <div class = "row">
 
-  <div class = "button left" align="left">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';"> {{uiLabels.menu_button}} </button>
+  <div class = "button">
+      <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
   </div>
 
 
-  <div class = "button right" align="right">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';"> {{uiLabels.choose_button}} </button>
+  <div class = "button">
+      <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
     </div>
 
-
+</div>
   </div>
 </template>
 
@@ -56,11 +57,12 @@ button:hover {
 }
 
 #orderButtons {
-  height: auto;
+  height: 150px;
   width: 150px;
   padding: 15px;
   margin: 25px;
   background-color: #BB86BB;
+  border-radius: 20px;
   color: black;
   border: 5px solid #875187;
   font-size: 20px;
@@ -68,20 +70,16 @@ button:hover {
   display: inline-block;
 
 }
-
+.row {
+  display: flex;
+  /*text-align: center;*/
+  font-size: 16pt;
+}
 .button {
-  border: solid lightgray;
-  border-width: 3px;
-  margin: 2px;
+  flex: 50%;
+  margin: -2px;
   padding: 15px;
 }
-.left{
-  width: 40%;
-}
-.right{
-  width: 20%;
-},
 
-}
 
 </style>
