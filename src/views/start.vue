@@ -80,8 +80,6 @@ button:hover {
 }
 .right{
   width: 20%;
-},
-
 }
 
 </style>
