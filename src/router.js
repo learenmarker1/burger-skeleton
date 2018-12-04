@@ -1,10 +1,10 @@
 
 import Startview from './views/start.vue'
-import Ordering from './views/ordering.vue'
+import Ordering from './views/Ordering.vue'
 import Choose_burger from './views/choose_burger'
 import Menu_burger from './views/menu_burger'
 import Checkout from './views/checkout'
-import Kitchen from './views/kitchen.vue'
+import Kitchen from './views/Kitchen.vue'
 import Stockview from './views/stockview.vue'
 import Vue from 'vue'
 import Router from 'vue-router'
