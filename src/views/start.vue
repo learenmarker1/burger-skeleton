@@ -1,11 +1,21 @@
 <template>
   <div>
 
-    <h1>Hej</h1>
+    <h1 align = "center"> {{ uiLabels.startHeader}} </h1>
 
-    <div>
-      <button id = "orderButton" type="button" onclick="window.location = '/#/';"> Skräddarsy din hamburgare </button>
+    <button align = "right" v-on:click="switchLang()">
+      <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      {{ uiLabels.language }}</button>
+
+  <div class = "button left" align="left">
+      <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';"> {{uiLabels.menu_button}} </button>
+  </div>
+
+
+  <div class = "button right" align="right">
+      <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';"> {{uiLabels.choose_button}} </button>
     </div>
+
 
   </div>
 </template>
@@ -45,13 +55,33 @@ button:hover {
   cursor: pointer;
 }
 
-#orderButton {
+#orderButtons {
+  height: auto;
+  width: 150px;
+  padding: 15px;
+  margin: 25px;
   background-color: #BB86BB;
   color: black;
   border: 5px solid #875187;
   font-size: 20px;
   text-align: center;
   display: inline-block;
+
+}
+
+.button {
+  border: solid lightgray;
+  border-width: 3px;
+  margin: 2px;
+  padding: 15px;
+}
+.left{
+  width: 40%;
+}
+.right{
+  width: 20%;
+},
+
 }
 
 </style>

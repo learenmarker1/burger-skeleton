@@ -1,7 +1,7 @@
 <template>
   <div id="orders">
 
-    <h1 align = "center" id="header">{{ uiLabels.stockHeader}}</h1>
+    <h1 align = "center">{{ uiLabels.startHeader}}</h1>
 
     <button v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
@@ -12,6 +12,7 @@
           <h3>BUN</h3>
           <ul v-for = "item in ingredients" v-if = 'item.category == 4'>
             <div> {{item.ingredient_sv}} </div>
+            <div> {{item.ingredient_en}} </div>
           </ul>
         </div>
 

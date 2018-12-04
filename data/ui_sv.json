@@ -23,5 +23,8 @@
   "language" : "English",
   "stockButton": "Lagersaldo",
   "stockHeader": "Lagersaldo",
-  "orderButton": "Till Köket"
+  "orderButton": "Till Köket",
+  "startHeader":  "Välkommen!",
+  "menu_button": "Välj från vår meny",
+  "choose_button": "Skräddarsy din hamburgare"
 }

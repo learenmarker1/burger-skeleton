@@ -23,5 +23,11 @@
   "orders_pay_desc": "ORDERS-pay desc",
   "stockButton": "STOCK",
   "stockHeader": "STOCK",
-  "orderButton": "To Kitchen"
+  "orderButton": "To Kitchen",
+  "startHeader":  "Welcome!",
+  "menu_button": "Choose from our meny",
+  "choose_button": "Make your own burger"
+
+
+
 }
