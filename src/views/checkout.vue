@@ -1,13 +1,38 @@
 <template>
-  <div>
+  <div id="checkout">
 
-    <h1>Hej</h1>
+    <button align = "right" v-on:click="switchLang()">
+      <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      {{ uiLabels.language }}
+    </button>
 
     <div>
-      <button id = "orderButton" type="button" onclick="window.location = '/#/';"> Skräddarsy din hamburgare </button>
-    </div>
-
+      <h2> {{ uiLabels.orderOverview }} </h2>
+      <OrderItemToPrepare
+        v-for="(order, key) in orders"
+        v-if="order.status !== 'done'"
+        v-on:done="markDone(key)"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :lang="lang"
+        :key="key">
+      </OrderItemToPrepare>
   </div>
+
+  <div>
+    <button id = "orderButton" type="button" > {{ uiLabels.payButton }} </button>
+  </div>
+
+  <div>
+    <button id = "orderButton" type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
+  </div>
+
+  <div id="order_confirmed">
+    <h2> {{ uiLabels.confirmed_text }} </h2>
+  </div>
+
+</div>
 </template>
 
 
@@ -31,8 +56,6 @@ export default {
     }
   },
   methods: {
-
-
   }
 }
 
@@ -48,6 +71,7 @@ button:hover {
 #orderButton {
   background-color: #BB86BB;
   color: black;
+  margin: 20px;
   border: 5px solid #875187;
   font-size: 20px;
   text-align: center;

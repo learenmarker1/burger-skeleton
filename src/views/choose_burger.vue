@@ -144,6 +144,10 @@
   <button id = "backButton" onclick="window.location = '/#/start';"> {{ uiLabels.backButton }} </button>
 </div>
 
+<div>
+  <button align="right" id = "checkoutButton" onclick="window.location = '/#/checkout';"> {{ uiLabels.checkoutButton }} </button>
+</div>
+
 <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </body>

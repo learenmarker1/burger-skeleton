@@ -27,6 +27,11 @@
   "startHeader":  "Welcome!",
   "menu_button": "Choose from our meny",
   "choose_button": "Make your own burger",
-  "backButton": "Go back"
+  "backButton": "Go back",
+  "checkoutButton": "Go to checkout",
+  "payButton": "Pay and Confirm Order!",
+  "changeButton": "Change Order",
+  "confirmed_text": "You have now ordered: ",
+  "orderOverview": "Order overview: "
 
 }

@@ -27,5 +27,10 @@
   "startHeader":  "Välkommen!",
   "menu_button": "Välj från vår meny",
   "choose_button": "Skräddarsy din hamburgare",
-  "backButton":"Tillbaka"
+  "backButton":"Tillbaka",
+  "checkoutButton": "Gå till betalning",
+  "payButton": "Betala och Bekräfta beställning!",
+  "changeButton": "Ändra Beställning",
+  "confirmed_text": "Du har nu beställt: ",
+  "orderOverview": "Orderöversikt: "
 }
