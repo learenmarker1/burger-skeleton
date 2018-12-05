@@ -34,7 +34,12 @@
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    TILLBEHÖR
+    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    {{ uiLabels.sideorders }}
+    <div id="yourOrder">
+      {{ uiLabels.addingsChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 6">
     <Ingredient
@@ -51,7 +56,12 @@
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
-    DRINKS
+    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  width=30>
+    {{ uiLabels.drinks }}
+    <div id="yourOrder">
+      {{ uiLabels.drinksChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 7">
     <Ingredient
@@ -219,6 +229,11 @@ function scrollFunction() {
   top: 8px;
   right: 16px;
 }
+
+#yourOrder{
+  text-align: right;
+}
+
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
