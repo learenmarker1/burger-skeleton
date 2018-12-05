@@ -13,7 +13,7 @@
   "ordersInQueue" : "Beställningar att förbereda",
   "ordersTrending" : "Populära beställningar",
   "placeOrder" : "Beställ",
-  "sideorders" : "Tillbehör",
+  "sideorders" : "TILLBEHÖR",
   "ingredients" : "Ingredienser",
   "customizing": "Skräddarsy din burgare",
   "fromMenu": "Välj bland B&B's favoritburgare",
@@ -23,5 +23,17 @@
   "language" : "English",
   "stockButton": "Lagersaldo",
   "stockHeader": "Lagersaldo",
-  "orderButton": "Till Köket"
+  "orderButton": "Till Köket",
+  "bun": "BRÖD",
+  "bunChoice": "Ditt val av bröd: ",
+  "patty":"FYLLNING",
+  "pattyChoice": "Ditt val av fyllning: ",
+  "topping": "TOPPING",
+  "toppingChoice": "Ditt val av topping: ",
+  "sauce": "SÅS",
+  "sauceChoice": "Ditt val av sås: ",
+  "bbFavourites": "BABES & BURGERS FAVORITER",
+  "addingsChoice": "Ditt val av tillbehör: ",
+  "drinks": "DRYCK",
+  "drinksChoice": "Ditt val av dryck: "
 }

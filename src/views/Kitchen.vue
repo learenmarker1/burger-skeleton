@@ -90,18 +90,18 @@ export default {
     text-transform: uppercase;
     font-size: 1.4em;
     color: white;
-  },
+  }
 
   #header{
     font-size: 2em;
     color: white;
-  },
+  }
 
   #order_in_que{
     border: solid darkorange;
     border-radius: 10px;
     background-color: orange;
-  },
+  }
 
   #order_finished{
     border: solid green;
@@ -111,6 +111,7 @@ export default {
   .row {
     display: flex;
   }
+
   .column {
     border: solid lightgray;
     border-bottom:0;
@@ -121,9 +122,10 @@ export default {
   .left, .middle {
     width: 40%;
   }
+
   .right{
     width: 20%;
-  },
+  }
 
   #stockButton{
     width: auto;
@@ -132,7 +134,7 @@ export default {
     background-color: violet;
     color: white;
     font-size: 1em;
-  },
+  }
 
 button:hover {
      cursor: pointer;
