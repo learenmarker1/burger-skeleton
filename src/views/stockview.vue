@@ -3,17 +3,17 @@
 
     <h1 align = "center">{{ uiLabels.startHeader}}</h1>
 
-    <button v-on:click="switchLang()">
+    <button :v-on:click="switchLang()">
 
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
+      <img id='langPic' :v-on:click="switchFlag()" :v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      <img id='langPic' :v-on:click="switchFlag()" :v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
 
       {{ uiLabels.language }}</button>
 
       <div class = "row">
         <div class = "column">
           <h3>{{ uiLabels.bun }}</h3>
-          <ul v-for = "item in ingredients" v-if = 'item.category == 4'>
+          <ul :v-for = "item in ingredients" :v-if = 'item.category == 4'>
             <div :v-if="lang_en"> {{item.ingredient_en}} </div>
             <div :v-if="lang_sv"> {{item.ingredient_sv}} </div>
           </ul>
@@ -21,7 +21,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.patty }} </h3>
-          <ul v-for = "item in ingredients" v-if = 'item.category == 1'>
+          <ul :v-for = "item in ingredients" :v-if = 'item.category == 1'>
             <div :v-if="lang_en"> {{item.ingredient_en}} </div>
             <div :v-if="lang_sv"> {{item.ingredient_sv}} </div>
           </ul>
@@ -29,7 +29,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.topping }} </h3>
-          <ul v-for = "item in ingredients" v-if = 'item.category == 2'>
+          <ul :v-for = "item in ingredients" :v-if = 'item.category == 2'>
             <div :v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div :v-if="lang_en"> {{item.ingredient_en}} </div>
           </ul>
@@ -37,7 +37,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.sauce }} </h3>
-          <ul v-for = "item in ingredients" v-if = 'item.category == 3'>
+          <ul :v-for = "item in ingredients" :v-if = 'item.category == 3'>
             <div :v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div :v-if="lang_en"> {{item.ingredient_en}} </div>
           </ul>
