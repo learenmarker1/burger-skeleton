@@ -14,6 +14,7 @@
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
+  <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
     BABES AND BURGERS FAVOURITES
   </div>
   <div class="panel-body" v-show="sel == 5">
@@ -34,7 +35,7 @@
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
     {{ uiLabels.sideorders }}
     <div id="yourOrder">
       {{ uiLabels.addingsChoice }}
@@ -56,7 +57,7 @@
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
-    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  width=30>
+    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  height=45>
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
