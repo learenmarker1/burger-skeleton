@@ -240,6 +240,8 @@ function scrollFunction() {
 
 </script>
 
+
+
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
