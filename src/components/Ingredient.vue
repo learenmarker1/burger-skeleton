@@ -34,13 +34,13 @@ export default {
     },
     decrementCounter: function () {
       this.counter -= 1;
-    
       this.$emit('decrement');
     },
     resetCounter: function () {
       this.counter = 0;
     }
   }
+
 }
 </script>
 <style scoped>

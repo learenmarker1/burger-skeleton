@@ -10,16 +10,20 @@
       </div>
     </header>
 
-    <h1 align="center">{{ uiLabels.customizing }}</h1>
-
+    <h1 align="center">
+      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
+      {{ uiLabels.customizing }}
+    </h1>
     <div class="panel">
       <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
-        <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+        <img align="left" src='http://www.clker.com/cliparts/K/F/m/Q/B/D/bread-bun.svg'  height=35 width=35>
         {{ uiLabels.bun }}
 
         <div id="yourOrder">
+          <div >
           {{ uiLabels.bunChoice }}
           {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+        </div>
         </div>
 
       </div>
@@ -40,10 +44,10 @@
 
   <div class="panel">
     <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
-      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+      <img src='https://i.pinimg.com/originals/25/4f/c5/254fc531c68e435e237d523b05224987.png'  height=30>
       {{ uiLabels.patty }}
       <div id="yourOrder">
-        {{ uiLabels.pattyChoice }}
+        {{uiLabels.pattyChoice }}
         {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
       </div>
 
@@ -64,7 +68,7 @@
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
-    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    <img src='https://loinhacviet.info/images/lettuce-clipart-green-food-2.png'  height=40>
     {{ uiLabels.topping }}
     <div id="yourOrder">
       {{ uiLabels.toppingChoice }}
@@ -87,7 +91,7 @@
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
-    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    <img src='http://worldartsme.com/images/sauce-clipart-1.jpg'  height=40>
     {{ uiLabels.sauce }}
     <div id="yourOrder">
       {{ uiLabels.sauceChoice }}
@@ -108,13 +112,11 @@
 </div>
 </div>
 
-
-
 <h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=40>
     {{ uiLabels.sideorders }}
     <div id="yourOrder">
       {{ uiLabels.addingsChoice }}
@@ -136,7 +138,7 @@
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
-    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  width=30>
+    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  height=50>
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
