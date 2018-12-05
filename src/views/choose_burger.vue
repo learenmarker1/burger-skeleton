@@ -11,7 +11,6 @@
     </header>
 
     <h1 align="center">
-      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
       {{ uiLabels.customizing }}
     </h1>
     <div class="panel">
@@ -159,13 +158,14 @@
 </div>
 </div>
 
-<button  v-on:click="next()"> {{ uiLabels.next }} </button>
-
-<h1>{{ uiLabels.order }}</h1>
+  <h1 align="center">
+<img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=40>
+  {{ uiLabels.order }}</h1>
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
 <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
-<h1>{{ uiLabels.ordersInQueue }}</h1>
+  <h1>
+  {{ uiLabels.ordersInQueue }}</h1>
 <div>
   <OrderItem
   v-for="(order, key) in orders"
@@ -177,6 +177,15 @@
   :key="key">
 </OrderItem>
 </div>
+
+<div>
+  <button id = "backButton" onclick="window.location = '/#/start';"> {{ uiLabels.backButton }} </button>
+</div>
+
+<div>
+  <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';"> {{ uiLabels.checkoutButton }} </button>
+</div>
+
 <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </body>
