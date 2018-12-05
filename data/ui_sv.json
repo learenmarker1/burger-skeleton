@@ -35,5 +35,14 @@
   "bbFavourites": "BABES & BURGERS FAVORITER",
   "addingsChoice": "Ditt val av tillbehör: ",
   "drinks": "DRYCK",
-  "drinksChoice": "Ditt val av dryck: "
+  "drinksChoice": "Ditt val av dryck: ",
+  "startHeader":  "Välkommen!",
+  "menu_button": "Välj från vår meny",
+  "choose_button": "Skräddarsy din hamburgare",
+  "backButton":"Tillbaka",
+  "checkoutButton": "Gå till betalning",
+  "payButton": "Betala och Bekräfta beställning!",
+  "changeButton": "Ändra Beställning",
+  "confirmed_text": "Du har nu beställt: ",
+  "orderOverview": "Orderöversikt: "
 }

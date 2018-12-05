@@ -13,6 +13,7 @@
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div align = "left">
     <OrderItemToPrepare
+      id = "order_in_que"
       v-for="(order, key) in orders"
       v-if="order.status !== 'done'"
       v-on:done="markDone(key)"
@@ -29,6 +30,7 @@
   <h1>{{ uiLabels.ordersFinished }}</h1>
   <div align = "left">
     <OrderItem
+      id ="order_finished"
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
       :order-id="key"
@@ -41,7 +43,8 @@
 </div>
 
 <div class = "column right">
-<h1>Här ska ordrarna stÂ sen!!!</h1>
+<h1>Här ska ordrarna stå sen!!!</h1>
+
 <button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
 </div>
@@ -101,12 +104,14 @@ export default {
     border: solid darkorange;
     border-radius: 10px;
     background-color: orange;
+    margin: 20px;
   }
 
   #order_finished{
     border: solid green;
     border-radius: 10px;
     background-color: lightgreen;
+    margin: 20px;
   }
   .row {
     display: flex;
