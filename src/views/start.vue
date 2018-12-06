@@ -1,24 +1,24 @@
 <template>
   <div id="ordering">
-    <button align = "right" v-on:click="switchLang()">
-      <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}</button>
 
-    <h1 class="header" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startHeaderCont }}<br/> </h1>
+    <button id="langButton" v-on:click="switchLang()">
+      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      {{ uiLabels.language }}
+    </button>
 
+    <h1 class="header" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}} <br> {{ uiLabels.startHeaderCont }} </h1>
 
-  <div class = "row">
+    <div class = "row">
 
-  <div class = "buttonL">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
-  </div>
+      <div class = "buttonL">
+        <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+      </div>
 
+      <div class = "buttonR">
+        <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
+      </div>
 
-  <div class = "buttonR">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
     </div>
-
-</div>
   </div>
 </template>
 
@@ -57,51 +57,48 @@ button:hover {
   cursor: pointer;
 }
 .header{
-  font-size: 80px;
+  font-size: 60px;
   color: pink;
 }
 #ordering {
   margin: auto;
   padding-top: 50px;
   padding-bottom: 200px;
-  max-width: 47em;
+  max-width: 50em;
   background: radial-gradient(lightgray, darkgray);
   color: white;
 }
+
+#langButton{
+  position: absolute;
+  top: 16px;
+  right: 250px;
+}
+
 #orderButtons {
   height: 150px;
   width: 150px;
-  padding: 15px;
-  margin: 25px;
   background-color: #BB86BB;
   border-radius: 20px;
-  color: black;
   border: 5px solid #875187;
+  color: black;
   font-size: 20px;
-  text-align: center;
+  /*  text-align: center;*/
   display: inline-block;
 
 }
 .row {
   display: grid;
   padding-top: 100px;
-  /*text-align: center;*/
-  /* font-size: 16pt; */
-  grid-gap: 10px;
+  grid-gap: 15px;
   grid-template-columns: 25% 25%;
+  justify-content: center;
 }
-/* #orderButtons {
-  /* flex: 50%; */
-  /* margin: 50px;
-  padding: 15px;
-} */
 .buttonL{
-
-  grid-column: 2;
+  grid-column: 1;
 }
 .buttonR {
-
-  grid-column: 3;
+  grid-column: 2;
 }
 
 

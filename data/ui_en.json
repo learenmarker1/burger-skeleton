@@ -25,7 +25,7 @@
   "stockHeader" : "STOCK",
   "orderButton" : "To Kitchen",
   "startHeader": "Welcome",
-  "startHeaderCont": "to Babes & Burgers!",
+  "startHeaderCont": "Babes & Burgers!",
   "menu_button": "Choose from our meny",
   "choose_button": "Make your own burger",
   "backButton": "Go back",
@@ -45,5 +45,8 @@
   "bbFavourites": "BABES & BURGERS FAVOURITES",
   "addingsChoice": "Your choice of side order: ",
   "drinks": "DRINKS",
-  "drinksChoice": "Your choice of drink: "
+  "drinksChoice": "Your choice of drink: ",
+  "startTO": "to",
+  "BoBfavvo": "BABES AND BURGERS FAVOURITES",
+  "TotalSum": "Total Sum: "
 }

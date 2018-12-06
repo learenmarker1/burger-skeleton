@@ -37,7 +37,7 @@
   "drinks": "DRYCK",
   "drinksChoice": "Ditt val av dryck: ",
   "startHeader":  "Välkommen",
-  "startHeaderCont": "till Babes & Burgers!",
+  "startHeaderCont": "Babes & Burgers!",
   "menu_button": "Välj från vår meny",
   "choose_button": "Skräddarsy din hamburgare",
   "backButton":"Tillbaka",
@@ -45,5 +45,8 @@
   "payButton": "Betala och Bekräfta beställning!",
   "changeButton": "Ändra Beställning",
   "confirmed_text": "Du har nu beställt: ",
-  "orderOverview": "Orderöversikt: "
+  "orderOverview": "Orderöversikt: ",
+  "startTO": "till",
+  "BoBfavvo": "BABES AND BURGERS FAVORITER",
+  "TotalSum": "Totalsumma: "
 }
