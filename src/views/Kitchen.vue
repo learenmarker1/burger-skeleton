@@ -118,6 +118,7 @@ export default {
     display: flex;
     height: 98%;
   }
+
   .column {
     border: solid lightgray;
     border-width: 3px;
@@ -130,6 +131,7 @@ export default {
     float: left;
     overflow: scroll;
   }
+
   .right{
     width: 20%;
     float: left;

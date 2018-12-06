@@ -14,10 +14,16 @@
 
     <div class="panel">
       <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
-        BUN
+        <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+        {{ uiLabels.bun }}
+
+        <div id="yourOrder">
+          {{ uiLabels.bunChoice }}
+          {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+        </div>
+
       </div>
       <div class="panel-body" v-show="sel == 1">
-        <button v-on:click="deleteFromOrder(item)"> delete</button>
         <Ingredient
         ref="ingredient"
         v-for="item in ingredients"
@@ -27,14 +33,20 @@
         :item="item"
         :lang="lang"
         :key="item.ingredient_id">
-
       </Ingredient>
-
     </div>
   </div>
+
+
   <div class="panel">
     <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
-      PATTY
+      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+      {{ uiLabels.patty }}
+      <div id="yourOrder">
+        {{ uiLabels.pattyChoice }}
+        {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      </div>
+
     </div>
     <div class="panel-body" v-show="sel == 2">
       <Ingredient
@@ -49,9 +61,15 @@
     </Ingredient>
   </div>
 </div>
+
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
-    TOPPINGS
+    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    {{ uiLabels.topping }}
+    <div id="yourOrder">
+      {{ uiLabels.toppingChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 3">
     <Ingredient
@@ -66,9 +84,15 @@
   </Ingredient>
 </div>
 </div>
+
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
-    SAUCE
+    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    {{ uiLabels.sauce }}
+    <div id="yourOrder">
+      {{ uiLabels.sauceChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 4">
     <Ingredient
@@ -84,31 +108,18 @@
 </div>
 </div>
 
-<h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
-<div class="panel">
-  <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
-    BABES AND BURGERS FAVOURITES
-  </div>
-  <div class="panel-body" v-show="sel == 5">
-    <Ingredient
-    ref="ingredient"
-    v-for="item in ingredients"
-    v-show="item.category===7"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient>
-</div>
-</div>
 
 <h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    TILLBEHÖR
+    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+    {{ uiLabels.sideorders }}
+    <div id="yourOrder">
+      {{ uiLabels.addingsChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 6">
     <Ingredient
@@ -125,7 +136,12 @@
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
-    DRINKS
+    <img src='https://techflourish.com/images/hot-dog-chips-and-drink-clipart-18.png'  width=30>
+    {{ uiLabels.drinks }}
+    <div id="yourOrder">
+      {{ uiLabels.drinksChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+    </div>
   </div>
   <div class="panel-body" v-show="sel == 7">
     <Ingredient
@@ -209,6 +225,7 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
+
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -225,7 +242,6 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
-
     next: function () {
       this.showCategory += 1;
     },
@@ -237,6 +253,7 @@ export default {
         document.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
       }
     }
+
   }
 }
 window.onscroll = function() {scrollFunction()};
@@ -273,7 +290,7 @@ function scrollFunction() {
 #ordering {
   margin: auto;
   padding-top: 150px;
-  width: 47em;
+  max-width: 47em;
   background: radial-gradient(lightgray, darkgray);
   color: white;
 }
@@ -283,6 +300,11 @@ function scrollFunction() {
   top: 8px;
   right: 16px;
 }
+
+#yourOrder{
+  text-align: right;
+}
+
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;

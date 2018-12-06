@@ -1,19 +1,20 @@
 <template>
-  <div>
-
-    <h1 align = "center"> {{ uiLabels.startHeader}} </h1>
-
+  <div id="ordering">
     <button align = "right" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
       {{ uiLabels.language }}</button>
+
+    <h1 class="header" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startHeaderCont }}<br/> </h1>
+
+
   <div class = "row">
 
-  <div class = "button left">
+  <div class = "buttonL">
       <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
   </div>
 
 
-  <div class = "button right">
+  <div class = "buttonR">
       <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
     </div>
 
@@ -55,7 +56,18 @@ export default {
 button:hover {
   cursor: pointer;
 }
-
+.header{
+  font-size: 80px;
+  color: pink;
+}
+#ordering {
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  max-width: 47em;
+  background: radial-gradient(lightgray, darkgray);
+  color: white;
+}
 #orderButtons {
   height: 150px;
   width: 150px;
@@ -71,20 +83,25 @@ button:hover {
 
 }
 .row {
-  display: flex;
+  display: grid;
+  padding-top: 100px;
   /*text-align: center;*/
-  font-size: 16pt;
+  /* font-size: 16pt; */
+  grid-gap: 10px;
+  grid-template-columns: 25% 25%;
 }
-.button {
-  flex: 50%;
-  margin: -2px;
+/* #orderButtons {
+  /* flex: 50%; */
+  /* margin: 50px;
   padding: 15px;
+} */
+.buttonL{
+
+  grid-column: 2;
 }
-.left{
-  align: right;
-}
-.right {
-  align: left;
+.buttonR {
+
+  grid-column: 3;
 }
 
 
