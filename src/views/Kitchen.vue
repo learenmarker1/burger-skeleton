@@ -43,7 +43,8 @@
 </div>
 
 <div class = "column right">
-<h1>Här ska ordrarna stå sen!!!</h1>
+<h1>H‰r ska ordrarna stÂ sen!!!</h1>
+<div> {{orderId}} </div>
 
 <button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
@@ -93,19 +94,19 @@ export default {
     text-transform: uppercase;
     font-size: 1.4em;
     color: white;
-  },
+  }
 
   #header{
     font-size: 2em;
     color: white;
-  },
+  }
 
   #order_in_que{
     border: solid darkorange;
     border-radius: 10px;
     background-color: orange;
     margin: 20px;
-  },
+  }
 
   #order_finished{
     border: solid green;
@@ -115,20 +116,25 @@ export default {
   }
   .row {
     display: flex;
+    height: 98%;
   }
   .column {
     border: solid lightgray;
-    border-bottom:0;
     border-width: 3px;
     margin: -2px;
     padding: 15px;
+    height: 450px;
   }
   .left, .middle {
     width: 40%;
+    float: left;
+    overflow: scroll;
   }
   .right{
     width: 20%;
-  },
+    float: left;
+    overflow: scroll;
+  }
 
   #stockButton{
     width: auto;
@@ -137,7 +143,7 @@ export default {
     background-color: violet;
     color: white;
     font-size: 1em;
-  },
+  }
 
 button:hover {
      cursor: pointer;
