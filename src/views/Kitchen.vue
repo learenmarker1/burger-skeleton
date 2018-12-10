@@ -46,10 +46,19 @@
 <div class = "column right">
 <h1>H‰r ska ordrarna stÂ sen!!!</h1>
 <div> {{orderId}} </div>
-
-<button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
-
 </div>
+</div>
+
+<div class = "buttonGrid">
+
+  <div class = "buttonL">
+    <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+  </div>
+
+  <div class = "buttonR">
+    <button align = "right" id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
+  </div>
+
 </div>
 </div>
 </template>
@@ -160,6 +169,19 @@ button:hover {
       text-align: center;
       display: inline-block;
     }
+  }
+  .buttonGrid {
+    display: grid;
+    padding-top: 10px;
+    grid-gap: 15px;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+  }
+  .buttonL{
+    grid-column: 1;
+  }
+  .buttonR {
+    grid-column: 2;
   }
 
 
