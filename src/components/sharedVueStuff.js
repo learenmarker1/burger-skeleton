@@ -8,7 +8,10 @@ var sharedVueStuff = {
       uiLabels: {},
       ingredients: {},
       lang: "en",
-      flag: 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
+      flag_sv: true,
+      flag_en: false,
+      lang_en: true,
+      lang_sv: false
     }
   },
   created: function () {
@@ -32,24 +35,21 @@ var sharedVueStuff = {
   },
   methods: {
     switchLang: function () {
-      if (this.lang === "en") {
+      if (this.lang === "en" && this.flag_en===false) {
         this.lang = "sv";
-        // this.flag = 'https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'
+        this.flag_en = true;
+        this.flag_sv = false;
+        this.lang_sv = true;
+        this.lang_en = false;
       } else {
         this.lang = "en";
-        // this.flag = 'https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg'
+        this.flag_sv = true;
+        this.flag_en = false;
+        this.lang_en = true;
+        this.lang_sv = false;
       }
       this.$store.state.socket.emit('switchLang', this.lang);
-    },
-    // switchFlag: function(){
-    //   if (this.getElementById("langPic").src == "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png")
-    //   {
-    //     (this.getElementById("langPic").src = "https://st3.depositphotos.com/1798678/14061/v/1600/depositphotos_140613046-stock-illustration-uk-flag-england-symbol-vector.jpg";
-    //   } else {
-    //     (this.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
-    //   }
-    //   this.$store.state.socket.emit('switchFlag', this.flag);
-    // }
+    }
   }
 };
 

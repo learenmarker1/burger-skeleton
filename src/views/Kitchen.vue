@@ -1,11 +1,12 @@
 <template>
 <div id="orders">
 
-  <h1 align = "center" id="header">{{ uiLabels.orders_pay_desc}}</h1>
-  <button align = "right" v-on:click="switchLang()">
-    <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-    {{ uiLabels.language }}</button>
+  <button id="langButton" v-on:click="switchLang()">
+    <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+    {{ uiLabels.language }}
+  </button>
 
+  <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
 
   <div class = "row" align = "center">
 
@@ -43,7 +44,8 @@
 </div>
 
 <div class = "column right">
-<h1>Här ska ordrarna stå sen!!!</h1>
+<h1>H‰r ska ordrarna stÂ sen!!!</h1>
+<div> {{orderId}} </div>
 
 <button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
 
@@ -85,6 +87,16 @@ export default {
 
 <style scoped>
 
+button:hover {
+     cursor: pointer;
+}
+
+#langButton{
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
 #orders {
     font-size:24pt;
   }
@@ -92,11 +104,6 @@ export default {
   h1 {
     text-transform: uppercase;
     font-size: 1.4em;
-    color: white;
-  }
-
-  #header{
-    font-size: 2em;
     color: white;
   }
 
@@ -115,21 +122,26 @@ export default {
   }
   .row {
     display: flex;
+    height: 98%;
   }
 
   .column {
     border: solid lightgray;
-    border-bottom:0;
     border-width: 3px;
     margin: -2px;
     padding: 15px;
+    height: 450px;
   }
   .left, .middle {
     width: 40%;
+    float: left;
+    overflow: scroll;
   }
 
   .right{
     width: 20%;
+    float: left;
+    overflow: scroll;
   }
 
   #stockButton{
@@ -139,11 +151,18 @@ export default {
     background-color: violet;
     color: white;
     font-size: 1em;
+    {
+      background-color: #BB86BB;
+      color: black;
+      margin: 20px;
+      border: 5px solid #875187;
+      font-size: 14px;
+      text-align: center;
+      display: inline-block;
+    }
   }
 
-button:hover {
-     cursor: pointer;
-}
+
 
 
 </style>

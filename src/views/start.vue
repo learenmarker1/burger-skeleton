@@ -1,23 +1,24 @@
 <template>
-  <div>
+  <div id="ordering">
 
-    <h1 align = "center"> {{ uiLabels.startHeader}} </h1>
+    <button id="langButton" v-on:click="switchLang()">
+      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      {{ uiLabels.language }}
+    </button>
 
-    <button align = "right" v-on:click="switchLang()">
-      <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}</button>
-  <div class = "row">
+    <h1 class="header" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}} <br> {{ uiLabels.startHeaderCont }} </h1>
 
-  <div class = "button left">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
-  </div>
+    <div class = "row">
 
+      <div class = "buttonL">
+        <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+      </div>
 
-  <div class = "button right">
-      <button id = "orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
+      <div class = "buttonR">
+        <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
+      </div>
+
     </div>
-
-</div>
   </div>
 </template>
 
@@ -55,36 +56,49 @@ export default {
 button:hover {
   cursor: pointer;
 }
+.header{
+  font-size: 60px;
+  color: pink;
+}
+#ordering {
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  max-width: 50em;
+  background: radial-gradient(lightgray, darkgray);
+  color: white;
+}
+
+#langButton{
+  position: absolute;
+  top: 16px;
+  right: 250px;
+}
 
 #orderButtons {
   height: 150px;
   width: 150px;
-  padding: 15px;
-  margin: 25px;
   background-color: #BB86BB;
   border-radius: 20px;
-  color: black;
   border: 5px solid #875187;
+  color: black;
   font-size: 20px;
-  text-align: center;
+  /*  text-align: center;*/
   display: inline-block;
 
 }
 .row {
-  display: flex;
-  /*text-align: center;*/
-  font-size: 16pt;
+  display: grid;
+  padding-top: 100px;
+  grid-gap: 15px;
+  grid-template-columns: 25% 25%;
+  justify-content: center;
 }
-.button {
-  flex: 50%;
-  margin: -2px;
-  padding: 15px;
+.buttonL{
+  grid-column: 1;
 }
-.left{
-  align: right;
-}
-.right {
-  align: left;
+.buttonR {
+  grid-column: 2;
 }
 
 
