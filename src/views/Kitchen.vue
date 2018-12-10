@@ -11,6 +11,22 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
+  <h1>{{ uiLabels.ordersFinished }}</h1>
+  <div align = "left">
+    <OrderItem
+      id ="order_finished"
+      v-for="(order, key) in orders"
+      v-if="order.status === 'done'"
+      :order-id="key"
+      :order="order"
+      :lang="lang"
+      :ui-labels="uiLabels"
+      :key="key">
+    </OrderItem>
+  </div>
+</div>
+
+<div class = "column middle">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div align = "left">
     <OrderItemToPrepare
@@ -24,22 +40,6 @@
       :lang="lang"
       :key="key">
     </OrderItemToPrepare>
-  </div>
-</div>
-
-<div class = "column middle">
-  <h1>{{ uiLabels.ordersFinished }}</h1>
-  <div align = "left">
-    <OrderItem
-      id ="order_finished"
-      v-for="(order, key) in orders"
-      v-if="order.status === 'done'"
-      :order-id="key"
-      :order="order"
-      :lang="lang"
-      :ui-labels="uiLabels"
-      :key="key">
-    </OrderItem>
   </div>
 </div>
 
