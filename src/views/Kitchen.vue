@@ -2,7 +2,7 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
     {{ uiLabels.language }}
   </button>
 
@@ -11,20 +11,9 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-  <h1>{{ uiLabels.ordersFinished }}</h1>
-  <div align = "left">
-    <OrderItem
-      id ="order_finished"
-      v-for="(order, key) in orders"
-      v-if="order.status === 'done'"
-      :order-id="key"
-      :order="order"
-      :lang="lang"
-      :ui-labels="uiLabels"
-      :key="key">
-    </OrderItem>
+   hejhej order queue
   </div>
-</div>
+
 
 <div class = "column middle">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
@@ -44,8 +33,19 @@
 </div>
 
 <div class = "column right">
-<h1>H‰r ska ordrarna stÂ sen!!!</h1>
-<div> {{orderId}} </div>
+  <h1>{{ uiLabels.ordersFinished }}</h1>
+  <div align = "left">
+    <OrderItem
+      id ="order_finished"
+      v-for="(order, key) in orders"
+      v-if="order.status === 'done'"
+      :order-id="key"
+      :order="order"
+      :lang="lang"
+      :ui-labels="uiLabels"
+      :key="key">
+    </OrderItem>
+</div>
 </div>
 </div>
 
