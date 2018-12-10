@@ -7,9 +7,7 @@
     :order-id="orderId"
     :order="order">
   </OrderItem>
-  <button v-on:click="orderDone">
-    {{uiLabels.ready}}
-  </button>
+
 </div>
 </template>
 <script>
@@ -37,5 +35,5 @@ export default {
 }
 </script>
 <style scoped>
-	
+
 </style>
