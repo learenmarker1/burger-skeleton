@@ -17,9 +17,9 @@
         {{ uiLabels.bun }}
 
         <div id="yourOrder">
-          <div >
+          <div>
             {{ uiLabels.bunChoice }}
-            {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+            {{this.chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
           </div>
         </div>
 
@@ -45,7 +45,7 @@
       {{ uiLabels.patty }}
       <div id="yourOrder">
         {{uiLabels.pattyChoice }}
-        {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+        {{this.chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
       </div>
 
     </div>
@@ -69,7 +69,7 @@
     {{ uiLabels.topping }}
     <div id="yourOrder">
       {{ uiLabels.toppingChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      {{this.chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
     </div>
   </div>
   <div class="panel-body" v-show="sel == 3">
@@ -160,12 +160,12 @@
 <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=40>
   {{ uiLabels.order }}</h1>
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join('; ') }}, {{ price }} kr
-<button align ="right" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<button align ="right" v-on:click="placeOrder()" onclick="window.location = '/#/checkout';" > {{ uiLabels.placeOrder }}</button>
 
 
 <h1>{{ uiLabels.order }}</h1>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()" onclick="window.location = '/#/checkout';" > {{ uiLabels.placeOrder }}</button>
 </p>
 
 

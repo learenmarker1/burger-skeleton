@@ -26,11 +26,13 @@
   </div>
 
   <div align="center">
-    <button id = "payButton" type="button" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button" v-on:click="payConfirm()" > {{ uiLabels.payButton }} </button>
   </div>
 
   <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
+
+    <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} {{orderId}} </h3>
 
 
 
@@ -43,7 +45,6 @@
 <script>
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
-import Checkoutitems from '@/components/Checkoutitems.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
@@ -61,6 +62,11 @@ export default {
     }
   },
   methods: {
+    payConfirm: function() {
+
+
+    }
+
   }
 }
 
@@ -83,6 +89,11 @@ button:hover {
   color: pink;
 }
 
+.header3{
+  font-size: 30px;
+  color: pink;
+}
+
 #checkout {
   margin: auto;
   padding-top: 50px;
@@ -99,7 +110,7 @@ button:hover {
 
 #changeButton {
   background-color: #BB86BB;
-  color: black;
+  color: white;
   margin: 20px;
   border: 5px solid #875187;
   font-size: 14px;
@@ -113,7 +124,7 @@ button:hover {
   background-color: #BB86BB;
   border-radius: 20px;
   border: 5px solid #875187;
-  color: black;
+  color: white;
   font-size: 20px;
   /*  text-align: center;*/
   display: inline-block;
