@@ -2,7 +2,7 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()"  src="/src/assets/engflag.jpg"  width=40 >
+    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
     {{ uiLabels.language }}
   </button>
 
@@ -11,9 +11,20 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-   <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <div align = "left">
+      <OrderItemToPrepare
+        id = "order_in_que"
+        v-for="(order, key) in orders"
+        v-if="order.status === 'not-started'"
+        v-on:done="markDone(key)"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :key="key">
+      </OrderItemToPrepare>
+    </div>
   </div>
-
 
 <div class = "column middle">
   <h1>{{ uiLabels.ordersStarted }}</h1>
@@ -21,8 +32,8 @@
     <OrderItemToPrepare
       id = "order_in_que"
       v-for="(order, key) in orders"
-      v-if="order.status !== 'done'"
-      v-on:done="markDone(key)"
+      v-if="order.status === 'started'"
+      v-on:done="markPreparing(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -52,7 +63,7 @@
 <div class = "buttonGrid">
 
   <div class = "buttonL">
-    <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+      <button align = "right" id = "stockButton" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
   </div>
 
   <div class = "buttonR">
@@ -86,6 +97,9 @@ export default {
     }
   },
   methods: {
+    markPreparing: function (orderid) {
+      this.$store.state.socket.emit("orderQueue", orderid);
+    },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
     }
@@ -174,7 +188,7 @@ button:hover {
     display: grid;
     padding-top: 10px;
     grid-gap: 15px;
-    grid-template-columns: 25% 25%;
+    grid-template-columns: 15% 15%;
     justify-content: center;
   }
   .buttonL{
@@ -183,8 +197,5 @@ button:hover {
   .buttonR {
     grid-column: 2;
   }
-
-
-
 
 </style>
