@@ -11,7 +11,19 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-   hejhej order queue
+    <div align = "left">
+      <OrderItemToPrepare
+        id = "order_in_que"
+        v-for="(order, key) in orders"
+        v-if="order.status !== 'preparing'"
+        v-show= "order.status !== 'done'"
+        v-on:done="markPreparing(key)"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :key="key">
+      </OrderItemToPrepare>
+    </div>
   </div>
 
 
@@ -21,6 +33,7 @@
     <OrderItemToPrepare
       id = "order_in_que"
       v-for="(order, key) in orders"
+      v-show="order.status == 'preparing'"
       v-if="order.status !== 'done'"
       v-on:done="markDone(key)"
       :order-id="key"
@@ -86,6 +99,9 @@ export default {
     }
   },
   methods: {
+    markPreparing: function (orderid) {
+      this.$store.state.socket.emit("orderQueue", orderid);
+    },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
     }
