@@ -2,7 +2,7 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
+    <img v-on:click="switchFlag()"  src="/src/assets/engflag.jpg"  width=40 >
     {{ uiLabels.language }}
   </button>
 
@@ -11,12 +11,12 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-   hejhej order queue
+   <h1>{{ uiLabels.ordersInQueue }}</h1>
   </div>
 
 
 <div class = "column middle">
-  <h1>{{ uiLabels.ordersInQueue }}</h1>
+  <h1>{{ uiLabels.ordersStarted }}</h1>
   <div align = "left">
     <OrderItemToPrepare
       id = "order_in_que"

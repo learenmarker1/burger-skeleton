@@ -10,6 +10,7 @@
   "sum": "Sum",
   "ordersFinished" : "Finished orders",
   "ordersInQueue" : "Order queue",
+  "ordersStarted" : "Started orders",
   "ordersTrending" : "Trending orders",
   "placeOrder" : "Place order",
   "sideorders" : "SIDE ORDERS",
