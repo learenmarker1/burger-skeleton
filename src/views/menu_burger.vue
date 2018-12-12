@@ -11,13 +11,13 @@
     </header>
 
 <h1 align="center">{{ uiLabels.fromMenu }}</h1>
-
+<div class="panel-title" > <!--v-on:click="sel == 5 ? sel = 0 : sel = 5" -->
+<img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
+ BABES AND BURGERS FAVOURITES
+</div>
 <div class="panel" id="panelGrid">
-  <!-- <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
-  <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
-    BABES AND BURGERS FAVOURITES
-  </div>
-  <div class="panel-body" v-show="sel == 5">
+
+  <!--<div class="panel-body" v-show="sel == 5">
      <Ingredient
     ref="ingredient"
     v-for="item in ingredients"
@@ -37,7 +37,7 @@
   :item="item"
   :lang="lang"
   :key="item.ingredient_id"
-  :src="item.img">
+  >
 
 </Ingredient>
 
@@ -257,8 +257,8 @@ function scrollFunction() {
 }
 /* -------- */
 .panel {
-  margin-bottom: 1rem;
-  border: 10px solid #ccc;
+  /* margin-bottom: 1em; */
+  /* border: 0px solid #ccc; */
 }
 #panelGrid{
   display: grid;
@@ -270,7 +270,7 @@ function scrollFunction() {
 .panel-title {
   font-weight: bold;
   background-color: #ccc;
-  padding: 0.01em 16px;
+  padding: 0.01em 5px;
   cursor: pointer;
 }
 .panel-body {

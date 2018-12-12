@@ -1,66 +1,66 @@
 ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,selling_price,img
-1,bönburgare,bean patty,1,1,1,1,40,no_pic
-2,nötfärsburgare 100g,beef patty 100g,1,1,1,0,40,no_pic
-3,nötfärsburgare 200g,beef patty 200g,1,1,1,0,60,no_pic
-4,kycklingburgare,chicken patty,1,1,0,0,40,no_pic
-5,friterad halloumi,deep-fried halloumi,1,0,0,0,40,no_pic
-6,fiskfilé,fish filet,1,1,0,0,40,no_pic
-7,grillad aubergine,grilled eggplant,1,1,1,1,30,no_pic
-8,hummer,lobster,1,1,1,0,80,no_pic
-9,pulled jackfruit,pulled jackfruit,1,1,1,1,40,no_pic
-10,pulled pork,pulled pork,1,1,1,0,40,no_pic
-11,avocado,avocado,2,1,1,1,10,no_pic
-12,bacon,bacon,2,1,1,0,10,no_pic
-13,banan,banana,2,1,1,1,5,no_pic
-14,löjrom,bleak caviar,2,1,1,0,50,no_pic
-15,karamelliserad lök,candied onions,2,1,1,1,5,no_pic
-16,cheddar,cheddar cheese,2,0,1,0,10,no_pic
-17,koriander,cilantro,2,1,1,1,5,no_pic
-18,coleslaw,coleslaw,2,1,1,0,5,no_pic
-19,friterade lökringar,deep-fried onion rings,2,1,0,1,15,no_pic
-20,stekt ägg,fried egg,2,1,1,0,10,no_pic
-21,chèvre,goat cheese,2,0,1,0,10,no_pic
-22,jalapeño,jalapeño,2,1,1,1,5,no_pic
-23,kimchi,kimchi,2,1,1,1,10,no_pic
-24,krispsallad,lettuce,2,1,1,1,5,no_pic
-25,svampstuvning,mushroom stew,2,0,1,0,15,no_pic
-26,pepper jack-ost,pepper jack cheese,2,0,1,0,10,no_pic
-27,inlagd gurka,pickled cucumber,2,1,1,1,5,no_pic
-28,inlagd rödlök,pickled red onion,2,1,1,1,5,no_pic
-29,rå rödlök,raw red onion,2,1,1,1,5,no_pic
-30,rå gul lök,raw yellow onion,2,1,1,1,5,no_pic
-31,salami,salami,2,1,1,0,10,no_pic
-32,surkål,sauerkraut,2,1,1,1,5,no_pic
-33,tomat,tomato,2,1,1,1,5,no_pic
-34,vegansk ost,vegan cheese,2,1,1,1,10,no_pic
-35,aioli,aioli,3,1,1,0,5,no_pic
-36,ajvar,ajvar,3,1,1,1,5,no_pic
-37,barbecuesås,barbecue sauce,3,1,1,1,0,no_pic
-38,klassisk hamburgarsås,classic hamburger dressing,3,1,1,0,5,no_pic
-39,dijonsås,dijon sauce,3,1,1,0,5,no_pic
-40,guacamole,guacamole,3,1,1,1,10,no_pic
-41,hot salsa,hot salsa,3,1,1,1,5,no_pic
-42,hummus,hummus,3,1,1,1,10,no_pic
-43,ketchup,ketchup,3,1,1,1,0,no_pic
-44,majonnäs,mayonnaise,3,1,1,0,5,no_pic
-45,senap,mustard,3,1,1,1,0,no_pic
-46,sriracha,sriracha,3,1,1,1,0,no_pic
-47,teriyakisås,teriyaki sauce,3,1,1,1,5,no_pic
-48,tryffelmajonnäs,truffle mayonnaise,3,1,1,0,5,no_pic
-49,tzatziki,tzatziki,3,0,1,0,5,no_pic
-50,brioche,brioche,4,0,0,0,10,no_pic
-51,glutenfritt bröd,gluten free bread,4,1,1,1,10,no_pic
-52,veganskt bröd,vegan bun,4,0,0,1,10,no_pic
-53,fullkornsbrioche,whole wheat brioche,4,0,0,0,10,no_pic
-54,nachochips,nachos,5,1,0,1,20,no_pic
-55,potatisstrips,potato fries,5,1,1,1,20,no_pic
-56,sötpotatisstrips,sweet potato fries,5,1,1,1,30,no_pic
-57,chokladmilkshake,chocolate milk shake,6,0,1,0,40,no_pic
-58,pucko,pucko,6,0,1,0,25,no_pic
-59,läsk,soda,6,1,1,1,20,no_pic
-60,jordgubbsmilkshake,strawberry milk shake,6,0,1,0,40,no_pic
-61,vegansk mango lassi,vegan mango lassi,6,1,1,1,40,no_pic
-62,friscoburgare,frisco burger,7,0,0,0,60,https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg
-63,halloumiburgare,halloumi burger,7,0,0,0,50,https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg
-64,stormac,big mac,7,1,0,0,50,https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg
-65,lillmac,lil mac,7,1,0,0,40,https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg
+1,bönburgare,bean patty,1,1,1,1,40,"sweflag.jpg"
+2,nötfärsburgare 100g,beef patty 100g,1,1,1,0,40,"sweflag.jpg"
+3,nötfärsburgare 200g,beef patty 200g,1,1,1,0,60,"sweflag.jpg"
+4,kycklingburgare,chicken patty,1,1,0,0,40,"sweflag.jpg"
+5,friterad halloumi,deep-fried halloumi,1,0,0,0,40,"sweflag.jpg"
+6,fiskfilé,fish filet,1,1,0,0,40,"sweflag.jpg"
+7,grillad aubergine,grilled eggplant,1,1,1,1,30,"sweflag.jpg"
+8,hummer,lobster,1,1,1,0,80,"sweflag.jpg"
+9,pulled jackfruit,pulled jackfruit,1,1,1,1,40,"sweflag.jpg"
+10,pulled pork,pulled pork,1,1,1,0,40,"sweflag.jpg"
+11,avocado,avocado,2,1,1,1,10,"sweflag.jpg"
+12,bacon,bacon,2,1,1,0,10,"sweflag.jpg"
+13,banan,banana,2,1,1,1,5,"sweflag.jpg"
+14,löjrom,bleak caviar,2,1,1,0,50,"sweflag.jpg"
+15,karamelliserad lök,candied onions,2,1,1,1,5,"sweflag.jpg"
+16,cheddar,cheddar cheese,2,0,1,0,10,"sweflag.jpg"
+17,koriander,cilantro,2,1,1,1,5,"sweflag.jpg"
+18,coleslaw,coleslaw,2,1,1,0,5,"sweflag.jpg"
+19,friterade lökringar,deep-fried onion rings,2,1,0,1,15,"sweflag.jpg"
+20,stekt ägg,fried egg,2,1,1,0,10,"sweflag.jpg"
+21,chèvre,goat cheese,2,0,1,0,10,"sweflag.jpg"
+22,jalapeño,jalapeño,2,1,1,1,5,"sweflag.jpg"
+23,kimchi,kimchi,2,1,1,1,10,"sweflag.jpg"
+24,krispsallad,lettuce,2,1,1,1,5,"sweflag.jpg"
+25,svampstuvning,mushroom stew,2,0,1,0,15,"sweflag.jpg"
+26,pepper jack-ost,pepper jack cheese,2,0,1,0,10,"sweflag.jpg"
+27,inlagd gurka,pickled cucumber,2,1,1,1,5,"sweflag.jpg"
+28,inlagd rödlök,pickled red onion,2,1,1,1,5,"sweflag.jpg"
+29,rå rödlök,raw red onion,2,1,1,1,5,"sweflag.jpg"
+30,rå gul lök,raw yellow onion,2,1,1,1,5,"sweflag.jpg"
+31,salami,salami,2,1,1,0,10,"sweflag.jpg"
+32,surkål,sauerkraut,2,1,1,1,5,"sweflag.jpg"
+33,tomat,tomato,2,1,1,1,5,"sweflag.jpg"
+34,vegansk ost,vegan cheese,2,1,1,1,10,"sweflag.jpg"
+35,aioli,aioli,3,1,1,0,5,"sweflag.jpg"
+36,ajvar,ajvar,3,1,1,1,5,"sweflag.jpg"
+37,barbecuesås,barbecue sauce,3,1,1,1,0,"sweflag.jpg"
+38,klassisk hamburgarsås,classic hamburger dressing,3,1,1,0,5,"sweflag.jpg"
+39,dijonsås,dijon sauce,3,1,1,0,5,"sweflag.jpg"
+40,guacamole,guacamole,3,1,1,1,10,"sweflag.jpg"
+41,hot salsa,hot salsa,3,1,1,1,5,"sweflag.jpg"
+42,hummus,hummus,3,1,1,1,10,"sweflag.jpg"
+43,ketchup,ketchup,3,1,1,1,0,"sweflag.jpg"
+44,majonnäs,mayonnaise,3,1,1,0,5,"sweflag.jpg"
+45,senap,mustard,3,1,1,1,0,"sweflag.jpg"
+46,sriracha,sriracha,3,1,1,1,0,"sweflag.jpg"
+47,teriyakisås,teriyaki sauce,3,1,1,1,5,"sweflag.jpg"
+48,tryffelmajonnäs,truffle mayonnaise,3,1,1,0,5,"sweflag.jpg"
+49,tzatziki,tzatziki,3,0,1,0,5,"sweflag.jpg"
+50,brioche,brioche,4,0,0,0,10,"sweflag.jpg"
+51,glutenfritt bröd,gluten free bread,4,1,1,1,10,"sweflag.jpg"
+52,veganskt bröd,vegan bun,4,0,0,1,10,"sweflag.jpg"
+53,fullkornsbrioche,whole wheat brioche,4,0,0,0,10,"sweflag.jpg"
+54,nachochips,nachos,5,1,0,1,20,"sweflag.jpg"
+55,potatisstrips,potato fries,5,1,1,1,20,"sweflag.jpg"
+56,sötpotatisstrips,sweet potato fries,5,1,1,1,30,"sweflag.jpg"
+57,chokladmilkshake,chocolate milk shake,6,0,1,0,40,"sweflag.jpg"
+58,pucko,pucko,6,0,1,0,25,"sweflag.jpg"
+59,läsk,soda,6,1,1,1,20,"sweflag.jpg"
+60,jordgubbsmilkshake,strawberry milk shake,6,0,1,0,40,"sweflag.jpg"
+61,vegansk mango lassi,vegan mango lassi,6,1,1,1,40,"sweflag.jpg"
+62,friscoburgare,frisco burger,7,0,0,0,60,"BB-logo.png"
+63,halloumiburgare,halloumi burger,7,0,0,0,50,"BB-logo.png"
+64,stormac,big mac,7,1,0,0,50,"BB-logo.png"
+65,lillmac,lil mac,7,1,0,0,40,"BB-logo.png"
