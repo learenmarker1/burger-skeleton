@@ -6,8 +6,8 @@
       {{ uiLabels.language }}
     </button>
 
-    <h1 class="header" align = "center"> KITCHEN STAFF VIEW </h1>
-    <img align= "center"  class= "logo" src= "@/assets/BB-logo.png">
+    <h1 class="header" align = "center"> <img align= "center"  class= "logo" src= "@/assets/BB-logo.png"> </br> KITCHEN STAFF VIEW </h1>
+
     <div class = "row">
 
       <div class = "buttonL">
@@ -102,7 +102,7 @@ button:hover {
   grid-column: 2;
 }
 .logo {
-  width: 300px;
+  width: 200px;
   align: "center";
 }
 

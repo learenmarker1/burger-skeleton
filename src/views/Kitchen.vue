@@ -195,9 +195,9 @@ button:hover {
   }
   .buttonGrid {
     display: grid;
-    padding-top: 10px;
+    padding-top: 100px;
     grid-gap: 15px;
-    grid-template-columns: 15% 15%;
+    grid-template-columns: 25% 25%;
     justify-content: center;
   }
   .buttonL{
