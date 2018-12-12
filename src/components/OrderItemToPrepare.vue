@@ -8,6 +8,8 @@
     :order="order">
   </OrderItem>
 
+<button @click="nextStep">NEXT</button>
+
 </div>
 </template>
 <script>
@@ -23,13 +25,10 @@ export default {
     lang: String
   },
   methods: {
-    orderQueue: function () {
-      this.$emit('preparing')
-    },
-    orderDone: function () {
+    nextStep: function () {
       // sending 'done' message to parent component or view so that it
       // can catch it with v-on:done in the component declaration
-      this.$emit('done');
+      this.$emit('nextStep');
     },
     cancelOrder: function () {
       // not implemented

@@ -17,7 +17,7 @@
         id = "order_in_que"
         v-for="(order, key) in orders"
         v-if="order.status === 'not-started'"
-        v-on:done="markDone(key)"
+        v-on:nextStep="markPreparing(key)"
         :order-id="key"
         :order="order"
         :ui-labels="uiLabels"
@@ -33,7 +33,7 @@
       id = "order_in_que"
       v-for="(order, key) in orders"
       v-if="order.status === 'started'"
-      v-on:done="markPreparing(key)"
+      v-on:nextStep="markDone(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     markPreparing: function (orderid) {
-      this.$store.state.socket.emit("orderQueue", orderid);
+      this.$store.state.socket.emit("orderStarted", orderid);
     },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
@@ -155,8 +155,15 @@ button:hover {
     padding: 15px;
     height: 450px;
   }
-  .left, .middle {
-    width: 40%;
+  .left {
+    width: 20%;
+    float: left;
+    overflow: scroll;
+  }
+
+
+  .middle {
+    width: 60%;
     float: left;
     overflow: scroll;
   }
