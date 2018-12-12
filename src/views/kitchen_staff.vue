@@ -6,12 +6,13 @@
       {{ uiLabels.language }}
     </button>
 
-    <h1 class="header" align = "center"> KITCHEN STAFF VIEW </h1>
+    <h1 class="header" align = "center"> <img align= "center"  class= "logo" src= "@/assets/BB-logo.png"> <br> KITCHEN STAFF VIEW </h1>
 
     <div class = "row">
 
       <div class = "buttonL">
         <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+
       </div>
 
       <div class = "buttonR">
@@ -100,6 +101,9 @@ button:hover {
 .buttonR {
   grid-column: 2;
 }
-
+.logo {
+  width: 200px;
+  align: "center";
+}
 
 </style>

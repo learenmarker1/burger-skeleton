@@ -1,56 +1,72 @@
 <template>
-  <div id="ordering">
-    <header id="header"> Babes & Burgers  </header>
-
-    <button id="langButton" v-on:click="switchLang()">
-      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}
-    </button>
-
-    <h1 align="center">{{ uiLabels.fromMenu }}</h1>
-
-    <div class="panel">
-      <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
-        <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
-        {{ uiLabels.BoBfavvo}}
+  <body class="wrap">
+    <div id="ordering">
+      <header>
+        <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
+          <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+          <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
+          {{ uiLabels.language }}
+        </button>
       </div>
-      <div class="panel-body" v-show="sel == 5">
-        <Ingredient
-        ref="ingredient"
-        v-for="item in ingredients"
-        v-show="item.category===7"
-        v-on:increment="addToOrder(item)"
-        v-on:decrement="deleteFromOrder(item)"
-        :item="item"
-        :lang="lang"
-        :key="item.ingredient_id">
-      </Ingredient>
+    </header>
+
+<h1 align="center">{{ uiLabels.fromMenu }}</h1>
+
+<div class="panel" id="panelGrid">
+  <!-- <div class="panel-title" v-on:click="sel == 5 ? sel = 0 : sel = 5">
+  <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
+    BABES AND BURGERS FAVOURITES
+  </div>
+  <div class="panel-body" v-show="sel == 5">
+     <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===7"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient> -->
+  <Ingredient
+  ref="ingredient"
+  v-for="item in ingredients"
+  v-show="item.category===7"
+  v-on:increment="addToOrder(item)"
+  v-on:decrement="deleteFromOrder(item)"
+  :item="item"
+  :lang="lang"
+  :key="item.ingredient_id"
+  :src="item.img">
+
+</Ingredient>
+
+</div>
+<!-- </div> -->
+
+<h1 align="center">{{ uiLabels.sideOrder }}</h1>
+
+<div class="panel">
+  <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+    <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
+    {{ uiLabels.sideorders }}
+    <div id="yourOrder">
+      {{ uiLabels.addingsChoice }}
+      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
     </div>
   </div>
-
-  <h1 align="center">{{ uiLabels.sideOrder }}</h1>
-
-  <div class="panel">
-    <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-      <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
-      {{ uiLabels.sideorders }}
-      <div id="yourOrder">
-        {{ uiLabels.addingsChoice }}
-        {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
-      </div>
-    </div>
-    <div class="panel-body" v-show="sel == 6">
-      <Ingredient
-      ref="ingredient"
-      v-for="item in ingredients"
-      v-show="item.category===5"
-      v-on:increment="addToOrder(item)"
-      v-on:decrement="deleteFromOrder(item)"
-      :item="item"
-      :lang="lang"
-      :key="item.ingredient_id">
-    </Ingredient>
-  </div>
+  <div class="panel-body" v-show="sel == 6">
+    <Ingredient
+    ref="ingredient"
+    v-for="item in ingredients"
+    v-show="item.category===5"
+    v-on:increment="addToOrder(item)"
+    v-on:decrement="deleteFromOrder(item)"
+    :item="item"
+    :lang="lang"
+    :key="item.ingredient_id">
+  </Ingredient>
+</div>
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
@@ -75,10 +91,11 @@
 </div>
 </div>
 
+<button  v-on:click="next()"> {{ uiLabels.next }} </button>
+
 <h1>{{ uiLabels.order }}</h1>
-<p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr </p>
-<button id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+{{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+<button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
 <h1>{{ uiLabels.ordersInQueue }}</h1>
 <div>
@@ -104,6 +121,7 @@
 
 <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
+</body>
 </template>
 
 <script>
@@ -195,31 +213,34 @@ function scrollFunction() {
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
-button:hover{
-  cursor: pointer;
+.wrap{
+  margin:0;
 }
-
 #header {
   background-color: #f1f1f1; /* Grey background */
+  padding: 10px 10px; /* Some padding */
   color: pink;
-  text-align: center;
-  font-size: 20px;
+  text-align: center; /* Centered text */
+  font-size: 20px; /* Big font size */
   font-weight: bold;
-  width: auto;
+  position: fixed; /* Fixed position - sit on top of the page */
+  top: 0;
+  /* opacity: 0.5; */
+  width: 57%; /* Full width */
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  z-index: 0;
 }
-
 #ordering {
   margin: auto;
-  padding-top: 50px;
-  width: 100%;
+  padding-top: 150px;
+  width: 47em;
   background: radial-gradient(lightgray, darkgray);
   color: white;
 }
-
 #langButton{
+  font-weight: bold;
   position: absolute;
-  top: 16px;
+  top: 8px;
   right: 16px;
 }
 
@@ -234,10 +255,17 @@ button:hover{
   background-color: dimgray;
   color: pink;
 }
-
+/* -------- */
 .panel {
   margin-bottom: 1rem;
   border: 10px solid #ccc;
+}
+#panelGrid{
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: auto auto auto auto;
+  justify-content: space-evenly;
 }
 .panel-title {
   font-weight: bold;
@@ -247,36 +275,5 @@ button:hover{
 }
 .panel-body {
   padding: 0.01em 2px;
-}
-
-#placeButton{
-  left: 16px;
-  background-color: #BB86BB;
-  border-radius: 20px;
-  border: 5px solid #875187;
-  color: black;
-  text-align: center;
-}
-
-#backButton{
-  position: absolute;
-  margin-top: 10px;
-  left: 6px;
-  background-color: #BB86BB;
-  border-radius: 20px;
-  border: 5px solid #875187;
-  color: black;
-  text-align: center;
-}
-
-#checkoutButton{
-  position: absolute;
-  margin-top: 10px;
-  right: 16px;
-  background-color: #BB86BB;
-  border-radius: 20px;
-  border: 5px solid #875187;
-  color: black;
-  text-align: center;
 }
 </style>

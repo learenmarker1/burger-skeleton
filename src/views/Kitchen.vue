@@ -2,8 +2,8 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
-    {{ uiLabels.language }}
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
 
   <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
@@ -118,6 +118,8 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 16px;
+  background-color: darkgray;
+  padding:0;
 }
 
 #orders {
@@ -193,9 +195,9 @@ button:hover {
   }
   .buttonGrid {
     display: grid;
-    padding-top: 10px;
+    padding-top: 100px;
     grid-gap: 15px;
-    grid-template-columns: 15% 15%;
+    grid-template-columns: 25% 25%;
     justify-content: center;
   }
   .buttonL{
