@@ -54,5 +54,6 @@
   "kitchenStaffButton": "Chef's view",
   "order_number_is": "with the order number: ",
   "my_order": "My order",
-  "add_order": "Add order"
+  "add_order": "Add order",
+  "removeButton" : "Delete order" 
 }
