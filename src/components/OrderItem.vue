@@ -1,7 +1,7 @@
 <template>
 	<div>
 
-		# {{orderId}}.  {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
+		<div class="order"> Order # {{orderId}}. </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
 
 	</div>
 </template>
@@ -17,5 +17,10 @@ export default {
 }
 </script>
 <style scoped>
+
+.order {
+	text-transform: uppercase;
+	font-weight: bold;
+}
 
 </style>

@@ -2,11 +2,15 @@
   <body class="wrap">
     <div id="ordering">
       <header>
-        <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
+        <div id="header">
+          Babes & Burgers
+
+          <button id="langButton" v-on:click="switchLang()">
           <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
           <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
           {{ uiLabels.language }}
         </button>
+
       </div>
     </header>
 
