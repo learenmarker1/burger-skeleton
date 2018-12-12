@@ -1,27 +1,42 @@
 <template>
-  <div id="ordering">
+<div id="orders">
 
-    <button id="langButton" v-on:click="switchLang()">
-      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}
-    </button>
+  <button id="langButton" v-on:click="switchLang()">
+    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
+    {{ uiLabels.language }}
+  </button>
 
-    <h1 class="header" align = "center"> <img align= "center"  class= "logo" src= "@/assets/BB-logo.png"> </br> KITCHEN STAFF VIEW </h1>
+  <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
 
-    <div class = "row">
+  <div class = "row" align = "center">
 
-      <div class = "buttonL">
-        <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
-
-      </div>
-
-      <div class = "buttonR">
-        <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
-      </div>
-
-    </div>
+  <div class = "column left">
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
   </div>
+
+<div class = "column middle">
+  <h1>{{ uiLabels.ordersStarted }}</h1>
+</div>
+
+<div class = "column right">
+  <h1>{{ uiLabels.ordersFinished }}</h1>
+</div>
+</div>
+
+<div class = "buttonGrid">
+
+  <div class = "buttonL">
+      <button align = "right" id = "button" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
+  </div>
+
+  <div class = "buttonR">
+    <button align = "right" id = "button" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
+  </div>
+
+</div>
+</div>
 </template>
+
 
 
 <script>
@@ -53,57 +68,99 @@ export default {
 
 
 <style scoped>
-
 button:hover {
-  cursor: pointer;
-}
-.header{
-  font-size: 60px;
-  color: pink;
-}
-#ordering {
-  margin: auto;
-  padding-top: 50px;
-  padding-bottom: 200px;
-  max-width: 50em;
-  background: radial-gradient(lightgray, darkgray);
-  color: white;
+     cursor: pointer;
 }
 
 #langButton{
   position: absolute;
-  top: 16px;
-  right: 250px;
+  top: 8px;
+  right: 16px;
 }
 
-#orderButtons {
-  height: 150px;
-  width: 150px;
-  background-color: #BB86BB;
-  border-radius: 20px;
-  border: 5px solid #875187;
-  color: black;
-  font-size: 20px;
-  /*  text-align: center;*/
-  display: inline-block;
+#orders {
+    font-size:24pt;
+  }
 
-}
-.row {
-  display: grid;
-  padding-top: 100px;
-  grid-gap: 15px;
-  grid-template-columns: 25% 25%;
-  justify-content: center;
-}
-.buttonL{
-  grid-column: 1;
-}
-.buttonR {
-  grid-column: 2;
-}
-.logo {
-  width: 200px;
-  align: "center";
-}
+  h1 {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: white;
+  }
+
+  #order_in_que{
+    border: solid darkorange;
+    border-radius: 10px;
+    background-color: orange;
+    margin: 20px;
+  }
+
+  #order_finished{
+    border: solid green;
+    border-radius: 10px;
+    background-color: lightgreen;
+    margin: 20px;
+  }
+  .row {
+    display: flex;
+    height: 98%;
+  }
+
+  .column {
+    border: solid lightgray;
+    border-width: 3px;
+    margin: -2px;
+    padding: 15px;
+    height: 450px;
+  }
+  .left {
+    width: 20%;
+    float: left;
+    overflow: scroll;
+  }
+
+
+  .middle {
+    width: 60%;
+    float: left;
+    overflow: scroll;
+  }
+
+  .right{
+    width: 20%;
+    float: left;
+    overflow: scroll;
+  }
+
+  #button{
+    width: auto;
+    border-radius: 10px;
+    border: solid pink;
+    background-color: violet;
+    color: white;
+    font-size: 1em;
+    {
+      background-color: #BB86BB;
+      color: black;
+      margin: 20px;
+      border: 5px solid #875187;
+      font-size: 14px;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+  .buttonGrid {
+    display: grid;
+    padding-top: 100px;
+    grid-gap: 15px;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+  }
+  .buttonL{
+    grid-column: 1;
+  }
+  .buttonR {
+    grid-column: 2;
+  }
 
 </style>
