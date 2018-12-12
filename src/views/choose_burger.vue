@@ -6,23 +6,21 @@
       <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
       {{ uiLabels.language }}
     </button>
-
     <h1 align="center">
       {{ uiLabels.customizing }}
     </h1>
-
     <div class="panel">
       <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
         <img align="left" src='http://www.clker.com/cliparts/K/F/m/Q/B/D/bread-bun.svg'  height=35 width=35>
         {{ uiLabels.bun }}
-
         <div id="yourOrder">
-          <div >
+          <div>
             {{ uiLabels.bunChoice }}
-            {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+            <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})">
+              {{ ing }}
+            </span>
           </div>
         </div>
-
       </div>
       <div class="panel-body" v-show="sel == 1">
         <Ingredient
@@ -45,7 +43,9 @@
       {{ uiLabels.patty }}
       <div id="yourOrder">
         {{uiLabels.pattyChoice }}
-        {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+        <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})">
+          {{ ing }}
+        </span>
       </div>
 
     </div>
@@ -67,11 +67,15 @@
   <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
     <img src='https://loinhacviet.info/images/lettuce-clipart-green-food-2.png'  height=40>
     {{ uiLabels.topping }}
+
     <div id="yourOrder">
       {{ uiLabels.toppingChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
+
   <div class="panel-body" v-show="sel == 3">
     <Ingredient
     ref="ingredient"
@@ -92,9 +96,12 @@
     {{ uiLabels.sauce }}
     <div id="yourOrder">
       {{ uiLabels.sauceChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===3) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
+
   <div class="panel-body" v-show="sel == 4">
     <Ingredient
     ref="ingredient"
@@ -117,7 +124,9 @@
     {{ uiLabels.sideorders }}
     <div id="yourOrder">
       {{ uiLabels.addingsChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
   <div class="panel-body" v-show="sel == 6">
@@ -139,7 +148,9 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
   <div class="panel-body" v-show="sel == 7">
@@ -156,29 +167,22 @@
 </div>
 </div>
 
-  <h1>
-<img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=40>
-  {{ uiLabels.order }}</h1>
-{{ chosenIngredients.map(item => item["ingredient_"+lang]).join('; ') }}, {{ price }} kr
-<button align ="right" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
 
-<h1>{{ uiLabels.order }}</h1>
-<p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-</p>
+  <h1>{{ uiLabels.my_order }}</h1>
+  <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()"> {{ uiLabels.add_order }}</button>
+  </p>
 
+  <div>
+    <button id = "backButton" > {{ uiLabels.backButton }} </button>
+  </div>
 
+  <div>
+    <button align ="right" id = "checkoutButton"> {{ uiLabels.checkoutButton }} </button>
+  </div>
 
-<div>
-  <button id = "backButton" onclick="window.location = '/#/start';"> {{ uiLabels.backButton }} </button>
-</div>
-
-<div>
-  <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';"> {{ uiLabels.checkoutButton }} </button>
-</div>
-
-<!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+  <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </template>
 
