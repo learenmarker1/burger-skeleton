@@ -1,6 +1,7 @@
 {
   "cancelOrder" : "Avbryt köp",
   "next" : "Nästa",
+  "cancel": "Avbryt",
   "changeIng" : "Byt ut ingrediens",
   "content": "Innehåll",
   "thankOrder" : "Tack för din beställning!",
@@ -11,6 +12,7 @@
   "ordersFinished" : "Färdiga beställningar",
   "orders_pay_desc": "ORDRAR-Kassa",
   "ordersInQueue" : "Beställningar att förbereda",
+  "ordersStarted" : "Påbörjade ordrar",
   "ordersTrending" : "Populära beställningar",
   "placeOrder" : "Beställ",
   "sideorders" : "TILLBEHÖR",
@@ -48,5 +50,6 @@
   "orderOverview": "Orderöversikt: ",
   "startTO": "till",
   "BoBfavvo": "BABES AND BURGERS FAVORITER",
-  "TotalSum": "Totalsumma: "
+  "TotalSum": "Totalsumma: ",
+  "kitchenStaffButton": "Kockvy"
 }

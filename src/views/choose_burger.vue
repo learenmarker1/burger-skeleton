@@ -8,7 +8,6 @@
     </button>
 
     <h1 align="center">
-      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
       {{ uiLabels.customizing }}
     </h1>
 
@@ -157,23 +156,18 @@
 </div>
 </div>
 
+  <h1>
+<img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=40>
+  {{ uiLabels.order }}</h1>
+{{ chosenIngredients.map(item => item["ingredient_"+lang]).join('; ') }}, {{ price }} kr
+<button align ="right" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+
+
 <h1>{{ uiLabels.order }}</h1>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr </p>
-<button id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+</p>
 
-<h1>{{ uiLabels.ordersInQueue }}</h1>
-<div>
-  <OrderItem
-  v-for="(order, key) in orders"
-  v-if="order.status !== 'done'"
-  :order-id="key"
-  :order="order"
-  :ui-labels="uiLabels"
-  :lang="lang"
-  :key="key">
-</OrderItem>
-</div>
 
 
 <div>
@@ -329,12 +323,15 @@ function scrollFunction() {
 }
 
 #placeButton{
+  align-items: right;
+  height: 50px;
   left: 16px;
   background-color: #BB86BB;
   border-radius: 20px;
   border: 5px solid #875187;
   color: black;
   text-align: center;
+  font-size: 20;
 }
 
 #backButton{

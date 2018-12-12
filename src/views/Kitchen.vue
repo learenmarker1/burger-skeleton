@@ -2,8 +2,8 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-    {{ uiLabels.language }}
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
 
   <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
@@ -11,13 +11,29 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-  <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <div align = "left">
+      <OrderItemToPrepare
+        id = "order_in_que"
+        v-for="(order, key) in orders"
+        v-if="order.status === 'not-started'"
+        v-on:nextStep="markPreparing(key)"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :key="key">
+      </OrderItemToPrepare>
+    </div>
+  </div>
+
+<div class = "column middle">
+  <h1>{{ uiLabels.ordersStarted }}</h1>
   <div align = "left">
     <OrderItemToPrepare
       id = "order_in_que"
       v-for="(order, key) in orders"
-      v-if="order.status !== 'done'"
-      v-on:done="markDone(key)"
+      v-if="order.status === 'started'"
+      v-on:nextStep="markDone(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -27,7 +43,7 @@
   </div>
 </div>
 
-<div class = "column middle">
+<div class = "column right">
   <h1>{{ uiLabels.ordersFinished }}</h1>
   <div align = "left">
     <OrderItem
@@ -40,16 +56,20 @@
       :ui-labels="uiLabels"
       :key="key">
     </OrderItem>
+</div>
+</div>
+</div>
+
+<div class = "buttonGrid">
+
+  <div class = "buttonL">
+      <button align = "right" id = "stockButton" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
   </div>
-</div>
 
-<div class = "column right">
-<h1>H‰r ska ordrarna stÂ sen!!!</h1>
-<div> {{orderId}} </div>
+  <div class = "buttonR">
+    <button align = "right" id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
+  </div>
 
-<button id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
-
-</div>
 </div>
 </div>
 </template>
@@ -77,6 +97,9 @@ export default {
     }
   },
   methods: {
+    markPreparing: function (orderid) {
+      this.$store.state.socket.emit("orderStarted", orderid);
+    },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
     }
@@ -95,6 +118,8 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 16px;
+  background-color: darkgray;
+  padding:0;
 }
 
 #orders {
@@ -132,8 +157,15 @@ button:hover {
     padding: 15px;
     height: 450px;
   }
-  .left, .middle {
-    width: 40%;
+  .left {
+    width: 20%;
+    float: left;
+    overflow: scroll;
+  }
+
+
+  .middle {
+    width: 60%;
     float: left;
     overflow: scroll;
   }
@@ -161,8 +193,18 @@ button:hover {
       display: inline-block;
     }
   }
-
-
-
+  .buttonGrid {
+    display: grid;
+    padding-top: 100px;
+    grid-gap: 15px;
+    grid-template-columns: 25% 25%;
+    justify-content: center;
+  }
+  .buttonL{
+    grid-column: 1;
+  }
+  .buttonR {
+    grid-column: 2;
+  }
 
 </style>

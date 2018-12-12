@@ -1,11 +1,12 @@
 
-import Startview from './views/start.vue'
-import Ordering from './views/Ordering.vue'
+import Startview from './views/start'
+import Ordering from './views/Ordering'
 import Choose_burger from './views/choose_burger'
 import Menu_burger from './views/menu_burger'
 import Checkout from './views/checkout'
-import Kitchen from './views/Kitchen.vue'
-import Stockview from './views/stockview.vue'
+import Kitchen from './views/Kitchen'
+import Kitchen_staff from './views/kitchen_staff'
+import Stockview from './views/stockview'
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -66,7 +67,14 @@ let router = new Router({
       name: 'kitchen',
       component: Kitchen
     },
-
+    {
+      path: '/kitchen_staff',
+      meta: {
+        title: 'B&B Staff view - Kitchen <3',
+      },
+      name: 'kitchen_staff',
+      component: Kitchen_staff
+    },
     {
       path: '/stock',
       meta: {
