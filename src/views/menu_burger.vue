@@ -34,10 +34,10 @@
   v-show="item.category===7"
   v-on:increment="addToOrder(item)"
   v-on:decrement="deleteFromOrder(item)"
-  :src='https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg'
   :item="item"
   :lang="lang"
-  :key="item.ingredient_id">
+  :key="item.ingredient_id"
+  :src="item.img">
 
 </Ingredient>
 
