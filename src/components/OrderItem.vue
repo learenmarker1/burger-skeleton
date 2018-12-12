@@ -1,12 +1,11 @@
 <template>
 	<div>
-<<<<<<< HEAD
-
+<div v-if = "order.status === 'started'">
 		<div class="order"> Order # {{orderId}}. </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-
-=======
-		# {{orderId}}. {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
->>>>>>> a66ccfe97b73ee8ffba505ffedb1f39dccd742af
+</div>
+<div v-if = "order.status === 'not-started'">
+		<div class="order"> Order # {{orderId}} </div>
+</div>
 	</div>
 </template>
 <script>
