@@ -6,7 +6,7 @@
       {{ uiLabels.language }}
     </button>
 
-    <h1 class="header" align = "center"> <img align= "center"  class= "logo" src= "@/assets/BB-logo.png"> </br> KITCHEN STAFF VIEW </h1>
+    <h1 class="header" align = "center"> <img align= "center"  class= "logo" src= "@/assets/BB-logo.png"> <br> KITCHEN STAFF VIEW </h1>
 
     <div class = "row">
 

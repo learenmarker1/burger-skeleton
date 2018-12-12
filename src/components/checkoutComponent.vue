@@ -1,15 +1,20 @@
 <template>
   <!-- Note in this component that it is using another component -->
-<div>
+  <div>
+    <OrderItem
     :ui-labels="uiLabels"
     :lang="lang"
     :order-id="orderId"
     :order="order">
+  </OrderItem>
+  <div>
+    <button align ="right" id = "changeButton"  type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
   </div>
 
 </div>
 </template>
 <script>
+import OrderItem from '@/components/OrderItem.vue'
 
 export default {
   name: 'OrderItemToPrepare',
@@ -21,40 +26,27 @@ export default {
     lang: String
   },
   methods: {
-    orderDone: function () {
+    nextStep: function () {
       // sending 'done' message to parent component or view so that it
       // can catch it with v-on:done in the component declaration
-      this.$emit('done');
+      this.$emit('nextStep');
     },
     cancelOrder: function () {
-      // not implemented
+      this.$emit('cancelOrder');
     }
   }
 }
 </script>
 <style scoped>
 
-</style>
-
-
-<template>
-	<div>
-		# {{orderId}}. {{order.type}} Du har valt: {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-
-
-	</div>
-</template>
-<script>
-export default {
-  name: 'OrderItem',
-  props: {
-    uiLabels: Object,
-    order: Object,
-    orderId: String,
-    lang: String
-  }
+#changeButton {
+  background-color: #BB86BB;
+  color: white;
+  margin: 20px;
+  border: 5px solid #875187;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
 }
-</script>
-<style scoped>
 
 </style>

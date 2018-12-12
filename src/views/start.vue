@@ -1,6 +1,8 @@
 <template>
   <div id="ordering">
 
+        <img align= "center"  class= "logo" src= "@/assets/BB-logo.png">
+
     <button id="langButton" v-on:click="switchLang()">
 
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
@@ -64,6 +66,12 @@ button:hover {
   font-size: 60px;
   color: pink;
   text-shadow: 0 0 3px #875187, 0 0 5px #875187;
+}
+.logo{
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  width: 250px;
 }
 #ordering {
   margin: auto;

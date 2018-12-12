@@ -32,7 +32,7 @@
   "choose_button": "Make your own burger",
   "backButton": "Go back",
   "checkoutButton": "Go to checkout",
-  "payButton": "Pay and Confirm Order!",
+  "payButton": "Pay & Confirm Order!",
   "changeButton": "Change Order",
   "confirmed_text": "You have now ordered: ",
   "orderOverview": "Order overview: ",
@@ -51,5 +51,8 @@
   "startTO": "to",
   "BoBfavvo": "BABES AND BURGERS FAVOURITES",
   "TotalSum": "Total Sum: ",
-  "kitchenStaffButton": "Chef's view"
+  "kitchenStaffButton": "Chef's view",
+  "order_number_is": "with the order number: ",
+  "my_order": "My order",
+  "add_order": "Add order"
 }

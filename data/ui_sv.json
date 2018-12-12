@@ -44,12 +44,15 @@
   "choose_button": "Skräddarsy din hamburgare",
   "backButton":"Tillbaka",
   "checkoutButton": "Gå till betalning",
-  "payButton": "Betala och Bekräfta beställning!",
+  "payButton": "Betala & Bekräfta beställning!",
   "changeButton": "Ändra Beställning",
   "confirmed_text": "Du har nu beställt: ",
   "orderOverview": "Orderöversikt: ",
   "startTO": "till",
   "BoBfavvo": "BABES AND BURGERS FAVORITER",
   "TotalSum": "Totalsumma: ",
-  "kitchenStaffButton": "Kockvy"
+  "kitchenStaffButton": "Kockvy",
+  "order_number_is": "med ordernummer: ",
+  "my_order": "Min order",
+  "add_order": "Lägg till"
 }
