@@ -8,7 +8,8 @@
     :order="order">
   </OrderItem>
 
-<button @click="nextStep">NEXT</button>
+<button @click="nextStep"> {{ uiLabels.next }} </button>
+<button @click="cancelOrder"> {{ uiLabels.cancel }} </button>
 
 </div>
 </template>
@@ -31,7 +32,7 @@ export default {
       this.$emit('nextStep');
     },
     cancelOrder: function () {
-      // not implemented
+      this.$emit('cancelOrder');
     }
   }
 }
