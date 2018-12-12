@@ -8,7 +8,9 @@
     :order="order">
   </OrderItem>
   <div>
-    <button align ="right" id = "changeButton"  type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
+    <button id = "changeButton"  type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
+    <button  id = "removeButton"  type="button"> {{ uiLabels.removeButton }} </button>
+
   </div>
 
 </div>
@@ -40,6 +42,16 @@ export default {
 <style scoped>
 
 #changeButton {
+  background-color: #BB86BB;
+  color: white;
+  margin: 20px;
+  border: 5px solid #875187;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+}
+
+#removeButton {
   background-color: #BB86BB;
   color: white;
   margin: 20px;
