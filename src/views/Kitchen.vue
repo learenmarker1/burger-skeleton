@@ -30,7 +30,7 @@
   <h1>{{ uiLabels.ordersStarted }}</h1>
   <div align = "left">
     <OrderItemToPrepare
-      id = "order_in_que"
+      id = "order_preparing"
       v-for="(order, key) in orders"
       v-if="order.status === 'started'"
       v-on:nextStep="markDone(key)"
@@ -136,6 +136,14 @@ button:hover {
     border: solid darkorange;
     border-radius: 10px;
     background-color: orange;
+    margin: 20px;
+    width: auto;
+  }
+
+  #order_preparing {
+    border: solid #875187;
+    border-radius: 10px;
+    background-color: #BB86BB;
     margin: 20px;
   }
 
