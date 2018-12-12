@@ -76,7 +76,7 @@ let router = new Router({
       component: Kitchen_staff
     },
     {
-      path: '/stock',
+      path: '/stockview',
       meta: {
         title: 'B&B Staff view - STOCK',
       },

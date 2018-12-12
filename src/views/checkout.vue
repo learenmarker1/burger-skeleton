@@ -1,6 +1,5 @@
 <template>
   <div id="checkout">
-
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
@@ -8,8 +7,7 @@
 
     <div>
     <h1 class="header" align = "center"> {{ uiLabels.orderOverview }} </h1>
-
-      <OrderItemToPrepare
+      <checkoutComponent
       v-for="(order, key) in orders"
       v-if="order.status !== 'done'"
       v-on:done="markDone(key)"
@@ -18,22 +16,18 @@
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
-    </OrderItemToPrepare>
+    </checkoutComponent>
   </div>
 
-  <div>
-    <button id = "changeButton"  type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
-  </div>
 
   <div align="center">
-    <button id = "payButton" type="button" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button"  onclick="window.location = '/#/start';" > {{ uiLabels.payButton }} </button>
   </div>
 
   <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
 
-
-
+    <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3>
   </div>
 
 </div>
@@ -42,8 +36,7 @@
 
 <script>
 import OrderItem from '@/components/OrderItem.vue'
-import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
-import Checkoutitems from '@/components/Checkoutitems.vue'
+import checkoutComponent from '@/components/checkoutComponent.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
@@ -51,7 +44,7 @@ export default {
   name: 'Ordering',
   components: {
     OrderItem,
-    OrderItemToPrepare
+    checkoutComponent
   },
   mixins: [sharedVueStuff], // include stuff that is used in both
   //the ordering system and the kitchen
@@ -61,6 +54,11 @@ export default {
     }
   },
   methods: {
+    payConfirm: function() {
+
+
+    }
+
   }
 }
 
@@ -83,6 +81,11 @@ button:hover {
   color: pink;
 }
 
+.header3{
+  font-size: 30px;
+  color: pink;
+}
+
 #checkout {
   margin: auto;
   padding-top: 50px;
@@ -99,7 +102,7 @@ button:hover {
 
 #changeButton {
   background-color: #BB86BB;
-  color: black;
+  color: white;
   margin: 20px;
   border: 5px solid #875187;
   font-size: 14px;
@@ -113,7 +116,7 @@ button:hover {
   background-color: #BB86BB;
   border-radius: 20px;
   border: 5px solid #875187;
-  color: black;
+  color: white;
   font-size: 20px;
   /*  text-align: center;*/
   display: inline-block;

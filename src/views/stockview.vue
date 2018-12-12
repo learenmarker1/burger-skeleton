@@ -13,7 +13,7 @@
       <div class = "row">
         <div class = "column">
           <h3>{{ uiLabels.bun }}</h3>
-          <ul :v-for = "item in ingredients" v-if = 'item.category == 4'>
+          <ul v-for="item in ingredients" v-if='item.category == 4' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           </ul>
@@ -21,7 +21,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.patty }} </h3>
-          <ul :v-for = "item in ingredients" v-if = 'item.category == 1'>
+          <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           </ul>
@@ -29,7 +29,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.topping }} </h3>
-          <ul :v-for = "item in ingredients" v-if = 'item.category == 2'>
+          <ul v-for = "item in ingredients" v-if = 'item.category == 2' :key="item.ingredient_id" >
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
           </ul>
@@ -37,7 +37,7 @@
 
         <div class = "column">
           <h3> {{ uiLabels.sauce }} </h3>
-          <ul :v-for = "item in ingredients" v-if = 'item.category == 3'>
+          <ul v-for = "item in ingredients" v-if = 'item.category == 3' :key="item.ingredient_id">
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
           </ul>
@@ -108,9 +108,10 @@
     }
 
     .row {
-      display: flex;
       /*text-align: center;*/
       font-size: 16pt;
+      display: flex;
+      height: 98%;
     }
     .column {
       flex: 50%;
@@ -119,6 +120,8 @@
       border-width: 3px;
       margin: -2px;
       padding: 15px;
+      overflow: scroll;
+      height: 400px;
     }
 
     #orderButton{
