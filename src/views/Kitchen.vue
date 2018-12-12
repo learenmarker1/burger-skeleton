@@ -11,18 +11,29 @@
   <div class = "row" align = "center">
 
   <div class = "column left">
-   hejhej order queue
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <div align = "left">
+      <OrderItemToPrepare
+        id = "order_in_que"
+        v-for="(order, key) in orders"
+        v-if="order.status === 'not-started'"
+        v-on:nextStep="markPreparing(key)"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :key="key">
+      </OrderItemToPrepare>
+    </div>
   </div>
 
-
 <div class = "column middle">
-  <h1>{{ uiLabels.ordersInQueue }}</h1>
+  <h1>{{ uiLabels.ordersStarted }}</h1>
   <div align = "left">
     <OrderItemToPrepare
       id = "order_in_que"
       v-for="(order, key) in orders"
-      v-if="order.status !== 'done'"
-      v-on:done="markDone(key)"
+      v-if="order.status === 'started'"
+      v-on:nextStep="markDone(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -86,6 +97,9 @@ export default {
     }
   },
   methods: {
+    markPreparing: function (orderid) {
+      this.$store.state.socket.emit("orderStarted", orderid);
+    },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
     }
@@ -141,8 +155,15 @@ button:hover {
     padding: 15px;
     height: 450px;
   }
-  .left, .middle {
-    width: 40%;
+  .left {
+    width: 20%;
+    float: left;
+    overflow: scroll;
+  }
+
+
+  .middle {
+    width: 60%;
     float: left;
     overflow: scroll;
   }

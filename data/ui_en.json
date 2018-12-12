@@ -1,6 +1,7 @@
 {
   "cancelOrder" : "Cancel order",
   "next" : "Next",
+  "cancel": "Cancel",
   "changeIng" : "Change ingredient",
   "content" : "Content",
   "thankOrder" : "Thank you for your order!",
@@ -10,6 +11,7 @@
   "sum": "Sum",
   "ordersFinished" : "Finished orders",
   "ordersInQueue" : "Order queue",
+  "ordersStarted" : "Started orders",
   "ordersTrending" : "Trending orders",
   "placeOrder" : "Place order",
   "sideorders" : "SIDE ORDERS",
