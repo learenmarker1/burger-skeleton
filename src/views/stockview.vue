@@ -16,7 +16,6 @@
           <ul :v-for = "item in ingredients" v-if = 'item.category == 4'>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
-
           </ul>
         </div>
 
