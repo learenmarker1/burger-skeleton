@@ -24,9 +24,9 @@ app.use(devMiddleware(compiler, {
 }));
 
 // const hotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line
-// app.use(hotMiddleware(compiler, {
-//     log: console.log
-// }));
+//  app.use(hotMiddleware(compiler, {
+//      log: console.log
+//  }));
 
 // Read in the "class" to store all our data on the server side
 // If you need to change how data is handled, check the dataHandler.js file!
