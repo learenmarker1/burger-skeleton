@@ -34,7 +34,12 @@ export default {
     },
     decrementCounter: function () {
       this.counter -= 1;
-      this.$emit('decrement');
+      if (this.counter< 0){
+        this.counter = 0;
+      }
+      else {
+        this.$emit('decrement');
+      }
     },
     resetCounter: function () {
       this.counter = 0;

@@ -171,15 +171,15 @@
 
   <h1>{{ uiLabels.my_order }}</h1>
   <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()"> {{ uiLabels.add_order }}</button>
+  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
   </p>
-
+  {{burgers}}
   <div>
-    <button id = "backButton" > {{ uiLabels.backButton }} </button>
+    <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
   </div>
 
   <div>
-    <button align ="right" id = "checkoutButton"> {{ uiLabels.checkoutButton }} </button>
+    <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';" > {{ uiLabels.checkoutButton }} </button>
   </div>
 
   <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
@@ -209,6 +209,7 @@ export default {
   // the ordering system and the kitchen
   data: function() { //Not that data is a function!
     return {
+      burgers: [],
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
@@ -231,6 +232,17 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
+    //detta ändrades i koden, bytte addburger mot placeorder --> ändrar mkt annat i koden också!
+    addBurger: function () {
+      let burger = this.chosenIngredients.splice(0);
+      this.chosenIngredients = [];
+      this.burgers.push(burger);
+      order = {
+        ingredients: this.chosenIngredients,
+        price: this.price
+      };
+      this.$store.state.socket.emit('order', {order: order});
+    },
 
     placeOrder: function () {
       var i,
@@ -248,6 +260,7 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
+
     next: function () {
       this.showCategory += 1;
     },
