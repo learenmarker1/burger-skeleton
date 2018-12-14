@@ -6,10 +6,9 @@
           Babes & Burgers
 
           <button id="langButton" v-on:click="switchLang()">
-          <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-          <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
-          {{ uiLabels.language }}
-        </button>
+            <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+            <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
+          </button>
 
       </div>
     </header>
@@ -179,7 +178,7 @@
   :key="key">
 </OrderItem>
 </div>
-<!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+<!-- <p> Estimated time: {{this.orderNumber}} </p>  -->
 </div>
 </body>
 </template>
@@ -299,10 +298,11 @@ function scrollFunction() {
   color: white;
 }
 #langButton{
-  font-weight: bold;
   position: absolute;
   top: 8px;
   right: 16px;
+  background-color: darkgray;
+  padding:0;
 }
 
 #yourOrder{
@@ -312,11 +312,9 @@ function scrollFunction() {
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
-  /* background-image: url('~@/assets/exampleImage.jpg'); */
   background-color: dimgray;
   color: pink;
 }
-/* -------- */
 .panel {
   margin-bottom: 1rem;
   border: 10px solid #ccc;
