@@ -55,5 +55,6 @@
   "order_number_is": "med ordernummer: ",
   "my_order": "Min order",
   "add_order": "Lägg till",
+  "removeButton" : "Radera order",
   "kitchenOverview":"Köket - översikt"
 }

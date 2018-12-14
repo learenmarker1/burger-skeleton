@@ -55,5 +55,6 @@
   "order_number_is": "with the order number: ",
   "my_order": "My order",
   "add_order": "Add order",
+  "removeButton" : "Delete order",
   "kitchenOverview": "Kitchen overview "
 }

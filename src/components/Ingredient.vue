@@ -5,6 +5,7 @@
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
 
+<img :src="require('../assets/' + item.img)" width=80>
 <div class="chosenIngredientButton">
 <button v-on:click="decrementCounter">-</button>
 {{ counter }}

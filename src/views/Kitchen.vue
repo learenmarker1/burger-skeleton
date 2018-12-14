@@ -68,7 +68,7 @@
   </div>
 
   <div class = "buttonR">
-    <button align = "right" id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
+    <button align = "right" id = "stockButton" onclick="window.location = '/#/stockview';"> {{ uiLabels.stockButton }} </button>
   </div>
 
 </div>
