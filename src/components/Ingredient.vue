@@ -1,6 +1,6 @@
 <template>
   <div class="ingredient">
-    <img id="burgerPic":src="require('../assets/' + item.img)" width=80><br>
+    <img id="burgerPic" :src="require('../assets/' + item.img)" width=80><br>
     <label>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
