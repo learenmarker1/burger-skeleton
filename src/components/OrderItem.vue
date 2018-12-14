@@ -1,7 +1,10 @@
 <template>
 	<div>
 <div v-if = "order.status === 'started'">
-		<div class="order"> Order # {{orderId}}. </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
+		<div class="order"> Order # {{orderId}} </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
+</div>
+<div v-if = "order.status === 'done'">
+		<div class="order"> Order # {{orderId}} </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
 </div>
 <div v-if = "order.status === 'not-started'">
 		<div class="order"> Order # {{orderId}} </div>

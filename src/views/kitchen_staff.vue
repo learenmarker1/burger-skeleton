@@ -12,6 +12,7 @@
 
   <div class = "column left">
     <h1>{{ uiLabels.ordersInQueue }}</h1>
+    
   </div>
 
 <div class = "column middle">
