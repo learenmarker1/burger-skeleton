@@ -169,20 +169,20 @@
 
 
 
-  <h1>{{ uiLabels.my_order }}</h1>
-  <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
-  </p>
-  {{burgers}}
-  <div>
-    <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
-  </div>
+<h1>{{ uiLabels.my_order }}</h1>
+<p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+</p>
+{{burgers}}
+<div>
+  <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
+</div>
 
-  <div>
-    <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';" > {{ uiLabels.checkoutButton }} </button>
-  </div>
+<div>
+  <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';" > {{ uiLabels.checkoutButton }} </button>
+</div>
 
-  <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+<!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </template>
 
@@ -237,13 +237,7 @@ export default {
       let burger = this.chosenIngredients.splice(0);
       this.chosenIngredients = [];
       this.burgers.push(burger);
-      order = {
-        ingredients: this.chosenIngredients,
-        price: this.price
-      };
-      this.$store.state.socket.emit('order', {order: order});
     },
-
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -260,7 +254,6 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
-
     next: function () {
       this.showCategory += 1;
     },
@@ -272,7 +265,6 @@ export default {
         document.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
       }
     }
-
   }
 }
 window.onscroll = function() {scrollFunction()};
