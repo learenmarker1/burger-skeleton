@@ -1,9 +1,10 @@
 <template>
   <div class="ingredient">
+    <img id="burgerPic":src="require('../assets/' + item.img)" width=80><br>
     <label>
-
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
+
 
 <div class="chosenIngredientButton">
 <button v-on:click="decrementCounter">-</button>
@@ -52,6 +53,9 @@ export default {
 
 .chosenIngredientButton{
 margin-right: 0px;
+}
+#burgerPic{
+  width: 150px;
 }
 
 </style>

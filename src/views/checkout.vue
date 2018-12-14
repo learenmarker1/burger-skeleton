@@ -21,7 +21,7 @@
 
 
   <div align="center">
-    <button id = "payButton" type="button" v-on:click="payConfirm()" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button"  onclick="window.location = '/#/start';" > {{ uiLabels.payButton }} </button>
   </div>
 
   <div id="order_confirmed">

@@ -34,6 +34,7 @@
       v-for="(order, key) in orders"
       v-if="order.status === 'started'"
       v-on:nextStep="markDone(key)"
+      v-on:cancelOrder="markCancel(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -67,7 +68,7 @@
   </div>
 
   <div class = "buttonR">
-    <button align = "right" id = "stockButton" onclick="window.location = '/#/stock';"> {{ uiLabels.stockButton }} </button>
+    <button align = "right" id = "stockButton" onclick="window.location = '/#/stockview';"> {{ uiLabels.stockButton }} </button>
   </div>
 
 </div>
@@ -102,6 +103,9 @@ export default {
     },
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
+    },
+    markCancel: function (orderid){
+      this.$store.state.socket.emit("orderNotStarted", orderid);
     }
   }
 }

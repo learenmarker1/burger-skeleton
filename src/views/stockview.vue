@@ -108,9 +108,10 @@
     }
 
     .row {
-      display: flex;
       /*text-align: center;*/
       font-size: 16pt;
+      display: flex;
+      height: 98%;
     }
     .column {
       flex: 50%;
@@ -119,6 +120,8 @@
       border-width: 3px;
       margin: -2px;
       padding: 15px;
+      overflow: scroll;
+      height: 400px;
     }
 
     #orderButton{
