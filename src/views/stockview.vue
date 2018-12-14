@@ -1,14 +1,12 @@
 <template>
   <div id="orders">
 
-    <h1 align = "center">{{ uiLabels.startHeader}}</h1>
+    <h1 align = "center">{{ uiLabels.stockHeader}}</h1>
 
-    <button v-on:click="switchLang()">
-
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
-
-      {{ uiLabels.language }}</button>
+    <button id="langButton" v-on:click="switchLang()">
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
+    </button>
 
       <div class = "row">
         <div class = "column">
@@ -121,7 +119,15 @@
       margin: -2px;
       padding: 15px;
       overflow: scroll;
-      height: 400px;
+      height: 600px;
+    }
+
+    #langButton{
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      background-color: darkgray;
+      padding:0;
     }
 
     #orderButton{

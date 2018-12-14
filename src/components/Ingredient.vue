@@ -1,11 +1,11 @@
 <template>
   <div class="ingredient">
+    <img id="burgerPic" :src="require('../assets/' + item.img)" width=80><br>
     <label>
-
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
 
-<img :src="require('../assets/' + item.img)" width=80>
+
 <div class="chosenIngredientButton">
 <button v-on:click="decrementCounter">-</button>
 {{ counter }}
@@ -35,7 +35,12 @@ export default {
     },
     decrementCounter: function () {
       this.counter -= 1;
-      this.$emit('decrement');
+      if (this.counter< 0){
+        this.counter = 0;
+      }
+      else {
+        this.$emit('decrement');
+      }
     },
     resetCounter: function () {
       this.counter = 0;
@@ -48,6 +53,9 @@ export default {
 
 .chosenIngredientButton{
 margin-right: 0px;
+}
+#burgerPic{
+  width: 150px;
 }
 
 </style>

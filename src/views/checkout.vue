@@ -56,9 +56,7 @@ export default {
   methods: {
     payConfirm: function() {
 
-
     }
-
   }
 }
 

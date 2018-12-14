@@ -4,34 +4,50 @@
       <header>
         <div id="header">
           Babes & Burgers
-
           <button id="langButton" v-on:click="switchLang()">
-          <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-          <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
-          {{ uiLabels.language }}
-        </button>
-
+            <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+            <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
+            {{ uiLabels.language }}
+          </button>
+        </div>
+      </header>
+      <h1 align="center">{{ uiLabels.customizing }}</h1>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
+          <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
+          {{ uiLabels.bun }}
+          <div id="yourOrder">
+            {{ uiLabels.bunChoice }}
+            {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+          </div>
+        </div>
+        <div class="panel-body" v-show="sel == 1">
+          <Ingredient
+          ref="ingredient"
+          v-for="item in ingredients"
+          v-show="item.category===4"
+          v-on:increment="addToOrder(item)"
+          v-on:decrement="deleteFromOrder(item)"
+          :item="item"
+          :lang="lang"
+          :key="item.ingredient_id">
+        </Ingredient>
       </div>
-    </header>
-
-    <h1 align="center">{{ uiLabels.customizing }}</h1>
-
+    </div>
     <div class="panel">
-      <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
+      <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
         <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
-        {{ uiLabels.bun }}
-
+        {{ uiLabels.patty }}
         <div id="yourOrder">
-          {{ uiLabels.bunChoice }}
+          {{ uiLabels.pattyChoice }}
           {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
         </div>
-
       </div>
-      <div class="panel-body" v-show="sel == 1">
+      <div class="panel-body" v-show="sel == 2">
         <Ingredient
         ref="ingredient"
         v-for="item in ingredients"
-        v-show="item.category===4"
+        v-show="item.category===1"
         v-on:increment="addToOrder(item)"
         v-on:decrement="deleteFromOrder(item)"
         :item="item"
@@ -40,23 +56,20 @@
       </Ingredient>
     </div>
   </div>
-
-
   <div class="panel">
-    <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
+    <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
       <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
-      {{ uiLabels.patty }}
+      {{ uiLabels.topping }}
       <div id="yourOrder">
-        {{ uiLabels.pattyChoice }}
+        {{ uiLabels.toppingChoice }}
         {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
       </div>
-
     </div>
-    <div class="panel-body" v-show="sel == 2">
+    <div class="panel-body" v-show="sel == 3">
       <Ingredient
       ref="ingredient"
       v-for="item in ingredients"
-      v-show="item.category===1"
+      v-show="item.category===2"
       v-on:increment="addToOrder(item)"
       v-on:decrement="deleteFromOrder(item)"
       :item="item"
@@ -65,30 +78,6 @@
     </Ingredient>
   </div>
 </div>
-
-<div class="panel">
-  <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
-    <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
-    {{ uiLabels.topping }}
-    <div id="yourOrder">
-      {{ uiLabels.toppingChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
-    </div>
-  </div>
-  <div class="panel-body" v-show="sel == 3">
-    <Ingredient
-    ref="ingredient"
-    v-for="item in ingredients"
-    v-show="item.category===2"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient>
-</div>
-</div>
-
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 4 ? sel = 0 : sel = 4">
     <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
@@ -111,11 +100,7 @@
   </Ingredient>
 </div>
 </div>
-
-
-
 <h1 align="center">{{ uiLabels.sideOrder }}</h1>
-
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
     <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  width=30>
@@ -160,13 +145,10 @@
   </Ingredient>
 </div>
 </div>
-
 <button  v-on:click="next()"> {{ uiLabels.next }} </button>
-
 <h1>{{ uiLabels.order }}</h1>
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
 <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-
 <h1>{{ uiLabels.ordersInQueue }}</h1>
 <div>
   <OrderItem
@@ -183,18 +165,14 @@
 </div>
 </body>
 </template>
-
 <script>
-
 //import the components that are used in the template, the name that you
 //use for importing will be used in the template above and also below in
 //components
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
-
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
-
 /* instead of defining a Vue instance, export default allows the only
 necessary Vue instance (found in main.js) to import your data and methods */
 export default {
@@ -229,7 +207,6 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
-
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -257,11 +234,9 @@ export default {
         document.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
       }
     }
-
   }
 }
 window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.getElementById("header").style.fontSize = "30px";
@@ -269,11 +244,9 @@ function scrollFunction() {
     document.getElementById("header").style.fontSize = "90px";
   }
 }
-
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
-
 .wrap{
   margin:0;
 }
@@ -304,11 +277,9 @@ function scrollFunction() {
   top: 8px;
   right: 16px;
 }
-
 #yourOrder{
   text-align: right;
 }
-
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
