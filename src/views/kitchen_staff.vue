@@ -6,13 +6,13 @@
     {{ uiLabels.language }}
   </button>
 
-  <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
+  <h1 align = "center" >{{ uiLabels.kitchenOverview}}</h1>
 
   <div class = "row" align = "center">
 
   <div class = "column left">
     <h1>{{ uiLabels.ordersInQueue }}</h1>
-    
+
   </div>
 
 <div class = "column middle">
