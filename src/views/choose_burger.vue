@@ -3,9 +3,10 @@
     <header id="header"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
-      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
     </button>
+
     <h1 align="center">
       {{ uiLabels.customizing }}
     </h1>
@@ -149,7 +150,7 @@
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
       <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
-        {{ ing }}
+        {{ ing }} hej
       </span>
     </div>
   </div>
@@ -171,9 +172,9 @@
 
   <h1>{{ uiLabels.my_order }}</h1>
   <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()"> {{ uiLabels.add_order }}</button>
   </p>
-  {{burgers}}
+  {{ burgers }}
   <div>
     <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
   </div>
@@ -311,6 +312,8 @@ function scrollFunction() {
   position: absolute;
   top: 8px;
   right: 16px;
+  background-color: darkgray;
+  padding:0;
 }
 
 #yourOrder{
