@@ -16,7 +16,7 @@
         <div id="yourOrder">
           <div>
             {{ uiLabels.bunChoice }}
-            <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})">
+            <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
               {{ ing }}
             </span>
           </div>
@@ -209,7 +209,6 @@ export default {
   // the ordering system and the kitchen
   data: function() { //Not that data is a function!
     return {
-      burgers: [],
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
@@ -236,23 +235,11 @@ export default {
     addBurger: function () {
       let burger = this.chosenIngredients.splice(0);
       this.chosenIngredients = [];
-      this.burgers.push(burger);
-    },
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-      order = {
-        ingredients: this.chosenIngredients,
-        price: this.price
-      };
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
+      this.$store.commit('addBurger', burger);
       //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
+      for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
         this.$refs.ingredient[i].resetCounter();
       }
-      this.price = 0;
-      this.chosenIngredients = [];
     },
     next: function () {
       this.showCategory += 1;

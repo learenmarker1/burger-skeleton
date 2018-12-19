@@ -1,29 +1,23 @@
 <template>
   <!-- Note in this component that it is using another component -->
   <div>
-    <OrderItem
-    :ui-labels="uiLabels"
-    :lang="lang"
-    :order-id="orderId"
-    :order="order">
-  </OrderItem>
-  <div>
-    <button id = "changeButton"  type="button" onclick="window.location = '/#/choose_burger';" > {{ uiLabels.changeButton }} </button>
+    <div v-for="(ingredient, key) in burger" :key="key">
+      {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
+    </div>
+    <router-link id = "changeButton" type="button" to="/" > {{ uiLabels.changeButton }} </router-link>
     <button  id = "removeButton"  type="button"> {{ uiLabels.removeButton }} </button>
 
   </div>
-
-</div>
 </template>
 <script>
-import OrderItem from '@/components/OrderItem.vue'
 
 export default {
-  name: 'OrderItemToPrepare',
-  components: { OrderItem },
+  name: 'checkoutComponent',
+  components: {
+  },
   props: {
     uiLabels: Object,
-    order: Object,
+    burger: Array,
     orderId: String,
     lang: String
   },

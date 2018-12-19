@@ -69,20 +69,21 @@ Data.prototype.getOrderNumber = function () {
 
 Data.prototype.addOrder = function (order) {
   var orderId = this.getOrderNumber();
-  this.orders[orderId] = order.order;
+  this.orders[orderId] = order;
   this.orders[orderId].orderId = orderId;
   this.orders[orderId].status = "not-started";
-  var transactions = this.data[transactionsDataName],
-    //find out the currently highest transaction id
-    transId =  transactions[transactions.length - 1].transaction_id,
-    i = order.order.ingredients,
-    k;
-  for (k = 0; k < i.length; k += 1) {
-    transId += 1;
-    transactions.push({transaction_id: transId,
-                       ingredient_id: i[k].ingredient_id,
-                       change: - 1});
-  }
+  let transactions = this.data[transactionsDataName];
+  //find out the currently highest transaction id
+  let transId = transactions[transactions.length - 1].transaction_id;
+    for (let j = 0; j < order.burgers.length; j += 1) {
+        let i = order.burgers[j];
+        for (let k = 0; k < i.length; k += 1) {
+          transId += 1;
+          transactions.push({transaction_id: transId,
+                             ingredient_id: i[k].ingredient_id,
+                             change: - 1});
+        }
+    }
     return orderId;
 };
 

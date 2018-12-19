@@ -5,7 +5,6 @@
     <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
     <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
-
   <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
 
   <div class = "row" align = "center">

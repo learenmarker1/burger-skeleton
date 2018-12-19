@@ -1,17 +1,14 @@
 <template>
 	<div>
-
-		<div class="order"> Order # {{orderId}}. </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-
-<div v-if = "order.status === 'started'">
-		<div class="order"> Order # {{orderId}} </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-</div>
-<div v-if = "order.status === 'done'">
-		<div class="order"> Order # {{orderId}} </div> {{order.type}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-</div>
-<div v-if = "order.status === 'not-started'">
-		<div class="order"> Order # {{orderId}} </div>
-</div>
+		<div v-if="order.status === 'started' || order.status === 'done' ">
+				<div class="order"> Order # {{orderId}} </div> {{order.type}}
+				<div v-for="(ing, key) in order.burgers" :key="key">
+					{{ ing.map(item=>item["ingredient_"+ lang]).join(", ") }}
+				</div>
+		</div>
+		<div v-if="order.status === 'not-started'">
+				<div class="order"> Order # {{orderId}} </div>
+		</div>
 	</div>
 </template>
 <script>

@@ -6,12 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    socket: io()
+    socket: io(),
+    burgers: []
   },
   getters: {
     getSocket: state => state.socket
   },
   mutations: {
+    addBurger: function (store, burger) {
+      store.burgers.push(burger);
+    }
 
   },
   actions: {
