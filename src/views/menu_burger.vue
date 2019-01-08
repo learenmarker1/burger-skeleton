@@ -87,12 +87,12 @@
   </Ingredient>
 </div>
 </div>
-
-<button  v-on:click="next()"> {{ uiLabels.next }} </button>
+<!--
+<button  v-on:click="next()"> {{ uiLabels.next }} </button> -->
 
 <h1>{{ uiLabels.order }}</h1>
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-<button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<button id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
 <h1>{{ uiLabels.ordersInQueue }}</h1>
 <div>
@@ -209,23 +209,19 @@ function scrollFunction() {
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
-.wrap{
+/* .wrap{
   margin:0;
-}
+} */
 #header {
   background-color: #f1f1f1; /* Grey background */
-  padding: 10px 10px; /* Some padding */
   color: pink;
-  text-align: center; /* Centered text */
-  font-size: 20px; /* Big font size */
+  text-align: center;
+  font-size: 20px;
   font-weight: bold;
-  position: fixed; /* Fixed position - sit on top of the page */
-  top: 0;
-  /* opacity: 0.5; */
-  width: 57%; /* Full width */
+  width: auto;
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
-  z-index: 0;
 }
+
 #ordering {
   margin: auto;
   padding-top: 150px;
@@ -234,7 +230,6 @@ function scrollFunction() {
   color: white;
 }
 #langButton{
-  font-weight: bold;
   position: absolute;
   top: 8px;
   right: 16px;
@@ -242,6 +237,40 @@ function scrollFunction() {
 
 #yourOrder{
   text-align: right;
+}
+
+#placeButton{
+  align-items: right;
+  height: 50px;
+  left: 16px;
+  background-color: #BB86BB;
+  border-radius: 20px;
+  border: 5px solid #875187;
+  color: black;
+  text-align: center;
+  font-size: 20;
+}
+
+#backButton{
+  position: absolute;
+  margin-top: 10px;
+  left: 6px;
+  background-color: #BB86BB;
+  border-radius: 20px;
+  border: 5px solid #875187;
+  color: black;
+  text-align: center;
+}
+
+#checkoutButton{
+  position: absolute;
+  margin-top: 10px;
+  right: 16px;
+  background-color: #BB86BB;
+  border-radius: 20px;
+  border: 5px solid #875187;
+  color: black;
+  text-align: center;
 }
 
 .ingredient {
