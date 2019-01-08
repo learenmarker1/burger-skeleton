@@ -46,11 +46,7 @@
           <h3>NAVIGERA</h3>
           <button id = "orderButton" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
         </div>
-
-
       </div>
-
-
     </div>
   </template>
 
