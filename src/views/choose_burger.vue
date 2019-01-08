@@ -175,7 +175,7 @@
 </p>
 {{burgers}}
 <div>
-  <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
+  <button id = "backButton" onclick="window.location = '/#/';" > {{ uiLabels.backButton }} </button>
 </div>
 
 <div>
