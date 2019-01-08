@@ -4,15 +4,11 @@
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
     </button>
-
     <div>
     <h1 class="header" align = "center"> {{ uiLabels.orderOverview }} </h1>
       <checkoutComponent
-      v-for="(order, key) in orders"
-      v-if="order.status !== 'done'"
-      v-on:done="markDone(key)"
-      :order-id="key"
-      :order="order"
+      v-for="(burger, key) in burgers"
+      :burger="burger"
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
@@ -21,13 +17,13 @@
 
 
   <div align="center">
-    <button id = "payButton" type="button"  onclick="window.location = '/#/start';" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button"  v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
   </div>
 
   <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
 
-    <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3>
+    <!-- <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3> -->
   </div>
 
 </div>
@@ -35,15 +31,13 @@
 
 
 <script>
-import OrderItem from '@/components/OrderItem.vue'
 import checkoutComponent from '@/components/checkoutComponent.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
 export default {
-  name: 'Ordering',
+  name: 'Checkout',
   components: {
-    OrderItem,
     checkoutComponent
   },
   mixins: [sharedVueStuff], // include stuff that is used in both
@@ -56,7 +50,16 @@ export default {
   methods: {
     payConfirm: function() {
 
-    }
+    },
+    placeOrder: function () {
+      var i,
+      //Wrap the order in an object
+      order = {
+        burgers: this.burgers
+      };
+      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+      this.$store.state.socket.emit('order', order);
+    },
   }
 }
 

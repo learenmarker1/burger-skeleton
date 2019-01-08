@@ -3,10 +3,9 @@
     <header id="header"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
+      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
+      {{ uiLabels.language }}
     </button>
-
     <h1 align="center">
       {{ uiLabels.customizing }}
     </h1>
@@ -17,7 +16,7 @@
         <div id="yourOrder">
           <div>
             {{ uiLabels.bunChoice }}
-            <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})">
+            <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
               {{ ing }}
             </span>
           </div>
@@ -150,7 +149,7 @@
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
       <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
-        {{ ing }} hej
+        {{ ing }}
       </span>
     </div>
   </div>
@@ -170,20 +169,20 @@
 
 
 
-  <h1>{{ uiLabels.my_order }}</h1>
-  <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-  <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="placeOrder()"> {{ uiLabels.add_order }}</button>
-  </p>
-  {{ burgers }}
-  <div>
-    <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
-  </div>
+<h1>{{ uiLabels.my_order }}</h1>
+<p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+</p>
+{{burgers}}
+<div>
+  <button id = "backButton" onclick="window.location = '/#/start';" > {{ uiLabels.backButton }} </button>
+</div>
 
-  <div>
-    <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';" > {{ uiLabels.checkoutButton }} </button>
-  </div>
+<div>
+  <button align ="right" id = "checkoutButton" onclick="window.location = '/#/checkout';" > {{ uiLabels.checkoutButton }} </button>
+</div>
 
-  <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+<!-- <p> Estimated time: {{this.orderNumber}} </p> -->
 </div>
 </template>
 
@@ -210,7 +209,6 @@ export default {
   // the ordering system and the kitchen
   data: function() { //Not that data is a function!
     return {
-      burgers: [],
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
@@ -237,31 +235,12 @@ export default {
     addBurger: function () {
       let burger = this.chosenIngredients.splice(0);
       this.chosenIngredients = [];
-      this.burgers.push(burger);
-      order = {
-        ingredients: this.chosenIngredients,
-        price: this.price
-      };
-      this.$store.state.socket.emit('order', {order: order});
-    },
-
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-      order = {
-        ingredients: this.chosenIngredients,
-        price: this.price
-      };
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
+      this.$store.commit('addBurger', burger);
       //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
+      for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
         this.$refs.ingredient[i].resetCounter();
       }
-      this.price = 0;
-      this.chosenIngredients = [];
     },
-
     next: function () {
       this.showCategory += 1;
     },
@@ -273,7 +252,6 @@ export default {
         document.getElementById("langPic").src = "https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png";
       }
     }
-
   }
 }
 window.onscroll = function() {scrollFunction()};
@@ -312,8 +290,6 @@ function scrollFunction() {
   position: absolute;
   top: 8px;
   right: 16px;
-  background-color: darkgray;
-  padding:0;
 }
 
 #yourOrder{

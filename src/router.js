@@ -1,6 +1,5 @@
 
 import Startview from './views/start'
-import Ordering from './views/Ordering'
 import Choose_burger from './views/choose_burger'
 import Menu_burger from './views/menu_burger'
 import Checkout from './views/checkout'
@@ -17,20 +16,12 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
-      path: '/start',
+      path: '/',
       meta: {
         title: 'Babes and Burgers <3',
       },
       name: 'start view',
       component: Startview
-    },
-    {
-      path: '/order',
-      meta: {
-        title: 'Babes and Burgers <3',
-      },
-      name: 'order view',
-      component: Ordering
     },
     {
       path: '/choose_burger',

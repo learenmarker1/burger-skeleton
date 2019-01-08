@@ -14,8 +14,13 @@ var sharedVueStuff = {
       lang_sv: false
     }
   },
+  computed: {
+    burgers: function () {
+      return this.$store.state.burgers;
+    }
+  },
   created: function () {
-    this.$store.state.socket.emit("switchPage");
+    this.$store.state.socket.emit("pageLoaded");
     this.$store.state.socket.on('initialize', function (data) {
       this.orders = data.orders;
       this.uiLabels = data.uiLabels;
