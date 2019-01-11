@@ -11,7 +11,7 @@
       {{ uiLabels.language }}
     </button>
 
-    <h1 class="header" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}} <br> {{ uiLabels.startHeaderCont }} </h1>
+    <h1 class="glow" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}} <br> {{ uiLabels.startHeaderCont }} </h1>
 
     <div class = "row">
 
@@ -62,11 +62,28 @@ button:hover {
   cursor: pointer;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.header{
-  font-size: 60px;
+.glow{
+  /* font-size: 60px;
   color: pink;
-  text-shadow: 0 0 3px #875187, 0 0 5px #875187;
+  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
 .logo{
   position: absolute;
   top: 0px;
