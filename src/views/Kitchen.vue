@@ -5,7 +5,8 @@
     <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
     <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
-  <h1 align = "center" >{{ uiLabels.orders_pay_desc}}</h1>
+  <h1 align = "center" >
+    <img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> {{ uiLabels.orders_pay_desc}} </h1>
 
   <div class = "row" align = "center">
 
@@ -32,8 +33,8 @@
       id = "order_preparing"
       v-for="(order, key) in orders"
       v-if="order.status === 'started'"
+      v-on:cancelOrder="markBack(key)"
       v-on:nextStep="markDone(key)"
-      v-on:cancelOrder="markCancel(key)"
       :order-id="key"
       :order="order"
       :ui-labels="uiLabels"
@@ -104,7 +105,7 @@ export default {
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
     },
-    markCancel: function (orderid){
+    markBack: function (orderid){
       this.$store.state.socket.emit("orderNotStarted", orderid);
     }
   }
