@@ -1,12 +1,13 @@
 <template>
   <div class="background">
 
+    <header id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <div id="header">Babes & Burgers</div>
 
     <h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
@@ -14,45 +15,46 @@
       <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
       BABES AND BURGERS FAVOURITES
     </div>
+
     <div class="panel" id="panelGrid">
-
-    <Ingredient
-    v-for="item in ingredients"
-    v-show="item.category===7"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id"
-    >
-
-  </Ingredient>
-
-</div>
-
-<h1 align="center">{{ uiLabels.sideOrder }}</h1>
-
-<div class="panel">
-  <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
-    {{ uiLabels.sideorders }}
-    <div id="yourOrder">
-      {{ uiLabels.addingsChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
-    </div>
+      <Ingredient
+      v-for="item in ingredients"
+      v-show="item.category===7"
+      v-on:increment="addToOrder(item)"
+      v-on:decrement="deleteFromOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
   </div>
-  <div class="panel-body" v-show="sel == 6">
-    <Ingredient
-    ref="ingredient"
-    v-for="item in ingredients"
-    v-show="item.category===5"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient>
-</div>
+
+  <h1 align="center">{{ uiLabels.sideOrder }}</h1>
+
+  <div class="panel">
+    <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+      <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
+      {{ uiLabels.sideorders }}
+      <div id="yourOrder">
+        {{ uiLabels.addingsChoice }}
+
+        <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})" :key="key">
+          {{ ing }}
+        </span>
+
+      </div>
+    </div>
+    <div class="panel-body" v-show="sel == 6">
+      <Ingredient
+      ref="ingredient"
+      v-for="item in ingredients"
+      v-show="item.category===5"
+      v-on:increment="addToOrder(item)"
+      v-on:decrement="deleteFromOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
+  </div>
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
@@ -60,7 +62,9 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
   <div class="panel-body" v-show="sel == 7">

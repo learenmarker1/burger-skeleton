@@ -1,32 +1,62 @@
 <template>
-  <div id="ordering">
+  <div class="background">
+
     <header id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
-      <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      {{ uiLabels.language }}
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
-    <h1 align="center">
-      {{ uiLabels.customizing }}
-    </h1>
-    <div class="panel">
-      <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
-        <img align="left" src='http://www.clker.com/cliparts/K/F/m/Q/B/D/bread-bun.svg'  height=35 width=35>
-        {{ uiLabels.bun }}
-        <div id="yourOrder">
-          <div>
-            {{ uiLabels.bunChoice }}
-            <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
-              {{ ing }}
-            </span>
+
+    <div id="ordering">
+      <h1 align="center">
+        {{ uiLabels.customizing }}
+      </h1>
+      <div class="panel">
+        <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
+          <img align="left" src='http://www.clker.com/cliparts/K/F/m/Q/B/D/bread-bun.svg'  height=35 width=35>
+          {{ uiLabels.bun }}
+          <div id="yourOrder">
+            <div>
+              {{ uiLabels.bunChoice }}
+              <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
+                {{ ing }}
+              </span>
+            </div>
           </div>
         </div>
+        <div class="panel-body" v-show="sel == 1">
+          <Ingredient
+          ref="ingredient"
+          v-for="item in ingredients"
+          v-show="item.category===4"
+          v-on:increment="addToOrder(item)"
+          v-on:decrement="deleteFromOrder(item)"
+          :item="item"
+          :lang="lang"
+          :key="item.ingredient_id">
+        </Ingredient>
       </div>
-      <div class="panel-body" v-show="sel == 1">
+    </div>
+
+
+    <div class="panel">
+      <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
+        <img src='https://i.pinimg.com/originals/25/4f/c5/254fc531c68e435e237d523b05224987.png'  height=30>
+        {{ uiLabels.patty }}
+        <div id="yourOrder">
+          {{uiLabels.pattyChoice }}
+          <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})">
+            {{ ing }}
+          </span>
+        </div>
+
+      </div>
+      <div class="panel-body" v-show="sel == 2">
         <Ingredient
         ref="ingredient"
         v-for="item in ingredients"
-        v-show="item.category===4"
+        v-show="item.category===1"
         v-on:increment="addToOrder(item)"
         v-on:decrement="deleteFromOrder(item)"
         :item="item"
@@ -36,24 +66,24 @@
     </div>
   </div>
 
-
   <div class="panel">
-    <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
-      <img src='https://i.pinimg.com/originals/25/4f/c5/254fc531c68e435e237d523b05224987.png'  height=30>
-      {{ uiLabels.patty }}
+    <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
+      <img src='https://loinhacviet.info/images/lettuce-clipart-green-food-2.png'  height=40>
+      {{ uiLabels.topping }}
+
       <div id="yourOrder">
-        {{uiLabels.pattyChoice }}
-        <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})">
+        {{ uiLabels.toppingChoice }}
+        <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})">
           {{ ing }}
         </span>
       </div>
-
     </div>
-    <div class="panel-body" v-show="sel == 2">
+
+    <div class="panel-body" v-show="sel == 3">
       <Ingredient
       ref="ingredient"
       v-for="item in ingredients"
-      v-show="item.category===1"
+      v-show="item.category===2"
       v-on:increment="addToOrder(item)"
       v-on:decrement="deleteFromOrder(item)"
       :item="item"
@@ -61,33 +91,6 @@
       :key="item.ingredient_id">
     </Ingredient>
   </div>
-</div>
-
-<div class="panel">
-  <div class="panel-title" v-on:click="sel == 3 ? sel = 0 : sel = 3">
-    <img src='https://loinhacviet.info/images/lettuce-clipart-green-food-2.png'  height=40>
-    {{ uiLabels.topping }}
-
-    <div id="yourOrder">
-      {{ uiLabels.toppingChoice }}
-      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})">
-        {{ ing }}
-      </span>
-    </div>
-  </div>
-
-  <div class="panel-body" v-show="sel == 3">
-    <Ingredient
-    ref="ingredient"
-    v-for="item in ingredients"
-    v-show="item.category===2"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient>
-</div>
 </div>
 
 <div class="panel">
@@ -153,6 +156,7 @@
       </span>
     </div>
   </div>
+
   <div class="panel-body" v-show="sel == 7">
     <Ingredient
     ref="ingredient"
@@ -183,6 +187,7 @@
 </div>
 
 <!-- <p> Estimated time: {{this.orderNumber}} </p> -->
+</div>
 </div>
 </template>
 
@@ -271,30 +276,31 @@ function scrollFunction() {
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
 #header {
-  background-color: #f1f1f1; /* Grey background */
-  color: pink;
+  background-color: lightgray; /* Grey background */
+  color: white;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   width: auto;
-  /*transition: 0.2s;  Add a transition effect (when scrolling - and font size is decreased) */
-  transition: all 0.3s ease-in-out;
- -webkit-transition: all 0.3s ease-in-out;
- -moz-transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
 
-#ordering {
-  margin: auto;
-  padding-top: 50px;
-  width: 100%;
-  background: radial-gradient(lightgray, darkgray);
-  color: white;
-}
+
+/* #ordering {
+margin: auto;
+padding-top: 50px;
+width: 100%;
+background: radial-gradient(lightgray, darkgray);
+color: white;
+} */
 
 #langButton{
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 15px;
+  right: 15px;
+  background-color: gray;
+  padding:0;
 }
 
 #yourOrder{
@@ -302,58 +308,79 @@ function scrollFunction() {
 }
 
 .ingredient {
-  border: 1px solid #ccd;
-  padding: 1em;
-  /* background-image: url('~@/assets/exampleImage.jpg'); */
+  border: 3px solid #ccd;
+  padding: 10px;
   background-color: dimgray;
   color: pink;
 }
 /* -------- */
-.panel {
-  margin-bottom: 1rem;
-  border: 10px solid #ccc;
-}
+
+/* .panel {
+margin-bottom: 1rem;
+border: 10px solid #ccc;
+} */
+
 .panel-title {
   font-weight: bold;
-  background-color: #ccc;
-  padding: 0.01em 16px;
+  background-color: #acabab;
+  padding:5px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
-.panel-body {
-  padding: 0.01em 2px;
+
+/* .panel-body {
+padding: 0.01em 2px;
+} */
+
+.background {
+  background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  color: white;
 }
 
 #placeButton{
-  align-items: right;
-  height: 50px;
-  left: 16px;
-  background-color: #BB86BB;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 15px 15px 15px;
   text-align: center;
-  font-size: 20;
 }
 
 #backButton{
   position: absolute;
-  margin-top: 10px;
-  left: 6px;
-  background-color: #BB86BB;
+  left: 20px;
+  margin: 20px 0 0 10px;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
   text-align: center;
 }
 
 #checkoutButton{
   position: absolute;
-  margin-top: 10px;
-  right: 16px;
-  background-color: #BB86BB;
+  right: 20px;
+  margin: 20px 0 0 10px;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
   text-align: center;
 }
 
