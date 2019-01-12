@@ -81,7 +81,6 @@
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
 <button id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
-<h1>{{ uiLabels.ordersInQueue }}</h1>
 <div>
   <OrderItem
   v-for="(order, key) in orders"
