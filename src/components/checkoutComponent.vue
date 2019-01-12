@@ -4,10 +4,11 @@
     <div v-for="(ingredient, key) in burger" :key="key">
       {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
     </div>
-    <router-link id = "changeButton" type="button" to="/" > {{ uiLabels.changeButton }} </router-link>
-    <button  id = "removeButton"  type="button"> {{ uiLabels.removeButton }} </button>
-
+    
+    <button id = "changeremoveButton" type="button" onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
+    <button  id = "changeremoveButton"  type="button" onclick="window.location = '/#/';"> {{ uiLabels.removeButton }} </button>
   </div>
+
 </template>
 <script>
 
@@ -35,24 +36,19 @@ export default {
 </script>
 <style scoped>
 
-#changeButton {
-  background-color: #BB86BB;
-  color: white;
-  margin: 20px;
-  border: 5px solid #875187;
-  font-size: 14px;
-  text-align: center;
-  display: inline-block;
-}
 
-#removeButton {
-  background-color: #BB86BB;
-  color: white;
-  margin: 20px;
-  border: 5px solid #875187;
-  font-size: 14px;
+#changeremoveButton {
+  background-color: #DF9BBF;
+  border-radius: 15px;
+  color: black;
+  margin: 15px;
+  border: 3px solid MediumVioletRed;
+  font-size: 10px;
   text-align: center;
-  display: inline-block;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 15px 15px 15px;
+  text-align: center;
 }
 
 </style>
