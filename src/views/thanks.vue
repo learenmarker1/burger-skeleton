@@ -6,8 +6,18 @@
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow"> {{ uiLabels.ThankYou}}
-      <img class="logo" src= "@/assets/BB-logo.png"></h1>
+    <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
+      <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
+      <OrderItem
+        class= "ordernr"
+        id = "order_in_que"
+        v-for="(order, key) in orders"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :key="key">
+      </OrderItem>
+      <img class="logo" src= "@/assets/BB-logo.png">
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
     </div>
   </template>
@@ -94,6 +104,9 @@
     margin-right: auto;
     margin-top: 15px;
     width: 80vh;
+  }
+  .ordernr{
+    text-align: center;
   }
 
   #orderButtons {

@@ -58,5 +58,6 @@
   "removeButton" : "Radera order",
   "kitchenOverview":"Köket - översikt",
   "ThankYou": "Tack",
-  "SeeYou": "Vi ses snart!" 
+  "SeeYou": "Vi ses snart!",
+  "ordernumber": "Ditt ordernummer är:" 
 }
