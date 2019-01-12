@@ -1,30 +1,33 @@
 <template>
   <div id="checkout">
     <button id="langButton" v-on:click="switchLang()">
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
     <div>
     <h1 class="header" align = "center"> {{ uiLabels.orderOverview }} </h1>
       <checkoutComponent
       v-for="(burger, key) in burgers"
       :burger="burger"
+      :totalPrice="totalPrice"
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
     </checkoutComponent>
   </div>
 
+  <p> {{ uiLabels.TotalSum}} {{ totalPrice }} kr </p>
+
 
   <div align="center">
     <button id = "payButton" type="button"  v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
   </div>
 
-  <div id="order_confirmed">
+  <!-- <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
 
-    <!-- <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3> -->
-  </div>
+     <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3>
+  </div> -->
 
 </div>
 </template>
@@ -97,8 +100,14 @@ button:hover {
 
 #langButton{
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 15px;
+  right: 15px;
+  background-color: gray;
+  padding:0;
+}
+
+#langPic{
+  width: 60px;
 }
 
 #changeButton {
