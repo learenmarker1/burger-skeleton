@@ -1,7 +1,7 @@
 <template>
   <div id="ordering">
 
-        <img align= "center"  class= "logo" src= "@/assets/BB-logo.png">
+
 
     <button id="langButton" v-on:click="switchLang()">
 
@@ -11,8 +11,8 @@
       {{ uiLabels.language }}
     </button>
 
-    <h1 class="glow" align = "center"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}} <br> {{ uiLabels.startHeaderCont }} </h1>
-
+    <h1 class="glow" align = "center"> {{ uiLabels.startHeader}}  {{ uiLabels.startTO}}  </h1> 
+<img align= "center"  class= "logo" src= "@/assets/BB-logo.png">
     <div class = "row">
 
       <div class = "buttonL">
@@ -84,11 +84,14 @@ button:hover {
   }
 }
 
-.logo{
-  position: absolute;
-  top: 0px;
+IMG.logo{
+  /* position: absolute; */
+  /* top: 0px;
   left: 200px;
-  width: 250px;
+  width: 250px; */
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
 #ordering {
   margin: auto;

@@ -1,6 +1,9 @@
 <template>
   <div class="ingredient">
-    <img id="burgerPic" :src="require('../assets/' + item.img)" width=80><br>
+    <div v-if="item.category===7">
+    <img id="burgerPic" :src="require('../assets/' + item.img)" width=80>
+    <p class="ingrList"> ingredients: </p>
+  </div>
     <label>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
@@ -56,6 +59,11 @@ margin-right: 0px;
 }
 #burgerPic{
   width: 150px;
+}
+.ingrList{
+  text-align: right;
+  top: 8px;
+  right: 16px;
 }
 
 </style>

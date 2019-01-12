@@ -1,6 +1,6 @@
 <template>
     <div id="ordering">
-        <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
+        <div id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
           <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
           <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
           {{ uiLabels.language }}
@@ -13,7 +13,6 @@
  BABES AND BURGERS FAVOURITES
 </div>
 <div class="panel" id="panelGrid">
-
   <!--<div class="panel-body" v-show="sel == 5">
      <Ingredient
     ref="ingredient"
@@ -35,7 +34,6 @@
   :lang="lang"
   :key="item.ingredient_id"
   >
-
 </Ingredient>
 
 </div>
@@ -199,9 +197,11 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("header").style.fontSize = "30px";
+    document.getElementById("header").style.fontSize = "20px";
+    document.getElementById("BBlogo").style.width = '50px';
   } else {
-    document.getElementById("header").style.fontSize = "90px";
+    document.getElementById("header").style.fontSize = "60px";
+    document.getElementById("BBlogo").style.width = '150px';
   }
 }
 
@@ -222,8 +222,11 @@ function scrollFunction() {
   position: fixed; /* Fixed position - sit on top of the page */
   top: 0;
   /* opacity: 0.5; */
-  width: 57%; /* Full width */
-  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  width: 57%;
+  /* transition: 0.2s; Add a transition effect (when scrolling - and font size is decreased) */
+  transition: all 0.3s ease-in-out;
+ -webkit-transition: all 0.3s ease-in-out;
+ -moz-transition: all 0.3s ease-in-out;
   z-index: 0;
 }
 #ordering {
@@ -266,10 +269,19 @@ function scrollFunction() {
 .panel-title {
   font-weight: bold;
   background-color: #ccc;
-  padding: 0.01em 5px;
+  padding: 0.1em 5px;
+  margin: auto;
+  margin-bottom: 1em;
   cursor: pointer;
 }
 .panel-body {
   padding: 0.01em 2px;
 }
+/* .nestedGrid{
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: auto auto auto auto;
+  justify-content: space-evenly;
+} */
 </style>

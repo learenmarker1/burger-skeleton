@@ -1,6 +1,6 @@
 <template>
   <div id="ordering">
-    <header id="header"> Babes & Burgers  </header>
+    <header id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
       <img v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
@@ -259,8 +259,10 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.getElementById("header").style.fontSize = "30px";
+    document.getElementById("BBlogo").style.width = '50px';
   } else {
     document.getElementById("header").style.fontSize = "90px";
+    document.getElementById("BBlogo").style.width = '150px';
   }
 }
 
@@ -275,7 +277,10 @@ function scrollFunction() {
   font-size: 20px;
   font-weight: bold;
   width: auto;
-  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  /*transition: 0.2s;  Add a transition effect (when scrolling - and font size is decreased) */
+  transition: all 0.3s ease-in-out;
+ -webkit-transition: all 0.3s ease-in-out;
+ -moz-transition: all 0.3s ease-in-out;
 }
 
 #ordering {
