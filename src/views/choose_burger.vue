@@ -249,7 +249,6 @@ export default {
       }
     },
 
-
     showOrder: function() {
       this.orderAdded=!this.orderAdded;
     },
