@@ -1,20 +1,13 @@
 <template>
   <!-- Note in this component that it is using another component -->
   <div align="center" class="overview">
+
     <div v-for="(ingredient, key) in burger" :key="key">
       {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
-
     </div>
 
-    <router-link id = "changeButton" type="button" to="/" > {{ uiLabels.changeButton }} </router-link>
-    <button  id = "removeButton"  type="button"> {{ uiLabels.removeButton }} </button>
-
-  {{totalPrice}}
-=======
->>>>>>> 29fce6c49f4ceda11d6d25dae0e4a8cdc2437bc2
     <button id = "changeremoveButton" type="button"  onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
-    <button  id = "changeremoveButton"  type="button" > {{ uiLabels.removeButton }} </button>
->>>>>>> 51a3b9bafebec743fa95b7e09148f77855ed9b09
+    <button  id = "changeremoveButton"  type="button" v-on:click="deleteFromOrder(item)"> {{ uiLabels.removeButton }} </button>
   </div>
 </template>
 <script>
@@ -42,7 +35,7 @@ export default {
     },
     cancelOrder: function () {
       this.$emit('cancelOrder');
-    }
+    },
 
   }
 }
