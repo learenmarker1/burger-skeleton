@@ -24,7 +24,6 @@
 
 <div class = "box right">
   <h1>STEKBORDET 2.0</h1>
- <div v-for OrderItemToPrepare>
 
    <OrderItemToPrepare
      id = "order_preparing"

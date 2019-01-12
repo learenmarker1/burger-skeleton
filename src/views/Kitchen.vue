@@ -51,7 +51,7 @@
       id ="order_finished"
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
-      v-on:cancelOrder="markBack(key)"
+      v-on:cancelOrder="markCancel(key)"
       :order-id="key"
       :order="order"
       :lang="lang"

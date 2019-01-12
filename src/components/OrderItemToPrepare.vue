@@ -8,7 +8,7 @@
     :order="order">
   </OrderItem>
 
-<button class = "button" v-show = "order.status === 'started'" @click="cancelOrder"> {{ uiLabels.cancel }} </button>
+<button class = "button" v-show = "order.status === 'started' || order.status === 'done'" @click="cancelOrder"> {{ uiLabels.cancel }} </button>
 <button class = "button" v-show = "order.status === 'not-started' || order.status === 'started'" @click="nextStep"> {{ uiLabels.next }} </button>
 
 

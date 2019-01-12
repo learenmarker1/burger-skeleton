@@ -1,7 +1,7 @@
 {
   "cancelOrder" : "Cancel order",
   "next" : "Next",
-  "cancel": "Cancel",
+  "cancel": "Undo",
   "changeIng" : "Change ingredient",
   "content" : "Content",
   "thankOrder" : "Thank you for your order!",
@@ -55,7 +55,7 @@
   "order_number_is": "with the order number: ",
   "my_order": "My order",
   "add_order": "Add order",
-  "removeButton" : "Delete order",
+  "removeButton" : "Delete",
   "kitchenOverview": "Kitchen overview ",
   "ThankYou": "Thank you",
   "SeeYou": "See you soon!"
