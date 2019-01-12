@@ -17,7 +17,7 @@
   </div>
 
   <div align="center">
-    <button id = "payButton" type="button"  v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder();" > {{ uiLabels.payButton }} </button>
   </div>
 
 </div>

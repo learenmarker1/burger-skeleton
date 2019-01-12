@@ -56,5 +56,7 @@
   "my_order": "My order",
   "add_order": "Add order",
   "removeButton" : "Delete order",
-  "kitchenOverview": "Kitchen overview "
+  "kitchenOverview": "Kitchen overview ",
+  "ThankYou": "Thank you",
+  "SeeYou": "See you soon!"
 }

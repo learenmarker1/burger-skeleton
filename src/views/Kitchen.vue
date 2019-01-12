@@ -188,34 +188,29 @@ button:hover {
   }
 
   #stockButton{
-    width: auto;
-    border-radius: 10px;
-    border: solid pink;
-    background-color: violet;
-    color: white;
-    font-size: 1em;
-    {
-      background-color: #BB86BB;
-      color: black;
-      margin: 20px;
-      border: 5px solid #875187;
-      font-size: 14px;
-      text-align: center;
-      display: inline-block;
-    }
+    background-color: #DF9BBF;
+    border-radius: 20px;
+    border: 5px solid MediumVioletRed;
+    color: black;
+    font-size: 20px;
+    font-variant: small-caps;
+    padding: 15px 15px 15px 15px;
+    margin: 0px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
   }
   .buttonGrid {
     display: grid;
-    padding-top: 100px;
+    padding-top: 50px;
     grid-gap: 15px;
-    grid-template-columns: 25% 25%;
+    grid-template-columns: 25% 25% 25% 25% ;
     justify-content: center;
   }
   .buttonL{
-    grid-column: 1;
+    grid-column: 2;
   }
   .buttonR {
-    grid-column: 2;
+    grid-column: 3;
   }
 
 </style>
