@@ -9,9 +9,9 @@
   "newOrder" : "New Order",
   "pay" : "Pay",
   "sum": "Sum",
-  "ordersFinished" : "Finished orders",
-  "ordersInQueue" : "Order queue",
-  "ordersStarted" : "Started orders",
+  "ordersFinished" : "Finished",
+  "ordersInQueue" : "Queue",
+  "ordersStarted" : "Started",
   "ordersTrending" : "Trending orders",
   "placeOrder" : "Place order",
   "sideorders" : "SIDE ORDERS",
@@ -59,5 +59,6 @@
   "kitchenOverview": "Kitchen overview ",
   "ThankYou": "Thank you",
   "SeeYou": "See you soon!",
-  "ordernumber":"Your order number is:"
+  "ordernumber":"Your order number is:",
+  "To_order": "Order"
 }
