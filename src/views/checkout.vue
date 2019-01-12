@@ -8,6 +8,8 @@
     <div>
       <h1 class="glow" align = "center">  {{ uiLabels.orderOverview }} </h1>
 
+      <div class="myOrder">
+        <br>
       <checkoutComponent
       v-for="(burger, key) in burgers"
       :burger="burger"
@@ -16,7 +18,10 @@
       :lang="lang"
       :key="key">
     </checkoutComponent>
+    </div>
   </div>
+
+  <br>
 
   <!-- <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
@@ -127,6 +132,7 @@ text-align: center;
   border: 5px solid MediumVioletRed;
   color: black;
   font-size: 14px;
+  font-weight: bold;
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
@@ -142,6 +148,14 @@ text-align: center;
   padding-top: 50px;
   padding-bottom: 100px;
   color: white;
+}
+
+.myOrder {
+  border-radius: 40px;
+  border-width: thick;
+  border-color: pink;
+  border-style: dotted;
+  border-color: #DF9BBF;
 }
 
 .glow{
