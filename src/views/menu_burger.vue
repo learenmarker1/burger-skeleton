@@ -1,45 +1,34 @@
 <template>
-    <div id="ordering">
-        <div id="header">Babes & Burgers<button id="langButton" v-on:click="switchLang()">
-          <img id='langPic' v-on:click="switchFlag()" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-          <!-- <img src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png' width=40> -->
-          {{ uiLabels.language }}
-        </button>
-      </div>
+  <div class="background">
 
-<h1 align="center">{{ uiLabels.fromMenu }}</h1>
-<div class="panel-title" > <!--v-on:click="sel == 5 ? sel = 0 : sel = 5" -->
-<img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
- BABES AND BURGERS FAVOURITES
-</div>
-<div class="panel" id="panelGrid">
+    <button id="langButton" v-on:click="switchLang()">
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
+    </button>
 
-  <!--<div class="panel-body" v-show="sel == 5">
-     <Ingredient
-    ref="ingredient"
+    <div id="header">Babes & Burgers</div>
+
+    <h1 align="center">{{ uiLabels.fromMenu }}</h1>
+
+    <div class="panel-title">
+      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
+      BABES AND BURGERS FAVOURITES
+    </div>
+    <div class="panel" id="panelGrid">
+
+    <Ingredient
     v-for="item in ingredients"
     v-show="item.category===7"
     v-on:increment="addToOrder(item)"
     v-on:decrement="deleteFromOrder(item)"
     :item="item"
     :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient> -->
-  <Ingredient
-  ref="ingredient"
-  v-for="item in ingredients"
-  v-show="item.category===7"
-  v-on:increment="addToOrder(item)"
-  v-on:decrement="deleteFromOrder(item)"
-  :item="item"
-  :lang="lang"
-  :key="item.ingredient_id"
-  >
+    :key="item.ingredient_id"
+    >
 
-</Ingredient>
+  </Ingredient>
 
 </div>
-<!-- </div> -->
 
 <h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
@@ -87,8 +76,6 @@
   </Ingredient>
 </div>
 </div>
-<!--
-<button  v-on:click="next()"> {{ uiLabels.next }} </button> -->
 
 <h1>{{ uiLabels.order }}</h1>
 {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
@@ -106,7 +93,6 @@
   :key="key">
 </OrderItem>
 </div>
-
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>
@@ -206,33 +192,46 @@ function scrollFunction() {
 }
 
 </script>
-<style scoped>
-/* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
+<style>
 
-/* .wrap{
-  margin:0;
-} */
+button:hover {
+  cursor: pointer;
+  box-shadow: 5px 20px 25px 5px rgba(0,0,0,0.30), 2px 2px 2px 2px rgba(0,0,0,0.30);
+}
+
+.background {
+  background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  color: white;
+}
+
+#langButton{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: gray;
+  padding:0;
+}
+
+#langPic{
+  width: 60px;
+}
+
 #header {
-  background-color: #f1f1f1; /* Grey background */
-  color: pink;
+  background-color: lightgray; /* Grey background */
+  color: white;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   width: auto;
+  margin-top: 15px;
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
-}
-
-#ordering {
-  margin: auto;
-  padding-top: 150px;
-  width: 47em;
-  background: radial-gradient(lightgray, darkgray);
-  color: white;
-}
-#langButton{
-  position: absolute;
-  top: 8px;
-  right: 16px;
 }
 
 #yourOrder{
@@ -240,65 +239,66 @@ function scrollFunction() {
 }
 
 #placeButton{
-  align-items: right;
-  height: 50px;
-  left: 16px;
-  background-color: #BB86BB;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 15px 15px 15px;
   text-align: center;
-  font-size: 20;
 }
 
 #backButton{
   position: absolute;
-  margin-top: 10px;
-  left: 6px;
-  background-color: #BB86BB;
+  left: 20px;
+  margin: 20px 0 0 10px;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
   text-align: center;
 }
 
 #checkoutButton{
   position: absolute;
-  margin-top: 10px;
-  right: 16px;
-  background-color: #BB86BB;
+  right: 20px;
+  margin: 20px 0 0 10px;
+  background-color: #DF9BBF;
   border-radius: 20px;
-  border: 5px solid #875187;
+  border: 5px solid MediumVioletRed;
   color: black;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
   text-align: center;
 }
 
 .ingredient {
-  border: 1px solid #ccd;
-  padding: 1em;
-  /* background-image: url('~@/assets/exampleImage.jpg'); */
+  border: 3px solid #ccd;
+  padding: 10px;
   background-color: dimgray;
   color: pink;
 }
-/* -------- */
-.panel {
-  /* margin-bottom: 1em; */
-  /* border: 0px solid #ccc; */
-}
+
 #panelGrid{
   display: grid;
-  grid-gap: 2em;
+  grid-gap: 5px;
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: auto auto auto auto;
   justify-content: space-evenly;
 }
+
 .panel-title {
   font-weight: bold;
-  background-color: #ccc;
-  padding: 0.01em 5px;
+  background-color: #acabab;
+  padding:5px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
-.panel-body {
-  padding: 0.01em 2px;
-}
+
 </style>
