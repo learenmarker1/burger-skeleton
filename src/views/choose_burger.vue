@@ -174,9 +174,12 @@
 
 <h1>{{ uiLabels.my_order }}</h1>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
 </p>
+
 {{burgers}}
+
+<p v-show='orderAdded'> Your order has been added to the basket! </p>
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';" > {{ uiLabels.backButton }} </button>
@@ -219,6 +222,7 @@ export default {
       orderNumber: "",
       showCategory: 1,
       sel: 0,
+      orderAdded: false,
       categoryHeadline: ["Buns", "Patties", "Toppings", "Sauces"]
     }
   },
@@ -247,6 +251,10 @@ export default {
       }
     },
 
+
+    showOrder: function() {
+      this.orderAdded=!this.orderAdded;
+    },
     next: function () {
       this.showCategory += 1;
     },
