@@ -1,14 +1,12 @@
 <template>
   <!-- Note in this component that it is using another component -->
-  <div>
+  <div align="center" class="overview">
     <div v-for="(ingredient, key) in burger" :key="key">
       {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
     </div>
-    
-    <button id = "changeremoveButton" type="button" onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
-    <button  id = "changeremoveButton"  type="button" onclick="window.location = '/#/';"> {{ uiLabels.removeButton }} </button>
+    <button id = "changeremoveButton" type="button"  onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
+    <button  id = "changeremoveButton"  type="button" > {{ uiLabels.removeButton }} </button>
   </div>
-
 </template>
 <script>
 
@@ -31,11 +29,11 @@ export default {
     cancelOrder: function () {
       this.$emit('cancelOrder');
     }
+
   }
 }
 </script>
 <style scoped>
-
 
 #changeremoveButton {
   background-color: #DF9BBF;
@@ -48,6 +46,15 @@ export default {
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   margin: 0px 15px 15px 15px;
+  text-align: center;
+}
+
+.overview{
+  /* font-size: 60px;
+  color: pink;
+  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+  font-size: 20px;
+  color: MediumVioletRed;
   text-align: center;
 }
 
