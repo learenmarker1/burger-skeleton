@@ -1,8 +1,15 @@
 <template>
   <div class="ingredient">
-    <div v-if="item.category===7">
-    <img id="burgerPic" :src="require('../assets/' + item.img)" width=80>
-    <p class="ingrList"> ingredients: </p>
+    <div class="innerGrid" v-if="item.category===7">
+    <img id="burgerPic" :src="require('../assets/' + item.img)" width=10>
+    <div class="ingrList"> Ingredienser:<br/>
+      <div class='ingrList' v-if="item.milk_free ">Laktosfri</div>
+      <div class='ingrList' v-else-if="!item.milk_free ">Innehåller laktos</div>
+      <div class='ingrList' v-if="item.gluten_free">Glutenfri</div>
+      <div class='ingrList' v-else-if="!item.gluten_free">Innehåller gluten</div>
+      <div class='ingrList' v-if="item.vegan">Vegansk</div>
+      <div class='ingrList' v-else-if="!item.vegan">Ej vegansk</div>
+  </div>
   </div>
     <label>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
@@ -58,12 +65,21 @@ export default {
 margin-right: 0px;
 }
 #burgerPic{
-  width: 150px;
+  width: 80px;
+}
+.innerGrid{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: auto auto auto auto;
+  justify-content: space-evenly;
 }
 .ingrList{
-  text-align: right;
+  /* text-align: right;
   top: 8px;
-  right: 16px;
+  right: 16px; */
+  grid-column: 2;
+  grid-row: 1;
 }
 
 </style>
