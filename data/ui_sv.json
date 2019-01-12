@@ -9,10 +9,10 @@
   "newOrder" : "Ny beställning",
   "pay" : "Betala",
   "sum" :"Summa",
-  "ordersFinished" : "Färdiga ordrar",
+  "ordersFinished" : "Färdig",
   "orders_pay_desc": "ORDRAR-Kassa",
-  "ordersInQueue" : "Ordrar att förbereda",
-  "ordersStarted" : "Påbörjade ordrar",
+  "ordersInQueue" : "Att förbereda",
+  "ordersStarted" : "Påbörjade",
   "ordersTrending" : "Populära ordrar",
   "placeOrder" : "Beställ",
   "sideorders" : "TILLBEHÖR",
@@ -58,5 +58,5 @@
   "removeButton" : "Radera order",
   "kitchenOverview":"Köket - översikt",
   "ThankYou": "Tack",
-  "SeeYou": "Vi ses snart!" 
+  "SeeYou": "Vi ses snart!"
 }

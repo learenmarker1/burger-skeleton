@@ -5,15 +5,8 @@
       {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
 
     </div>
-<<<<<<< HEAD
-    <router-link id = "changeButton" type="button" to="/" > {{ uiLabels.changeButton }} </router-link>
-    <button  id = "removeButton"  type="button"> {{ uiLabels.removeButton }} </button>
-
-  {{totalPrice}}
-=======
     <button id = "changeremoveButton" type="button"  onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
     <button  id = "changeremoveButton"  type="button" > {{ uiLabels.removeButton }} </button>
->>>>>>> 51a3b9bafebec743fa95b7e09148f77855ed9b09
   </div>
 </template>
 <script>
