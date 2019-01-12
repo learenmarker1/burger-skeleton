@@ -4,6 +4,7 @@
     <div v-for="(ingredient, key) in burger" :key="key">
       {{ingredient['ingredient_' + lang]}} {{ingredient.selling_price}} kr
     </div>
+
     <button id = "changeremoveButton" type="button"  onclick="window.location = '/#/';"> {{ uiLabels.changeButton }} </button>
     <button  id = "changeremoveButton"  type="button" > {{ uiLabels.removeButton }} </button>
   </div>

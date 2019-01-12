@@ -8,8 +8,7 @@
 
     <h1 class="glow"> {{ uiLabels.ThankYou}}
       <img class="logo" src= "@/assets/BB-logo.png"></h1>
-        {{ uiLabels.SeeYou}}
-
+      <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
     </div>
   </template>
 

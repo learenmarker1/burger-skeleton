@@ -6,7 +6,8 @@
     </button>
 
     <div>
-      <h1 class="glow" align = "center"> <img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> {{ uiLabels.orderOverview }} </h1>
+      <h1 class="glow" align = "center">  {{ uiLabels.orderOverview }} </h1>
+
       <checkoutComponent
       v-for="(burger, key) in burgers"
       :burger="burger"
