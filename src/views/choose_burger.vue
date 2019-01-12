@@ -1,7 +1,7 @@
 <template>
   <div class="background">
 
-    <header id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
@@ -12,6 +12,7 @@
       <h1 align="center">
         {{ uiLabels.customizing }}
       </h1>
+
       <div class="panel">
         <div class="panel-title" v-on:click="sel == 1 ? sel = 0 : sel = 1">
           <img align="left" src='http://www.clker.com/cliparts/K/F/m/Q/B/D/bread-bun.svg'  height=35 width=35>
@@ -38,7 +39,6 @@
         </Ingredient>
       </div>
     </div>
-
 
     <div class="panel">
       <div class="panel-title" v-on:click="sel == 2 ? sel = 0 : sel = 2">
@@ -172,12 +172,12 @@
 </div>
 
 
-
 <h1>{{ uiLabels.my_order }}</h1>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
 </p>
 {{burgers}}
+
 <div>
   <button id = "backButton" onclick="window.location = '/#/';" > {{ uiLabels.backButton }} </button>
 </div>
@@ -246,6 +246,7 @@ export default {
         this.$refs.ingredient[i].resetCounter();
       }
     },
+
     next: function () {
       this.showCategory += 1;
     },
@@ -382,6 +383,19 @@ padding: 0.01em 2px;
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
+}
+
+.glow{
+  /* font-size: 60px;
+  color: pink;
+  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+  font-family: "Snell Roundhand", cursive, sans-serif;
+  font-size: 70px;
+  color: white;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
 </style>
