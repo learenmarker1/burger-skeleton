@@ -49,6 +49,7 @@ export default {
   margin: 15px;
   border: 3px solid MediumVioletRed;
   font-size: 10px;
+  font-weight: bold;
   text-align: center;
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
