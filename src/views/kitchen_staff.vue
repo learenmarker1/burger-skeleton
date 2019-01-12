@@ -2,32 +2,50 @@
 <div id="orders">
 
   <button id="langButton" v-on:click="switchLang()">
-    <img v-on:click="switchFlag()"  src= 'engflag.jpg'  width=40 >
-    {{ uiLabels.language }}
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
+    <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
 
   <h1 align = "center" >{{ uiLabels.kitchenOverview}}</h1>
 
-  <div class = "row" align = "center">
+  <div class = "wrapper" align = "center">
 
-  <div class = "column left">
-    <h1>{{ uiLabels.ordersInQueue }}</h1>
-
+  <div class = "box left">
+    <h1>STEKBORDET!!</h1>
+    <div class = "box steaktable">
+      <ul align = "left" v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
+        <div v-if="lang_en"> {{item.ingredient_en}}: </div>
+        <div v-else-if="lang_sv"> {{item.ingredient_sv}}: </div>
+      </ul>
+      </div>
+    <div class = "box inner_steaktable ">
+    </div>
   </div>
 
-<div class = "column middle">
-  <h1>{{ uiLabels.ordersStarted }}</h1>
-</div>
+<div class = "box right">
+  <h1>STEKBORDET 2.0</h1>
+ <div v-for OrderItemToPrepare>
 
-<div class = "column right">
-  <h1>{{ uiLabels.ordersFinished }}</h1>
+   <OrderItemToPrepare
+     id = "order_preparing"
+     v-for="(order, key) in orders"
+     v-if="order.status === 'started'"
+     v-on:nextStep="markDone(key)"
+     v-on:cancelOrder="markCancel(key)"
+     :order-id="key"
+     :order="order"
+     :ui-labels="uiLabels"
+     :lang="lang"
+     :key="key">
+   </OrderItemToPrepare>
+</div>
 </div>
 </div>
 
 <div class = "buttonGrid">
 
   <div class = "buttonL">
-      <button align = "right" id = "button" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
+      <button align = "right" id = "button" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
   </div>
 
   <div class = "buttonR">
@@ -102,57 +120,66 @@ button:hover {
     background-color: lightgreen;
     margin: 20px;
   }
-  .row {
-    display: flex;
-    height: 98%;
-  }
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+        grid-template-columns: repeat(2, [col] 25% ) ;
+        grid-template-rows: repeat(1, [row] auto  );
+        background-color: #fff;
+        color: #444;
+    }
 
-  .column {
-    border: solid lightgray;
-    border-width: 3px;
-    margin: -2px;
-    padding: 15px;
-    height: 450px;
-  }
+  .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 100%;
+    }
+  .box .box {
+    background-color: #ccc;
+    color: #444;
+    font-size: 75%;
+    }
   .left {
-    width: 20%;
-    float: left;
-    overflow: scroll;
-  }
-
-
-  .middle {
-    width: 60%;
-    float: left;
-    overflow: scroll;
-  }
+    grid-column: col / span 2;
+    grid-row: row;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    }
 
   .right{
-    width: 20%;
-    float: left;
-    overflow: scroll;
+    grid-column: col 3 / span 2;
+    grid-row: row;
+  }
+
+  .steaktable{
+    grid-column: 1;
+    grid-row: row;
+    text-align: right;
+  }
+
+  .inner_steaktable{
+    grid-column: 2;
+    grid-row: row;
   }
 
   #button{
-    width: auto;
-    border-radius: 10px;
-    border: solid pink;
-    background-color: violet;
-    color: white;
-    font-size: 1em;
-    {
-      background-color: #BB86BB;
-      color: black;
-      margin: 20px;
-      border: 5px solid #875187;
-      font-size: 14px;
-      text-align: center;
-      display: inline-block;
-    }
+    background-color: #DF9BBF;
+    border-radius: 20px;
+    border: 5px solid MediumVioletRed;
+    color: black;
+    font-size: 20px;
+    font-variant: small-caps;
+    padding: 15px 15px 15px 15px;
+    margin: 0px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
   }
   .buttonGrid {
     display: grid;
-    padding-top: 100px;
+    padding-top: 50px;
     grid-gap: 15px;
     grid-template-columns: 25% 25%;
     justify-content: center;
