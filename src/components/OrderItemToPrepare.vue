@@ -8,8 +8,9 @@
     :order="order">
   </OrderItem>
 
-<button @click="nextStep"> {{ uiLabels.next }} </button>
-<button @click="cancelOrder"> {{ uiLabels.cancel }} </button>
+<button class = "button" v-show = "order.status === 'started'" @click="cancelOrder"> {{ uiLabels.cancel }} </button>
+<button class = "button" v-show = "order.status === 'not-started' || order.status === 'started'" @click="nextStep"> {{ uiLabels.next }} </button>
+
 
 </div>
 </template>
@@ -38,5 +39,14 @@ export default {
 }
 </script>
 <style scoped>
-
+.button {
+  background-color: #DF9BBF;
+  border-radius: 20px;
+  border: 5px solid MediumVioletRed;
+  color: black;
+  font-size: 20px;
+  font-variant: small-caps;
+  text-align: center;
+  display: inline-block;
+}
 </style>
