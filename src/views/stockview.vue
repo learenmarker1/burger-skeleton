@@ -14,6 +14,7 @@
           <ul v-for="item in ingredients" v-if='item.category == 4' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
+            <button id = "order_item_Button" type="button"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -22,6 +23,7 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
+            <button id = "order_item_Button" type="button"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -30,6 +32,7 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 2' :key="item.ingredient_id" >
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
+            <button id = "order_item_Button" type="button"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -38,6 +41,7 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 3' :key="item.ingredient_id">
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
+            <button id = "order_item_Button" type="button"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -134,6 +138,15 @@
       background-color: violet;
       color: white;
       font-size: 1em;
+    }
+
+    #order_item_Button {
+      background-color: violet;
+      color: black;
+      border: 3px solid black;
+      font-size: 12px;
+      font-variant: small-caps;
+      margin: 0px 15px 15px 15px;
     }
 
     button:hover{
