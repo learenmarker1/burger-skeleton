@@ -1,12 +1,13 @@
 <template>
   <div class="background">
 
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <div id="header">Babes & Burgers</div>
 
     <h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
@@ -14,45 +15,46 @@
       <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
       BABES AND BURGERS FAVOURITES
     </div>
+
     <div class="panel" id="panelGrid">
-
-    <Ingredient
-    v-for="item in ingredients"
-    v-show="item.category===7"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id"
-    >
-
-  </Ingredient>
-
-</div>
-
-<h1 align="center">{{ uiLabels.sideOrder }}</h1>
-
-<div class="panel">
-  <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
-    <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
-    {{ uiLabels.sideorders }}
-    <div id="yourOrder">
-      {{ uiLabels.addingsChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
-    </div>
+      <Ingredient
+      v-for="item in ingredients"
+      v-show="item.category===7"
+      v-on:increment="addToOrder(item)"
+      v-on:decrement="deleteFromOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
   </div>
-  <div class="panel-body" v-show="sel == 6">
-    <Ingredient
-    ref="ingredient"
-    v-for="item in ingredients"
-    v-show="item.category===5"
-    v-on:increment="addToOrder(item)"
-    v-on:decrement="deleteFromOrder(item)"
-    :item="item"
-    :lang="lang"
-    :key="item.ingredient_id">
-  </Ingredient>
-</div>
+
+  <h1 align="center">{{ uiLabels.sideOrder }}</h1>
+
+  <div class="panel">
+    <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
+      <img src='http://www.clker.com/cliparts/2/F/F/v/d/Z/french-fries.svg'  height=35>
+      {{ uiLabels.sideorders }}
+      <div id="yourOrder">
+        {{ uiLabels.addingsChoice }}
+
+        <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})" :key="key">
+          {{ ing }}
+        </span>
+
+      </div>
+    </div>
+    <div class="panel-body" v-show="sel == 6">
+      <Ingredient
+      ref="ingredient"
+      v-for="item in ingredients"
+      v-show="item.category===5"
+      v-on:increment="addToOrder(item)"
+      v-on:decrement="deleteFromOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
+  </div>
 </div>
 <div class="panel">
   <div class="panel-title" v-on:click="sel == 7 ? sel = 0 : sel = 7">
@@ -60,7 +62,9 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      {{chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
+        {{ ing }}
+      </span>
     </div>
   </div>
   <div class="panel-body" v-show="sel == 7">
@@ -77,11 +81,12 @@
 </div>
 </div>
 
-<h1>{{ uiLabels.order }}</h1>
-{{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-<button id="placeButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<h1>{{ uiLabels.my_order }}</h1>
+<p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+</p>
+{{burgers}}
 
-<h1>{{ uiLabels.ordersInQueue }}</h1>
 <div>
   <OrderItem
   v-for="(order, key) in orders"
@@ -93,6 +98,7 @@
   :key="key">
 </OrderItem>
 </div>
+
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>
@@ -151,21 +157,31 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-      order = {
-        ingredients: this.chosenIngredients,
-        price: this.price
-      };
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
+    // placeOrder: function () {
+    //   var i,
+    //   //Wrap the order in an object
+    //   order = {
+    //     ingredients: this.chosenIngredients,
+    //     price: this.price
+    //   };
+    //   // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+    //   this.$store.state.socket.emit('order', {order: order});
+    //   //set all counters to 0. Notice the use of $refs
+    //   for (i = 0; i < this.$refs.ingredient.length; i += 1) {
+    //     this.$refs.ingredient[i].resetCounter();
+    //   }
+    //   this.price = 0;
+    //   this.chosenIngredients = [];
+    // },
+
+    addBurger: function () {
+      let burger = this.chosenIngredients.splice(0);
+      this.chosenIngredients = [];
+      this.$store.commit('addBurger', burger);
       //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
+      for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
         this.$refs.ingredient[i].resetCounter();
       }
-      this.price = 0;
-      this.chosenIngredients = [];
     },
 
     next: function () {
@@ -301,6 +317,19 @@ button:hover {
   padding:5px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.glow{
+  /* font-size: 60px;
+  color: pink;
+  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+  font-family: "Snell Roundhand", cursive, sans-serif;
+  font-size: 70px;
+  color: white;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
 </style>
