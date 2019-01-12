@@ -2,6 +2,8 @@
   <div id="orders">
 
     <h1 align = "center">{{ uiLabels.stockHeader}}</h1>
+    <button id = "orderButton" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
+
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
@@ -14,6 +16,7 @@
           <ul v-for="item in ingredients" v-if='item.category == 4' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
+            <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -22,6 +25,7 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
+            <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -30,6 +34,7 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 2' :key="item.ingredient_id" >
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
+            <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
@@ -38,13 +43,16 @@
           <ul v-for = "item in ingredients" v-if = 'item.category == 3' :key="item.ingredient_id">
             <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
             <div v-if="lang_en"> {{item.ingredient_en}} </div>
+            <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
           </ul>
         </div>
 
 
         <div class = "column">
-          <h3>NAVIGERA</h3>
-          <button id = "orderButton" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
+
+          <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+
+          </p>
         </div>
       </div>
     </div>
@@ -73,7 +81,14 @@
     methods: {
       markDone: function (orderid) {
         this.$store.state.socket.emit("orderDone", orderid);
+      },
+      addToOrder: function (item) {
+        this.chosenIngredients.push(item);
+      },
+      showOrder: function() {
+        this.orderAdded=!this.orderAdded;
       }
+
     }
   }
   </script>
@@ -134,6 +149,15 @@
       background-color: violet;
       color: white;
       font-size: 1em;
+    }
+
+    #order_item_Button {
+      background-color: violet;
+      color: black;
+      border: 3px solid black;
+      font-size: 12px;
+      font-variant: small-caps;
+      margin: 0px 15px 15px 15px;
     }
 
     button:hover{

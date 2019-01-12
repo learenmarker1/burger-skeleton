@@ -44,9 +44,9 @@
   "choose_button": "Skräddarsy din hamburgare",
   "backButton":"Tillbaka",
   "checkoutButton": "Gå till betalning",
-  "payButton": "Betala & Bekräfta beställning!",
+  "payButton": "Betala & Bekräfta ning!",
   "changeButton": "Ändra",
-  "confirmed_text": "Du har nu beställt",
+  "confirmed_text": "Du har nu t",
   "orderOverview": "Orderöversikt",
   "startTO": "till",
   "BoBfavvo": "BABES AND BURGERS FAVORITER",
@@ -58,5 +58,6 @@
   "removeButton" : "Radera order",
   "kitchenOverview":"Köket - översikt",
   "ThankYou": "Tack",
-  "SeeYou": "Vi ses snart!"
+  "SeeYou": "Vi ses snart!",
+  "Ordering": "BESTÄLLER",
 }
