@@ -11,15 +11,31 @@
       <checkoutComponent
       v-for="(burger, key) in burgers"
       :burger="burger"
+      :totalPrice="totalPrice"
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
     </checkoutComponent>
   </div>
 
+<<<<<<< HEAD
+  <p> {{ uiLabels.TotalSum}} {{ totalPrice }} kr </p>
+
+
+  <div align="center">
+    <button id = "payButton" type="button"  v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
+  </div>
+
+  <!-- <div id="order_confirmed">
+    <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
+
+     <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3>
+  </div> -->
+=======
   <div align="center">
     <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder();" > {{ uiLabels.payButton }} </button>
   </div>
+>>>>>>> 51a3b9bafebec743fa95b7e09148f77855ed9b09
 
 </div>
 </template>
@@ -93,8 +109,14 @@ color: white;
 
 #langButton{
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 15px;
+  right: 15px;
+  background-color: gray;
+  padding:0;
+}
+
+#langPic{
+  width: 60px;
 }
 
 /* #changeButton {
