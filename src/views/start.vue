@@ -1,144 +1,134 @@
 <template>
-  <div id="ordering">
-
-
+  <div class="background">
 
     <button id="langButton" v-on:click="switchLang()">
-
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src='https://cdn.pixabay.com/photo/2017/01/31/16/46/banner-2025451__340.png'  width=40 >
-      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/1024px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png' width=40 >
-
-      {{ uiLabels.language }}
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
+      <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow" align = "center"> {{ uiLabels.startHeader}}  {{ uiLabels.startTO}}  </h1> 
-<img align= "center"  class= "logo" src= "@/assets/BB-logo.png">
-    <div class = "row">
+    <h1 class="glow"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}}
+      <img class="logo" src= "@/assets/BB-logo.png"></h1>
 
-      <div class = "buttonL">
-        <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+      <div class = "row">
+        <div class = "buttonL">
+          <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+        </div>
+        <div class = "buttonR">
+          <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
+        </div>
+
       </div>
-
-      <div class = "buttonR">
-        <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
-      </div>
-
     </div>
-  </div>
-</template>
+  </template>
 
 
-<script>
-import OrderItem from '@/components/OrderItem.vue'
-import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
-//import methods and data that are shared between ordering and kitchen views
-import sharedVueStuff from '@/components/sharedVueStuff.js'
+  <script>
+  import OrderItem from '@/components/OrderItem.vue'
+  import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
+  //import methods and data that are shared between ordering and kitchen views
+  import sharedVueStuff from '@/components/sharedVueStuff.js'
 
-export default {
-  name: 'Ordering',
-  components: {
-    OrderItem,
-    OrderItemToPrepare
-  },
-  mixins: [sharedVueStuff], // include stuff that is used in both
-  //the ordering system and the kitchen
-  data: function(){
-    return {
-
+  export default {
+    name: 'Ordering',
+    components: {
+      OrderItem,
+      OrderItemToPrepare
+    },
+    mixins: [sharedVueStuff], // include stuff that is used in both
+    //the ordering system and the kitchen
+    data: function(){
+      return {
+      }
+    },
+    methods: {
     }
-  },
-  methods: {
-
-
   }
-}
-
-</script>
+  </script>
 
 
-<style scoped>
+  <style>
 
-button:hover {
-  cursor: pointer;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.glow{
-  /* font-size: 60px;
-  color: pink;
-  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  button:hover {
+    cursor: pointer;
+    box-shadow: 5px 20px 25px 5px rgba(0,0,0,0.30), 2px 2px 2px 2px rgba(0,0,0,0.30);
   }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+
+  .background {
+    background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 100px;
   }
-}
 
-IMG.logo{
-  /* position: absolute; */
-  /* top: 0px;
-  left: 200px;
-  width: 250px; */
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
-#ordering {
-  margin: auto;
-  padding-top: 50px;
-  padding-bottom: 200px;
-  max-width: 50em;
-  background: radial-gradient(lightgray, darkgray);
-  /* background-image: url("https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"); */
+  #langButton{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: gray;
+    padding:0;
+  }
 
-  color: white;
-}
+  #langPic{
+    width: 60px;
+  }
 
-#langButton{
-  position: absolute;
-  top: 16px;
-  right: 250px;
-}
+  .glow{
+    /* font-size: 60px;
+    color: pink;
+    text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+    font-family: "Snell Roundhand", cursive, sans-serif;
+    font-size: 70px;
+    color: white;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
 
-#orderButtons {
-  /* height: 150px;
-  width: 150px; */
-  background-color: #BB86BB;
-  border-radius: 20px;
-  border: 5px solid #875187;
-  color: black;
-  font-size: 20px;
-  padding: 10px 10px 10px 10px;
-  margin: 15px 15px 15px 15px;
-  text-align: center;
-  display: inline-block;
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
 
-}
-.row {
-  display: grid;
-  padding-top: 100px;
-  grid-gap: 15px;
-  grid-template-columns:25% 25%;
-  justify-content: center;
-  justify-items: center;
-}
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 80vh;
+  }
 
-.buttonL{
-  grid-column: 1;
-}
-.buttonR {
-  grid-column: 2;
-}
+  #orderButtons {
+    background-color: #DF9BBF;
+    border-radius: 20px;
+    border: 5px solid MediumVioletRed;
+    color: black;
+    font-size: 20px;
+    font-variant: small-caps;
+    padding: 15px 15px 15px 15px;
+    margin: 0px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
+  }
+  .row {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns:25% 25%;
+    justify-content: center;
+  }
+  .buttonL{
+    grid-column: 1;
+  }
+  .buttonR {
+    grid-column: 2;
+  }
 
-
-</style>
+  </style>
