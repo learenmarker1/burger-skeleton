@@ -33,9 +33,9 @@
   "backButton": "Go back",
   "checkoutButton": "Go to checkout",
   "payButton": "Pay & Confirm Order!",
-  "changeButton": "Change Order",
+  "changeButton": "Change",
   "confirmed_text": "You have now ordered: ",
-  "orderOverview": "Order overview: ",
+  "orderOverview": "Order overview",
   "bun" : "BUN",
   "bunChoice" : "Your choice of bun: ",
   "patty" : "PATTY",
@@ -55,6 +55,8 @@
   "order_number_is": "with the order number: ",
   "my_order": "My order",
   "add_order": "Add order",
-  "removeButton" : "Delete order",
-  "kitchenOverview": "Kitchen overview "
+  "removeButton" : "Delete",
+  "kitchenOverview": "Kitchen overview ",
+  "ThankYou": "Thank you",
+  "SeeYou": "See you soon!"
 }

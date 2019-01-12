@@ -310,6 +310,10 @@ color: white;
   padding:0;
 }
 
+#langPic{
+  width: 60px;
+}
+
 #yourOrder{
   text-align: right;
 }

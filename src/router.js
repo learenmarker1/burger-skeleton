@@ -3,6 +3,7 @@ import Startview from './views/start'
 import Choose_burger from './views/choose_burger'
 import Menu_burger from './views/menu_burger'
 import Checkout from './views/checkout'
+import Thanks from './views/thanks'
 import Kitchen from './views/Kitchen'
 import Kitchen_staff from './views/kitchen_staff'
 import Stockview from './views/stockview'
@@ -50,6 +51,14 @@ let router = new Router({
       name: 'checkout',
       component: Checkout
     },
+    {
+    path: '/thanks',
+    meta: {
+      title: 'Babes and Burgers <3',
+    },
+    name: 'thanks',
+    component: Thanks
+  },
     {
       path: '/kitchen',
       meta: {
