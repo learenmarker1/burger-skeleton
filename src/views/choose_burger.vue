@@ -229,6 +229,7 @@ export default {
       this.orderNumber = data;
     }.bind(this));
   },
+
   methods: {
     addToOrder: function (item) {
       this.chosenIngredients.push(item);
@@ -238,17 +239,15 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
-    //detta ändrades i koden, bytte addburger mot placeorder --> ändrar mkt annat i koden också!
+
     addBurger: function () {
       let burger = this.chosenIngredients.splice(0);
       this.chosenIngredients = [];
       this.$store.commit('addBurger', burger);
       //set all counters to 0. Notice the use of $refs
       for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
+        this.$refs.ingredient[i].resetCounter();}
     },
-
     showOrder: function() {
       this.orderAdded=!this.orderAdded;
     },
@@ -321,7 +320,7 @@ color: white;
   border: 3px solid #ccd;
   padding: 10px;
   background-color: dimgray;
-  color: pink;
+  color: #DF9BBF;
 }
 /* -------- */
 
