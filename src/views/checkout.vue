@@ -20,8 +20,8 @@
     </checkoutComponent>
     </div>
   </div>
-
   <br>
+
 
   <!-- <div id="order_confirmed">
     <h2 class="header2" align = "center">  {{ uiLabels.confirmed_text }} </h2>
@@ -32,14 +32,25 @@
   <div align="center">
     <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder();" > {{ uiLabels.payButton }} </button>
   </div>
+
+  <div>
+    {{ this.price }}
+  </div>
+
 </div>
+
+
+
 </template>
+
+
 
 
 <script>
 import checkoutComponent from '@/components/checkoutComponent.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
+import choose_burger from '@/views/choose_burger.vue'
 
 export default {
   name: 'Checkout',

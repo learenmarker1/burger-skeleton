@@ -1,7 +1,7 @@
 <template>
   <div class="background">
 
-    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:125px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
@@ -229,6 +229,7 @@ export default {
       this.orderNumber = data;
     }.bind(this));
   },
+
   methods: {
     addToOrder: function (item) {
       this.chosenIngredients.push(item);
@@ -238,17 +239,15 @@ export default {
       this.chosenIngredients.splice(this.chosenIngredients.indexOf(item),1);
       this.price += -item.selling_price;
     },
-    //detta ändrades i koden, bytte addburger mot placeorder --> ändrar mkt annat i koden också!
+
     addBurger: function () {
       let burger = this.chosenIngredients.splice(0);
       this.chosenIngredients = [];
       this.$store.commit('addBurger', burger);
       //set all counters to 0. Notice the use of $refs
       for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
+        this.$refs.ingredient[i].resetCounter();}
     },
-
     showOrder: function() {
       this.orderAdded=!this.orderAdded;
     },
@@ -269,11 +268,11 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("header").style.fontSize = "30px";
+    document.getElementById("header").style.fontSize = "20px";
     document.getElementById("BBlogo").style.width = '50px';
   } else {
-    document.getElementById("header").style.fontSize = "90px";
-    document.getElementById("BBlogo").style.width = '150px';
+    document.getElementById("header").style.fontSize = "60px";
+    document.getElementById("BBlogo").style.width = '125px';
   }
 }
 
@@ -282,7 +281,8 @@ function scrollFunction() {
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
 #header {
-  background-color: lightgray; /* Grey background */
+  /* background-color: lightgray; /* Grey background */*/
+  background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
   color: white;
   text-align: center;
   font-size: 20px;
@@ -321,7 +321,7 @@ color: white;
   border: 3px solid #ccd;
   padding: 10px;
   background-color: dimgray;
-  color: pink;
+  color: #DF9BBF;
 }
 /* -------- */
 
