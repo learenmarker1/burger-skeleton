@@ -81,6 +81,7 @@ margin-right: 0px;
   grid-column: 2;
   grid-row: 1;
   font-size: 85%;
+  color: #DF9BBF;
 }
 
 </style>

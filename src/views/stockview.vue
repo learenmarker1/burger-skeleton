@@ -57,7 +57,11 @@
       <div class = "column">
         <h3> {{ uiLabels.To_order }} </h3>
         <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
+
+        <button id = "stockOrderButton" > {{ uiLabels.sendOrderStock }} </button>
+
         <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button>
+
     </div>
   </div>
 
@@ -158,6 +162,20 @@ h1 {
     text-align: center;
     display: inline-block;
   }
+  #stockOrderButton{
+      background-color: #DF9BBF;
+      border-radius: 20px;
+      border: 5px solid MediumVioletRed;
+      color: black;
+      font-size: 20px;
+      font-variant: small-caps;
+      padding: 15px 15px 15px 15px;
+      position:fixed;
+      margin-left: 45px;
+      text-align: center;
+      display: inline-block;
+
+    }
 
   #order_item_Button {
     background-color: #DF9BBF;
