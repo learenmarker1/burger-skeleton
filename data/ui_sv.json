@@ -60,5 +60,12 @@
   "ThankYou": "Tack",
   "SeeYou": "Vi ses snart!",
   "ordernumber": "Ditt ordernummer är:",
-  "To_order": "Beställ"
+  "To_order": "Beställ",
+  "orderAdded": "Din beställning har lagts till i kundkorgen!",
+  "lactoseFree": "Laktosfri",
+  "lactose": "Innehåller laktos",
+  "glutenFree": "Glutenfri",
+  "gluten": "Innehåller gluten",
+  "vegan": "Vegansk",
+  "notVegan": "Ej vegansk"
 }
