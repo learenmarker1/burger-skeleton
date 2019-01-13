@@ -173,9 +173,12 @@
 
 
 <h1>{{ uiLabels.my_order }}</h1>
+<div class="myOrder">
+  <br>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
 </p>
+</div>
 
 <p v-show='orderAdded'> {{ uiLabels.orderAdded }} </p>
 
@@ -392,6 +395,14 @@ padding: 0.01em 2px;
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
+}
+
+.myOrder {
+  border-radius: 40px;
+  border-width: thick;
+  border-color: pink;
+  border-style: dotted;
+  border-color: #DF9BBF;
 }
 
 .glow{
