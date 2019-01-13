@@ -80,6 +80,7 @@ margin-right: 0px;
   right: 16px; */
   grid-column: 2;
   grid-row: 1;
+  font-size: 85%;
 }
 
 </style>
