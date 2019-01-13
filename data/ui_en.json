@@ -25,7 +25,7 @@
   "orders_pay_desc" : "ORDERS-pay desc",
   "stockButton" : "STOCK",
   "stockHeader" : "STOCK",
-  "orderButton" : "To Kitchen",
+  "kitchenButton" : "To Kitchen",
   "startHeader": "Welcome",
   "startHeaderCont": "Babes & Burgers!",
   "menu_button": "Choose from our meny",
@@ -67,5 +67,6 @@
   "glutenFree": "Gluten free",
   "gluten": "Contains gluten",
   "vegan": "Vegan",
-  "notVegan": "Not vegan"
+  "notVegan": "Not vegan",
+  "sendOrderStock": "Send Order"
 }

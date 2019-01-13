@@ -1,7 +1,7 @@
 <template>
   <div class="background">
 
-    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:125px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
@@ -85,6 +85,7 @@
 <p v-show='orderAdded'> {{uiLabels.orderAdded}} </p>
 
 </div>
+
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>
@@ -194,7 +195,7 @@ function scrollFunction() {
     document.getElementById("BBlogo").style.width = '50px';
   } else {
     document.getElementById("header").style.fontSize = "60px";
-    document.getElementById("BBlogo").style.width = '150px';
+    document.getElementById("BBlogo").style.width = '125px';
   }
 }
 
@@ -231,7 +232,8 @@ button:hover {
 }
 
 #header {
-  background-color: lightgray; /* Grey background */
+  /* background-color: lightgray; /* Grey background */ */
+  background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
   color: white;
   text-align: center;
   font-size: 20px;
@@ -289,7 +291,8 @@ button:hover {
   border: 3px solid #ccd;
   padding: 10px;
   background-color: grey;
-  color: #DF9BBF;
+  /* color: #DF9BBF; */
+  color:pink;
 }
 
 #panelGrid{

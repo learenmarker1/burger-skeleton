@@ -25,7 +25,7 @@
   "language" : "English",
   "stockButton": "Lagersaldo",
   "stockHeader": "Lagersaldo",
-  "orderButton": "Till Köket",
+  "kitchenButton": "Till Köket",
   "bun": "BRÖD",
   "bunChoice": "Ditt val av bröd: ",
   "patty":"FYLLNING",
@@ -44,7 +44,7 @@
   "choose_button": "Skräddarsy din hamburgare",
   "backButton":"Tillbaka",
   "checkoutButton": "Gå till betalning",
-  "payButton": "Betala & Bekräfta ning!",
+  "payButton": "Betala & Bekräfta!",
   "changeButton": "Ändra",
   "confirmed_text": "Du har nu t",
   "orderOverview": "Orderöversikt",
@@ -67,5 +67,6 @@
   "glutenFree": "Glutenfri",
   "gluten": "Innehåller gluten",
   "vegan": "Vegansk",
-  "notVegan": "Ej vegansk"
+  "notVegan": "Ej vegansk",
+  "sendOrderStock": "Skicka Beställning"
 }

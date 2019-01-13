@@ -1,7 +1,7 @@
 <template>
   <div class="background">
 
-    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:125px"> Babes & Burgers  </header>
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
@@ -173,9 +173,12 @@
 
 
 <h1>{{ uiLabels.my_order }}</h1>
+<div class="myOrder">
+  <br>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
 </p>
+</div>
 
 <p v-show='orderAdded'> {{ uiLabels.orderAdded }} </p>
 
@@ -268,11 +271,11 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("header").style.fontSize = "30px";
+    document.getElementById("header").style.fontSize = "20px";
     document.getElementById("BBlogo").style.width = '50px';
   } else {
-    document.getElementById("header").style.fontSize = "90px";
-    document.getElementById("BBlogo").style.width = '150px';
+    document.getElementById("header").style.fontSize = "60px";
+    document.getElementById("BBlogo").style.width = '125px';
   }
 }
 
@@ -281,7 +284,8 @@ function scrollFunction() {
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
 #header {
-  background-color: lightgray; /* Grey background */
+  /* background-color: lightgray; /* Grey background */*/
+  background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
   color: white;
   text-align: center;
   font-size: 20px;
@@ -391,6 +395,14 @@ padding: 0.01em 2px;
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
+}
+
+.myOrder {
+  border-radius: 40px;
+  border-width: thick;
+  border-color: pink;
+  border-style: dotted;
+  border-color: #DF9BBF;
 }
 
 .glow{

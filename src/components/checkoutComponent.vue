@@ -36,7 +36,7 @@ export default {
     cancelOrder: function () {
       this.$emit('cancelOrder');
     },
-
+    
   }
 }
 </script>
