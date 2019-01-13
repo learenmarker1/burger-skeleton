@@ -23,6 +23,8 @@
     </Ingredient>
   </div>
 
+  
+
   <h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
   <div class="panel">
