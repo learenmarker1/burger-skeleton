@@ -144,22 +144,27 @@ h1 {
   }
 
   #orderButton{
-    width: auto;
-    align-items: right;
-    border-radius: 10px;
-    border: solid pink;
-    background-color: violet;
-    color: white;
-    font-size: 1em;
+    background-color: #DF9BBF;
+    border-radius: 20px;
+    border: 5px solid MediumVioletRed;
+    color: black;
+    font-size: 20px;
+    font-variant: small-caps;
+    padding: 15px 15px 15px 15px;
+    margin: 0px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
   }
 
   #order_item_Button {
-    background-color: violet;
+    background-color: #DF9BBF;
+    border-radius: 20px;
+    border: 2px solid MediumVioletRed;
     color: black;
-    border: 3px solid black;
-    font-size: 12px;
+    font-size: 15px;
     font-variant: small-caps;
-    margin: 0px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
   }
 
   #quantity {
