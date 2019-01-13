@@ -86,18 +86,6 @@
 
 </div>
 
-<div>
-  <OrderItem
-  v-for="(order, key) in orders"
-  v-if="order.status !== 'done'"
-  :order-id="key"
-  :order="order"
-  :ui-labels="uiLabels"
-  :lang="lang"
-  :key="key">
-</OrderItem>
-</div>
-
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>

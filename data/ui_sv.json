@@ -25,7 +25,7 @@
   "language" : "English",
   "stockButton": "Lagersaldo",
   "stockHeader": "Lagersaldo",
-  "orderButton": "Till Köket",
+  "kitchenButton": "Till Köket",
   "bun": "BRÖD",
   "bunChoice": "Ditt val av bröd: ",
   "patty":"FYLLNING",

@@ -7,18 +7,6 @@
     </button>
 
     <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
-      <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
-
-      <OrderItem
-        class= "ordernr"
-        id = "order_in_que"
-        v-for="(order, key) in orders"
-        :v-if="key == orders.length - 1"
-        :order-id="key"
-        :order="order"
-        :ui-labels="uiLabels"
-        :key="key">
-      </OrderItem>
 
       <img class="logo" src= "@/assets/BB-logo.png">
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
