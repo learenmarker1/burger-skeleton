@@ -320,7 +320,7 @@ color: white;
   border: 3px solid #ccd;
   padding: 10px;
   background-color: dimgray;
-  color: #DF9BBF;
+  color: pink;
 }
 /* -------- */
 

@@ -17,7 +17,7 @@
           <div v-if="lang_en"> {{item.ingredient_en}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}}</div>
           <div id = "quantity"> {{item.quantity}} </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }}  </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}}  </button>
         </ul>
       </div>
 
@@ -27,7 +27,7 @@
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}} </button>
         </ul>
       </div>
 
@@ -37,7 +37,7 @@
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order }} </button>
         </ul>
       </div>
 
@@ -55,7 +55,7 @@
       <div class = "column">
         <h3> {{ uiLabels.To_order }} </h3>
         <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-        <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button>
+        <button align ="right" id="placeButton" > {{ uiLabels.To_order }}</button>
     </div>
   </div>
 
