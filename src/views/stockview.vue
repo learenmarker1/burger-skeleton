@@ -55,7 +55,6 @@
       <div class = "column">
         <h3> {{ uiLabels.To_order }} </h3>
         <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-      </p>
     </div>
   </div>
 </div>
