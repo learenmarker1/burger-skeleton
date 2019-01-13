@@ -67,5 +67,6 @@
   "glutenFree": "Gluten free",
   "gluten": "Contains gluten",
   "vegan": "Vegan",
-  "notVegan": "Not vegan"
+  "notVegan": "Not vegan",
+  "sendOrderStock": "Send Order"
 }
