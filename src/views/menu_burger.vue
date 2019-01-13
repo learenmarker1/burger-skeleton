@@ -11,11 +11,6 @@
 
     <h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
-    <div class="panel-title">
-      <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
-      BABES AND BURGERS FAVOURITES
-    </div>
-
     <div class="panel" id="panelGrid">
       <Ingredient
       v-for="item in ingredients"
@@ -299,8 +294,8 @@ button:hover {
 .ingredient {
   border: 3px solid #ccd;
   padding: 10px;
-  background-color: dimgray;
-  color: pink;
+  background-color: grey;
+  color: #DF9BBF;
 }
 
 #panelGrid{
