@@ -60,5 +60,6 @@
   "ThankYou": "Thank you",
   "SeeYou": "See you soon!",
   "ordernumber":"Your order number is:",
-  "To_order": "Order"
+  "To_order": "Order",
+  "orderAddedToBasket": "Your order has been added to the basket!"
 }

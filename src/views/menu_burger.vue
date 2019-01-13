@@ -83,8 +83,8 @@
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 <p> {{ uiLabels.TotalSum}} {{ price }} kr </p>
 <br>
-<button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
-
+<button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
+<p v-show='orderAdded'> {{uiLabels.orderAddedToBasket}} </p>
 <!-- {{burgers}} -->
 
 <br>
@@ -144,6 +144,7 @@ export default {
       orderNumber: "",
       showCategory: 1,
       sel: 0,
+      orderAdded: false,
       categoryHeadline: ["Buns", "Patties", "Toppings", "Sauces"]
     }
   },
@@ -187,7 +188,9 @@ export default {
         this.$refs.ingredient[i].resetCounter();
       }
     },
-
+    showOrder: function() {
+      this.orderAdded=true;
+    },
     next: function () {
       this.showCategory += 1;
     },

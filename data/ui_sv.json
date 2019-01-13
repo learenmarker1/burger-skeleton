@@ -60,5 +60,6 @@
   "ThankYou": "Tack",
   "SeeYou": "Vi ses snart!",
   "ordernumber": "Ditt ordernummer är:",
-  "To_order": "Beställ"
+  "To_order": "Beställ",
+  "orderAddedToBasket": "Din beställning har lagts till i varukorgen!"
 }
