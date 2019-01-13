@@ -2,13 +2,13 @@
   <div class="ingredient">
     <div class="innerGrid" v-if="item.category===7">
     <img id="burgerPic" :src="require('../assets/' + item.img)" width=10>
-    <div class="ingrList"> {{uiLabels.ingredients}}<br/>
-      <div class='ingrList' v-if="item.milk_free ">{{Laktosfri}}</div>
-      <div class='ingrList' v-else-if="!item.milk_free ">Innehåller laktos</div>
-      <div class='ingrList' v-if="item.gluten_free">Glutenfri</div>
-      <div class='ingrList' v-else-if="!item.gluten_free">Innehåller gluten</div>
-      <div class='ingrList' v-if="item.vegan">Vegansk</div>
-      <div class='ingrList' v-else-if="!item.vegan">Ej vegansk</div>
+    <div class="ingrList"> Ingredienser:<br/>
+      <div class='ingrList' v-if="item.milk_free ">•Laktosfri</div>
+      <div class='ingrList' v-else-if="!item.milk_free ">•Innehåller laktos</div>
+      <div class='ingrList' v-if="item.gluten_free">•Glutenfri</div>
+      <div class='ingrList' v-else-if="!item.gluten_free">•Innehåller gluten</div>
+      <div class='ingrList' v-if="item.vegan">•Vegansk</div>
+      <div class='ingrList' v-else-if="!item.vegan">•Ej vegansk</div>
   </div>
   </div>
     <label>
@@ -29,7 +29,6 @@ export default {
   name: 'Ingredient',
   props: {
     item: Object,
-    uiLabels: Object,
     lang: String
   },
     data: function () {
