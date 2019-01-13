@@ -1,13 +1,15 @@
 <template>
   <div class="background">
 
+    <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:150px"> Babes & Burgers  </header>
+
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow" id="headers"> {{ uiLabels.fromMenu }} </h1>
-    <img id="BBlogo" src='../assets/BB-logo.png'>
+
+    <h1 align="center">{{ uiLabels.fromMenu }}</h1>
 
     <div class="panel-title">
       <img src='http://al-taiclub.com/images/icons-burger-clipart-2.png'  height=50>
@@ -26,7 +28,7 @@
     </Ingredient>
   </div>
 
-  <h1 class="glow" id="headers">{{ uiLabels.sideOrder }}</h1>
+  <h1 align="center">{{ uiLabels.sideOrder }}</h1>
 
   <div class="panel">
     <div class="panel-title" v-on:click="sel == 6 ? sel = 0 : sel = 6">
@@ -79,17 +81,11 @@
 </div>
 </div>
 
-<h1 class="glow" id="headers">{{ uiLabels.my_order }}</h1>
+<h1>{{ uiLabels.my_order }}</h1>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr </p>
-<br>
-<button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
-
-<!-- {{burgers}} -->
-
-<br>
-<hr>
-<!-- en linje som ska fixas till -->
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger()"> {{ uiLabels.add_order }}</button>
+</p>
+{{burgers}}
 
 <div>
   <OrderItem
@@ -228,8 +224,8 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 50px 0 0 100px;
-
+  padding-top: 50px;
+  padding-bottom: 100px;
   color: white;
 }
 
@@ -245,21 +241,15 @@ button:hover {
   width: 60px;
 }
 
-#BBlogo{
-  position: absolute;
-  top: 70px;
-  right: 78%;
-  width: 150px;
-}
-
-#headers {
+#header {
   background-color: lightgray; /* Grey background */
   color: white;
   text-align: center;
-  font-size: 18pt;
+  font-size: 20px;
+  font-weight: bold;
   width: auto;
+  margin-top: 15px;
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
-  padding: 40px 0 40px 30px;
 }
 
 #yourOrder{
@@ -341,6 +331,5 @@ button:hover {
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
-
 
 </style>
