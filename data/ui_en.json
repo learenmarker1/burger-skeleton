@@ -60,5 +60,12 @@
   "ThankYou": "Thank you",
   "SeeYou": "See you soon!",
   "ordernumber":"Your order number is:",
-  "To_order": "Order"
+  "To_order": "Order",
+  "orderAdded": "Your order has been added to the basket!",
+  "lactoseFree": "Lactose free",
+  "lactose": "Contains lactose",
+  "glutenFree": "Gluten free",
+  "gluten": "Contains gluten",
+  "vegan": "Vegan",
+  "notVegan": "Not vegan"
 }

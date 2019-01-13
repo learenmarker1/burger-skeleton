@@ -177,7 +177,7 @@
 <p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
 </p>
 
-<p v-show='orderAdded'> Your order has been added to the basket! </p>
+<p v-show='orderAdded'> {{ uiLabels.orderAdded }} </p>
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';" > {{ uiLabels.backButton }} </button>

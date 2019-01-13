@@ -3,7 +3,7 @@
     <div class="innerGrid" v-if="item.category===7">
     <img id="burgerPic" :src="require('../assets/' + item.img)" width=10>
     <div class="ingrList"> Ingredienser:<br/>
-      <div class='ingrList' v-if="item.milk_free ">Laktosfri</div>
+      <div class='ingrList' v-if="item.milk_free ">{{Laktosfri}}</div>
       <div class='ingrList' v-else-if="!item.milk_free ">Innehåller laktos</div>
       <div class='ingrList' v-if="item.gluten_free">Glutenfri</div>
       <div class='ingrList' v-else-if="!item.gluten_free">Innehåller gluten</div>
