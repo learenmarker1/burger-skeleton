@@ -25,10 +25,12 @@
   </div>
 </template>
 <script>
+
 export default {
   name: 'Ingredient',
   props: {
     item: Object,
+    uiLabels: Object,
     lang: String
   },
     data: function () {
