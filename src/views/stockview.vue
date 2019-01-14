@@ -21,7 +21,6 @@
           <div v-if="lang_sv"> {{item.ingredient_sv}}</div>
           <div id = "quantity"> {{item.quantity}} </div>
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }}  </button>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}}  </button>
         </ul>
       </div>
 
@@ -33,7 +32,6 @@
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}} </button>
         </ul>
       </div>
 
@@ -45,7 +43,6 @@
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order }} </button>
         </ul>
       </div>
 
