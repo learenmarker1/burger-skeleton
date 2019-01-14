@@ -68,5 +68,6 @@
   "gluten": "Innehåller gluten",
   "vegan": "Vegansk",
   "notVegan": "Ej vegansk",
-  "sendOrderStock": "Skicka Beställning"
+  "sendOrderStock": "Skicka Beställning",
+  "currentStock": "Lagersaldo"
 }

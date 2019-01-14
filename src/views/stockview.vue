@@ -14,40 +14,44 @@
       <div class = "column">
         <h3>{{ uiLabels.bun }}</h3>
         <ul v-for="item in ingredients" v-if='item.category == 4' :key="item.ingredient_id">
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stock}}</div>
           <div v-if="lang_en"> {{item.ingredient_en}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}}</div>
           <div id = "quantity"> {{item.quantity}} </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }}  </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }}  </button>
         </ul>
       </div>
 
       <div class = "column">
         <h3> {{ uiLabels.patty }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
         </ul>
       </div>
 
       <div class = "column">
         <h3> {{ uiLabels.topping }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 2' :key="item.ingredient_id" >
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.placeOrder }} </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
         </ul>
       </div>
 
       <div class = "column">
         <h3> {{ uiLabels.sauce }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 3' :key="item.ingredient_id">
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
-          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order }} </button>
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
         </ul>
       </div>
 
@@ -58,7 +62,7 @@
 
         <button id = "stockOrderButton" > {{ uiLabels.sendOrderStock }} </button>
 
-        <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button>
+        <!-- <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button> -->
 
     </div>
   </div>
@@ -168,7 +172,6 @@ h1 {
       font-size: 20px;
       font-variant: small-caps;
       padding: 15px 15px 15px 15px;
-      position:fixed;
       margin-left: 45px;
       text-align: center;
       display: inline-block;

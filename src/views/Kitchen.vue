@@ -65,7 +65,8 @@
 <div class = "buttonGrid">
 
   <div class = "buttonL">
-      <button align = "right" id = "stockButton" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
+      <button align = "right" id = "stockButton"
+      > {{ uiLabels.kitchenStaffButton }} </button>
   </div>
 
   <div class = "buttonR">

@@ -6,8 +6,10 @@
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
+    <!-- <transition name = "logga" enter-active-class= "animated lightSpeedIn"> -->
     <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
-      <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
+    <!-- </transition> -->
+      <!-- <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
 
       <OrderItem
         class= "ordernr"
@@ -18,12 +20,17 @@
         :order="order"
         :ui-labels="uiLabels"
         :key="key">
-      </OrderItem>
+      </OrderItem> -->
 
-      <img class="logo" src= "@/assets/BB-logo.png">
+      <transition name = "toStart">
+        <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
+      </transition>
+
+
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
     </div>
-  </template>
+
+</template>
 
 
   <script>
@@ -50,6 +57,11 @@
   </script>
 
   <style>
+  /* @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; */
+
+  .toStart-enter-active{
+    transition: allows 2s;
+  }
 
   button:hover {
     cursor: pointer;
@@ -100,6 +112,22 @@
       text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
   }
+
+    .animation{
+      animation-duration: 10s;
+      animation-name: ani;
+      animation-iteration-count: infinite;
+      /* animation-direction: alternate; */
+    }
+  @keyframes ani {
+    from {
+    transform:rotate(360deg);
+  }
+
+  to {
+    transform:rotate(0deg);
+  }
+}
 
   .logo {
     display: block;
