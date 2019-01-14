@@ -6,7 +6,9 @@
     <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg' width=100>
   </button>
 
-  <h1 align = "center" >{{ uiLabels.kitchenOverview}}</h1>
+  <h1 align = "center" >
+  <img id="BBlogo" src='../assets/BB-logo.png' style="width:150px">
+      {{ uiLabels.kitchenOverview}}</h1>
 
   <div class = "wrapper" align = "center">
 
@@ -24,27 +26,24 @@
 
 <div class = "box right">
   <h1>STEKBORDET 2.0</h1>
+  <OrderItem
+    id = "order_in_que"
+    v-for="(order, key) in orders"
+    v-if="order.status === 'started'"
+    :order-id="key"
+    :order="order"
+    :ui-labels="uiLabels"
+    :lang="lang"
+    :key="key">
+  </OrderItem>
 
-   <OrderItemToPrepare
-     id = "order_preparing"
-     v-for="(order, key) in orders"
-     v-if="order.status === 'started'"
-     v-on:nextStep="markDone(key)"
-     v-on:cancelOrder="markCancel(key)"
-     :order-id="key"
-     :order="order"
-     :ui-labels="uiLabels"
-     :lang="lang"
-     :key="key">
-   </OrderItemToPrepare>
-</div>
-</div>
-</div>
 
+</div>
+</div>
 <div class = "buttonGrid">
 
   <div class = "buttonL">
-      <button align = "right" id = "button" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
+      <button align = "right" id = "button" onclick="window.location = '/#/kitchen';"> {{ uiLabels.kitchenButton }} </button>
   </div>
 
   <div class = "buttonR">
@@ -77,8 +76,6 @@ export default {
     }
   },
   methods: {
-
-
   }
 }
 

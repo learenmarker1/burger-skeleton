@@ -27,7 +27,7 @@
       <div class = "column">
         <h3> {{ uiLabels.patty }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
-          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stock}}</div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
@@ -38,7 +38,7 @@
       <div class = "column">
         <h3> {{ uiLabels.topping }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 2' :key="item.ingredient_id" >
-          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stock}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
@@ -49,7 +49,7 @@
       <div class = "column">
         <h3> {{ uiLabels.sauce }} </h3>
         <ul v-for = "item in ingredients" v-if = 'item.category == 3' :key="item.ingredient_id">
-          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stockQ}}</div>
+          <div class = "stocknr"> {{uiLabels.currentStock}}: {{item.stock}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
@@ -194,6 +194,10 @@ h1 {
   #quantity {
     font-size: 15px;
     text-align: left;
+  }
+
+  .stocknr {
+    color: MediumVioletRed;
   }
 
   button:hover{

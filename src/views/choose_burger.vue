@@ -232,6 +232,7 @@ export default {
   },
 
   methods: {
+
     addToOrder: function (item) {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
