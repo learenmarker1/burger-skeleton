@@ -6,15 +6,15 @@
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow"> {{ uiLabels.startHeader}} <br> {{ uiLabels.startTO}}
-      <img class="logo" src= "@/assets/BB-logo.png"></h1>
+    <h1 id="glow"> {{ uiLabels.startHeader}}<br>{{ uiLabels.startTO}}</h1>
+      <img id="logo" src= "@/assets/BB-logo.png">
 
       <div class = "row">
         <div class = "buttonL">
-          <button id="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
+          <button class="orderButtons" type="button" onclick="window.location = '/#/menu_burger';" > {{uiLabels.menu_button}} </button>
         </div>
         <div class = "buttonR">
-          <button id="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
+          <button class="orderButtons" type="button" onclick="window.location = '/#/choose_burger';" > {{uiLabels.choose_button}} </button>
         </div>
 
       </div>
@@ -50,7 +50,7 @@
 
   button:hover {
     cursor: pointer;
-    box-shadow: 5px 20px 25px 5px rgba(0,0,0,0.30), 2px 2px 2px 2px rgba(0,0,0,0.30);
+    box-shadow: 2px 10px 12px 2px rgba(0,0,0,0.15), 1px 1px 1px 1px rgba(0,0,0,0.15);
   }
 
   .background {
@@ -76,12 +76,9 @@
     width: 60px;
   }
 
-  .glow{
-    /* font-size: 60px;
-    color: pink;
-    text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
+  #glow{
     font-family: "Snell Roundhand", cursive, sans-serif;
-    font-size: 70px;
+    font-size: 40pt;
     color: white;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -98,20 +95,20 @@
     }
   }
 
-  .logo {
+  #logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
-    width: 80vh;
+    margin-bottom: 20px;
+    width: 50vw;
   }
 
-  #orderButtons {
+  .orderButtons {
     background-color: #DF9BBF;
     border-radius: 20px;
     border: 5px solid MediumVioletRed;
     color: black;
-    font-size: 20px;
+    font-size: 14pt;
     font-variant: small-caps;
     padding: 15px 15px 15px 15px;
     margin: 0px 15px 15px 15px;

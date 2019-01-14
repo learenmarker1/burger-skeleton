@@ -1,8 +1,6 @@
 <template>
   <div class="background">
-
     <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:125px"> Babes & Burgers  </header>
-
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>

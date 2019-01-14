@@ -57,7 +57,7 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
+      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})" :key="key">
         {{ ing }}
       </span>
     </div>

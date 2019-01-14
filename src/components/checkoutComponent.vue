@@ -36,7 +36,9 @@ export default {
     cancelOrder: function () {
       this.$emit('cancelOrder');
     },
-    
+    changeStock: function (item, saldo) {
+      this.$store.state.socket.emit("changeStock")
+    }
   }
 }
 </script>
