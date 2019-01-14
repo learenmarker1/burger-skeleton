@@ -12,9 +12,7 @@
         <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
       </transition>
 
-      <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
-
-      <button id = "orderButton" onclick="window.location = '/#/';" > {{ uiLabels.newOrder }} </button>
+      <h1 class="glow"> {{ uiLabels.welcomeBack}} </h1>
 
     </div>
 
@@ -109,5 +107,5 @@
     animation: glow 1s ease-in-out infinite alternate;
   }
 
-  
+
   </style>
