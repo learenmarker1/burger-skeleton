@@ -1,8 +1,6 @@
 <template>
   <div class="background">
-
     <header class="glow" id="header"><img id="BBlogo" src='../assets/BB-logo.png' style="width:125px"> Babes & Burgers  </header>
-
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
@@ -46,7 +44,7 @@
         {{ uiLabels.patty }}
         <div id="yourOrder">
           {{uiLabels.pattyChoice }}
-          <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})" :key="key">
+          <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})">
             {{ ing }}
           </span>
         </div>
@@ -73,7 +71,7 @@
 
       <div id="yourOrder">
         {{ uiLabels.toppingChoice }}
-        <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})" :key="key">
+        <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})">
           {{ ing }}
         </span>
       </div>
@@ -99,7 +97,7 @@
     {{ uiLabels.sauce }}
     <div id="yourOrder">
       {{ uiLabels.sauceChoice }}
-      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===3) return item['ingredient_'+lang]})" :key="key">
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===3) return item['ingredient_'+lang]})">
         {{ ing }}
       </span>
     </div>
@@ -127,7 +125,7 @@
     {{ uiLabels.sideorders }}
     <div id="yourOrder">
       {{ uiLabels.addingsChoice }}
-      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})" :key="key">
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})">
         {{ ing }}
       </span>
     </div>
@@ -151,7 +149,7 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})" :key="key">
+      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
         {{ ing }}
       </span>
     </div>
@@ -323,7 +321,7 @@ color: white;
 .ingredient {
   border: 3px solid #ccd;
   padding: 10px;
-  background-color: dimgray;
+  background-color: gray;
   color: pink;
 }
 /* -------- */
