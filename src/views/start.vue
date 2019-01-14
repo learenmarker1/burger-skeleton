@@ -60,8 +60,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 50px;
-    padding-bottom: 100px;
+    /* padding-top: 50px;
+    padding-bottom: 100px; */
   }
 
   #langButton{
@@ -78,7 +78,7 @@
 
   #glow{
     font-family: "Snell Roundhand", cursive, sans-serif;
-    font-size: 40pt;
+    font-size: 30pt;
     color: white;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -100,7 +100,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    width: 50vw;
+    width: 65vw;
   }
 
   .orderButtons {
@@ -108,9 +108,9 @@
     border-radius: 20px;
     border: 5px solid MediumVioletRed;
     color: black;
-    font-size: 14pt;
+    font-size: 12pt;
     font-variant: small-caps;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 10px 10px 10px;
     margin: 0px 15px 15px 15px;
     text-align: center;
     display: inline-block;

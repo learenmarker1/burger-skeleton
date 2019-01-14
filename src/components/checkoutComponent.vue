@@ -30,6 +30,7 @@ export default {
       // can catch it with v-on:done in the component declaration
       this.$emit('nextStep');
     },
+
     cancelOrder: function () {
       this.$emit('cancelOrder');
     },
