@@ -69,7 +69,6 @@ export default {
     },
 
     placeOrder: function () {
-      //Wrap the order in an object
       var order = {
         burgers: this.burgers
       };

@@ -44,7 +44,7 @@
         {{ uiLabels.patty }}
         <div id="yourOrder">
           {{uiLabels.pattyChoice }}
-          <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===1) return item['ingredient_'+lang]})">
+          <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
             {{ ing }}
           </span>
         </div>
@@ -71,7 +71,7 @@
 
       <div id="yourOrder">
         {{ uiLabels.toppingChoice }}
-        <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===2) return item['ingredient_'+lang]})">
+        <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
           {{ ing }}
         </span>
       </div>
@@ -97,7 +97,7 @@
     {{ uiLabels.sauce }}
     <div id="yourOrder">
       {{ uiLabels.sauceChoice }}
-      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===3) return item['ingredient_'+lang]})">
+      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
         {{ ing }}
       </span>
     </div>
@@ -125,7 +125,7 @@
     {{ uiLabels.sideorders }}
     <div id="yourOrder">
       {{ uiLabels.addingsChoice }}
-      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===5) return item['ingredient_'+lang]})">
+      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
         {{ ing }}
       </span>
     </div>
@@ -149,7 +149,7 @@
     {{ uiLabels.drinks }}
     <div id="yourOrder">
       {{ uiLabels.drinksChoice }}
-      <span v-for="ing in chosenIngredients.map(function (item) { if (item.category===6) return item['ingredient_'+lang]})">
+      <span v-for="(ing, key) in chosenIngredients.map(function (item) { if (item.category===4) return item['ingredient_'+lang]})" :key="key">
         {{ ing }}
       </span>
     </div>

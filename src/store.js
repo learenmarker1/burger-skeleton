@@ -15,13 +15,13 @@ export default new Vuex.Store({
   mutations: {
     addBurger: function (store, burger) {
       store.burgers.push(burger);
-    }
-
+    },
+    clearBurgers: function(store) {
+        store.burgers = [];
+      }
   },
   actions: {
 
   },
-  clearBurgers: function(store) {
-      store.burgers = [];
-    }
+
 })
