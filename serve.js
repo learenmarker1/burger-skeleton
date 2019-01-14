@@ -40,10 +40,12 @@ io.on('connection', function (socket) {
   // socket.emit('initialize', { orders: data.getAllOrders(),
   //                         uiLabels: data.getUILabels(),
   //                         ingredients: data.getIngredients() });
+  let uiLang = "en";
+
   socket.on('pageLoaded', function () {
     socket.emit('initialize',
     { orders: data.getAllOrders(),
-      uiLabels: data.getUILabels(),
+      uiLabels: data.getUILabels(uiLang),
       ingredients: data.getIngredients() });
   });
 
@@ -58,6 +60,7 @@ io.on('connection', function (socket) {
       });
       // send UI labels in the chosen language
       socket.on('switchLang', function (lang) {
+        uiLang = lang;
         socket.emit('switchLang', data.getUILabels(lang));
       });
       socket.on('switchPage', function (lang) {
