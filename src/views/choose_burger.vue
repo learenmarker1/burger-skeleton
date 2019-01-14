@@ -174,7 +174,7 @@
 <div class="myOrder">
   <br>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr  <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.addToBasket }}</button>
 </p>
 </div>
 

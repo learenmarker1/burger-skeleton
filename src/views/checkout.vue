@@ -31,9 +31,15 @@
 </div> -->
 
 
-<div align="center">
-  <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder()"> {{ uiLabels.payButton }} </button>
-</div>
+  <div align="center">
+    <button id = "addButton" type="button" onclick="window.location= '/#/';" > {{ uiLabels.add_order }} </button>
+    <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
+  </div>
+
+  <div>
+
+  </div>
+
 </div>
 </template>
 
@@ -99,6 +105,18 @@ button:hover {
 }
 
 #payButton {
+  background-color: #DF9BBF;
+  border-radius: 20px;
+  border: 5px solid MediumVioletRed;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  font-variant: small-caps;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+#addButton {
   background-color: #DF9BBF;
   border-radius: 20px;
   border: 5px solid MediumVioletRed;
