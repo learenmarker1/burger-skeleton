@@ -14,8 +14,6 @@
 
       <h1 class="glow"> {{ uiLabels.welcomeBack}} </h1>
 
-      <button id = "orderButton" onclick="window.location = '/#/';" > {{ uiLabels.newOrder }} </button>
-
     </div>
 
 </template>
