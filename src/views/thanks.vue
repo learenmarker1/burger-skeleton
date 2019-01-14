@@ -1,33 +1,21 @@
 <template>
-  <div class="background">
+  <div class="static_background">
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <!-- <transition name = "logga" enter-active-class= "animated lightSpeedIn"> -->
     <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
-
-    <!-- </transition> -->
-      <!-- <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
-
-      <OrderItem
-        class= "ordernr"
-        id = "order_in_que"
-        v-for="(order, key) in orders"
-        :v-if="key == orders.length - 1"
-        :order-id="key"
-        :order="order"
-        :ui-labels="uiLabels"
-        :key="key">
-      </OrderItem> -->
 
       <transition name = "toStart">
         <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
       </transition>
 
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
+
+      <button id = "orderButton" onclick="window.location = '/#/';" > {{ uiLabels.newOrder }} </button>
+
     </div>
 
 </template>
@@ -63,47 +51,6 @@
     transition: allows 2s;
   }
 
-  button:hover {
-    cursor: pointer;
-    box-shadow: 5px 20px 25px 5px rgba(0,0,0,0.30), 2px 2px 2px 2px rgba(0,0,0,0.30);
-  }
-
-  .background {
-    background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 50px;
-    padding-bottom: 100px;
-  }
-
-  #langButton{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: gray;
-    padding:0;
-  }
-
-  #langPic{
-    width: 60px;
-  }
-
-  .glow{
-    /* font-size: 60px;
-    color: pink;
-    text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
-    font-family: "Snell Roundhand", cursive, sans-serif;
-    font-size: 60px;
-    color: white;
-    text-align: center;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
-  }
-
   @-webkit-keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -129,40 +76,31 @@
   }
 }
 
-  .logo {
+  /* .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     width: 70vw;
-  }
+  } */
   .ordernr{
     text-align: center;
   }
-
-  #orderButtons {
+/*
+  #orderButton {
     background-color: #DF9BBF;
     border-radius: 20px;
     border: 5px solid MediumVioletRed;
     color: black;
-    font-size: 20px;
+    font-size: 14px;
     font-variant: small-caps;
     padding: 15px 15px 15px 15px;
-    margin: 0px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
     text-align: center;
     display: inline-block;
-  }
-  .row {
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns:25% 25%;
-    justify-content: center;
-  }
-  .buttonL{
-    grid-column: 1;
-  }
-  .buttonR {
-    grid-column: 2;
-  }
+    position: absolute;
+    right: 35%;
+    bottom: 100px;
+  } */
 
   </style>
