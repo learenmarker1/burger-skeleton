@@ -10,6 +10,7 @@
 
       <div class="myOrder">
         <br>
+
       <checkoutComponent
       v-for="(burger, key) in burgers"
       :burger="burger"
@@ -29,12 +30,13 @@
      <h3 class="header3" align = "center">  {{ uiLabels.order_number_is }} # {{orderId}} </h3>
   </div> -->
 
+
   <div align="center">
-    <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder();" > {{ uiLabels.payButton }} </button>
+    <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
   </div>
 
   <div>
-    {{ this.price }}
+
   </div>
 
 </div>
@@ -66,8 +68,8 @@ export default {
   },
   methods: {
     payConfirm: function() {
-
     },
+
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -78,8 +80,8 @@ export default {
       this.$store.state.socket.emit('order', order);
     },
 
+    },
   }
-}
 
 </script>
 
@@ -148,6 +150,7 @@ text-align: center;
   padding: 10px 10px 10px 10px;
   text-align: center;
 }
+
 
 .background {
   background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");

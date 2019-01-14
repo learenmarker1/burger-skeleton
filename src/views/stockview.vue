@@ -1,9 +1,11 @@
 <template>
   <div id="orders">
 
-    <h1 align = "center">{{ uiLabels.stockHeader}}</h1>
-    <button id = "orderButton" onclick="window.location = '/#/kitchen';"> {{ uiLabels.orderButton }} </button>
+    <h1 align = "center">
+      {{ uiLabels.stockHeader}}
+    </h1>
 
+    <button id = "kitchenButton" onclick="window.location = '/#/kitchen';"> {{ uiLabels.kitchenButton }} </button>
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg' width=100>
@@ -18,7 +20,11 @@
           <div v-if="lang_en"> {{item.ingredient_en}}</div>
           <div v-if="lang_sv"> {{item.ingredient_sv}}</div>
           <div id = "quantity"> {{item.quantity}} </div>
+<<<<<<< HEAD
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }}  </button>
+=======
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}}  </button>
+>>>>>>> 72bc9c753c32d3fce9669674e1b0c2fa4c37b1b6
         </ul>
       </div>
 
@@ -29,7 +35,11 @@
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
+<<<<<<< HEAD
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
+=======
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order}} </button>
+>>>>>>> 72bc9c753c32d3fce9669674e1b0c2fa4c37b1b6
         </ul>
       </div>
 
@@ -40,7 +50,11 @@
           <div v-if="lang_sv"> {{item.ingredient_sv}} </div>
           <div v-if="lang_en"> {{item.ingredient_en}} </div>
           <div id = "quantity"> {{item.quantity}}  </div>
+<<<<<<< HEAD
           <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.add_order }} </button>
+=======
+          <button id = "order_item_Button" type="button" v-on:click="addToOrder(item)"> {{ uiLabels.To_order }} </button>
+>>>>>>> 72bc9c753c32d3fce9669674e1b0c2fa4c37b1b6
         </ul>
       </div>
 
@@ -152,7 +166,7 @@ h1 {
     padding:0;
   }
 
-  #orderButton{
+  #kitchenButton{
     background-color: #DF9BBF;
     border-radius: 20px;
     border: 5px solid MediumVioletRed;

@@ -8,6 +8,7 @@
 
     <!-- <transition name = "logga" enter-active-class= "animated lightSpeedIn"> -->
     <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
+
     <!-- </transition> -->
       <!-- <h2 class= "ordernr"> {{ uiLabels.ordernumber }} </h2>
 
@@ -25,7 +26,6 @@
       <transition name = "toStart">
         <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
       </transition>
-
 
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
     </div>

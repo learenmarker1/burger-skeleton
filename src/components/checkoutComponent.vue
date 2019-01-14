@@ -39,7 +39,6 @@ export default {
     changeStock: function (item, saldo) {
       this.$store.state.socket.emit("changeStock")
     }
-
   }
 }
 </script>
