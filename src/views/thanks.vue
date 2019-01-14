@@ -6,13 +6,13 @@
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
+    <h1 class="glow"> {{ uiLabels.ThankYou }}</h1>
 
       <transition name = "toStart">
         <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
       </transition>
 
-      <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
+      <h1 class="glow"> {{ uiLabels.welcomeBack}} </h1>
 
       <button id = "orderButton" onclick="window.location = '/#/';" > {{ uiLabels.newOrder }} </button>
 

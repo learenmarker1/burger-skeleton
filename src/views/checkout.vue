@@ -31,6 +31,7 @@
 </div> -->
 
 
+
   <div align="center">
     <button id = "addButton" type="button" onclick="window.location= '/#/';" > {{ uiLabels.add_order }} </button>
     <button id = "payButton" type="button" onclick="window.location = '/#/thanks';" v-on:click="placeOrder()" > {{ uiLabels.payButton }} </button>
