@@ -28,6 +28,9 @@
       </transition>
 
       <h1 class="glow"> {{ uiLabels.SeeYou}} </h1>
+
+      <button id = "orderButton" onclick="window.location = '/#/';" > {{ uiLabels.newOrder }} </button>
+
     </div>
 
 </template>
@@ -140,29 +143,19 @@
     text-align: center;
   }
 
-  #orderButtons {
+  #orderButton {
     background-color: #DF9BBF;
     border-radius: 20px;
     border: 5px solid MediumVioletRed;
     color: black;
-    font-size: 20px;
+    font-size: 14px;
     font-variant: small-caps;
     padding: 15px 15px 15px 15px;
-    margin: 0px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
     text-align: center;
     display: inline-block;
-  }
-  .row {
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns:25% 25%;
-    justify-content: center;
-  }
-  .buttonL{
-    grid-column: 1;
-  }
-  .buttonR {
-    grid-column: 2;
+    position: absolute;
+    right: 45%;
   }
 
   </style>
