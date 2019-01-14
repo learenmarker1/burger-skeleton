@@ -52,7 +52,7 @@
 import checkoutComponent from '@/components/checkoutComponent.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
-import choose_burger from '@/views/choose_burger.vue'
+// import choose_burger from '@/views/choose_burger.vue'
 
 export default {
   name: 'Checkout',
@@ -71,9 +71,9 @@ export default {
     },
 
     placeOrder: function () {
-      var i,
+      // var i,
       //Wrap the order in an object
-      order = {
+      var order = {
         burgers: this.burgers
       };
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
