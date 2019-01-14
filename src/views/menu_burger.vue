@@ -193,7 +193,7 @@ function scrollFunction() {
     document.getElementById("header").style.fontSize = "20px";
     document.getElementById("BBlogo").style.width = '50px';
   } else {
-    document.getElementById("header").style.fontSize = "60px";
+    document.getElementById("header").style.fontSize = "50px";
     document.getElementById("BBlogo").style.width = '125px';
   }
 }
@@ -323,7 +323,7 @@ button:hover {
   color: pink;
   text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
   font-family: "Snell Roundhand", cursive, sans-serif;
-  font-size: 70px;
+  /* font-size: 70px; */
   color: white;
   text-align: center;
   -webkit-animation: glow 2s ease-in-out infinite alternate;

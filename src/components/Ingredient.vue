@@ -25,14 +25,12 @@
   </div>
 </template>
 <script>
-import OrderItem from '@/components/OrderItem.vue'
-import sharedVueStuff from '@/components/sharedVueStuff.js'
-
 
 export default {
   name: 'Ingredient',
   props: {
     item: Object,
+    uiLabels: Object,
     lang: String
   },
     data: function () {

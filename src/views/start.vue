@@ -60,9 +60,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 50px;
+    /* padding-top: 50px;
+    padding-bottom: 100px; */
     position: absolute;
   }
+
   #langButton{
     position: absolute;
     top: 15px;
