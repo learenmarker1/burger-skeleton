@@ -11,7 +11,7 @@
   "sum" :"Summa",
   "ordersFinished" : "Färdig",
   "orders_pay_desc": "ORDRAR-Kassa",
-  "ordersInQueue" : "Att förbereda",
+  "ordersInQueue" : "Kö",
   "ordersStarted" : "Påbörjade",
   "ordersTrending" : "Populära ordrar",
   "placeOrder" : "Beställ",

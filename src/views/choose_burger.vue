@@ -250,7 +250,7 @@ export default {
         this.$refs.ingredient[i].resetCounter();}
     },
     showOrder: function() {
-      this.orderAdded=!this.orderAdded;
+      this.orderAdded=true;
     },
     next: function () {
       this.showCategory += 1;
