@@ -80,12 +80,11 @@
 <div class="myOrder">
   <br>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<p> {{ uiLabels.TotalSum}} {{ price }} kr</p>
+<p> {{ uiLabels.TotalSum}} {{ price }} kr
 <button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.addToBasket }}</button>
-<p v-show='orderAdded'> {{uiLabels.orderAdded}} </p>
-
+</p>
 </div>
-
+<p v-show='orderAdded'> {{uiLabels.orderAdded}} </p>
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>
