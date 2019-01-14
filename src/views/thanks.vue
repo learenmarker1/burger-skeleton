@@ -99,7 +99,7 @@
     color: pink;
     text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
     font-family: "Snell Roundhand", cursive, sans-serif;
-    font-size: 70px;
+    font-size: 60px;
     color: white;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -136,8 +136,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
-    width: 80vh;
+    margin-bottom: 20px;
+    width: 70vw;
   }
   .ordernr{
     text-align: center;
