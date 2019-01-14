@@ -19,6 +19,7 @@
       v-on:decrement="deleteFromOrder(item)"
       :item="item"
       :lang="lang"
+      :uiLabels="uiLabels"
       :key="item.ingredient_id">
     </Ingredient>
   </div>
