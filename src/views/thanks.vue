@@ -1,12 +1,12 @@
 <template>
-  <div class="static_background">
+  <div class="thanks_background">
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_sv" src= '@/assets/sweflag.jpg'>
     </button>
 
-    <h1 class="glow"> {{ uiLabels.ThankYou}}</h1>
+    <h1 id="glow"> {{ uiLabels.ThankYou}}</h1>
 
       <transition name = "toStart">
         <img class="animation logo" onclick="window.location = '/#/';" src= "@/assets/BB-logo.png">
@@ -47,6 +47,18 @@
   <style>
   /* @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; */
 
+
+.thanks_background {
+      background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 50px;
+      position: absolute;
+    }
+
   .toStart-enter-active{
     transition: allows 2s;
   }
@@ -76,31 +88,26 @@
   }
 }
 
-  /* .logo {
+   .logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     width: 70vw;
-  } */
+  }
   .ordernr{
     text-align: center;
   }
-/*
-  #orderButton {
-    background-color: #DF9BBF;
-    border-radius: 20px;
-    border: 5px solid MediumVioletRed;
-    color: black;
-    font-size: 14px;
-    font-variant: small-caps;
-    padding: 15px 15px 15px 15px;
-    margin: 15px 15px 15px 15px;
-    text-align: center;
-    display: inline-block;
-    position: absolute;
-    right: 35%;
-    bottom: 100px;
-  } */
 
+  #glow{
+    font-family: "Snell Roundhand", cursive, sans-serif;
+    font-size: 30pt;
+    color: white;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  
   </style>

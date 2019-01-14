@@ -21,6 +21,7 @@
         :order-id="key"
         :order="order"
         :ui-labels="uiLabels"
+        :lang="lang"
         :key="key">
       </OrderItemToPrepare>
     </div>
@@ -47,17 +48,17 @@
 <div class = "column right">
   <h1>{{ uiLabels.ordersFinished }}</h1>
   <div align = "left">
-    <OrderItem
+    <OrderItemToPrepare
       id ="order_finished"
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
-      v-on:cancelOrder="markCancel(key)"
+      v-on:cancelOrder="markPreparing(key)"
       :order-id="key"
       :order="order"
       :lang="lang"
       :ui-labels="uiLabels"
       :key="key">
-    </OrderItem>
+    </OrderItemToPrepare>
 </div>
 </div>
 </div>
