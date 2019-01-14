@@ -78,8 +78,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 50px;
-    padding-bottom: 100px;
+    /* padding-top: 50px;
+    padding-bottom: 100px; */
+    position: absolute;
   }
 
   #langButton{
@@ -99,7 +100,7 @@
     color: pink;
     text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
     font-family: "Snell Roundhand", cursive, sans-serif;
-    font-size: 60px;
+    font-size: 40px;
     color: white;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -155,7 +156,8 @@
     text-align: center;
     display: inline-block;
     position: absolute;
-    right: 45%;
+    right: 35%;
+    bottom: 180px;
   }
 
   </style>
