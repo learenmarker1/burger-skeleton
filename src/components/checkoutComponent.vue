@@ -30,15 +30,9 @@ export default {
       // can catch it with v-on:done in the component declaration
       this.$emit('nextStep');
     },
-    calcPrice: function () {
-      this.totalPrice += ingredient.selling_price;
-    },
     cancelOrder: function () {
       this.$emit('cancelOrder');
     },
-    changeStock: function (item, saldo) {
-      this.$store.state.socket.emit("changeStock")
-    }
   }
 }
 </script>
