@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="static_background">
 
     <button id="langButton" v-on:click="switchLang()">
       <img id='langPic' v-on:click="switchFlag()" v-if="flag_en" src= '@/assets/engflag.jpg'>
@@ -53,17 +53,16 @@
     box-shadow: 2px 10px 12px 2px rgba(0,0,0,0.15), 1px 1px 1px 1px rgba(0,0,0,0.15);
   }
 
-  .background {
+  .static_background {
     background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
     height: 100%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* padding-top: 50px;
-    padding-bottom: 100px; */
+    padding-top: 50px;
+    position: absolute;
   }
-
   #langButton{
     position: absolute;
     top: 15px;
