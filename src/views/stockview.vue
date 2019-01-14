@@ -57,15 +57,12 @@
       <div class = "column">
         <h3> {{ uiLabels.To_order }} </h3>
         <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
-<<<<<<< HEAD
+
         <button align ="right" id="placeButton" > {{ uiLabels.To_order }}</button>
-=======
 
         <button id = "stockOrderButton" > {{ uiLabels.sendOrderStock }} </button>
 
         <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button>
-
->>>>>>> 8f0fea813c9ed087a21791b74a021af2b5aadb16
     </div>
   </div>
 

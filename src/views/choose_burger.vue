@@ -323,7 +323,7 @@ color: white;
 .ingredient {
   border: 3px solid #ccd;
   padding: 10px;
-  background-color: dimgray;
+  background-color: gray;
   color: pink;
 }
 /* -------- */
