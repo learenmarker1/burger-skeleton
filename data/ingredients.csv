@@ -1,4 +1,4 @@
-ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,selling_price,img,quantity,stock
+ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,selling_price,img,quantity,stockQ
 1,bönburgare,bean patty,1,1,1,1,40,"sweflag.jpg",x25,100
 2,nötfärsburgare 100g,beef patty 100g,1,1,1,0,40,"sweflag.jpg",x25,100
 3,nötfärsburgare 200g,beef patty 200g,1,1,1,0,60,"sweflag.jpg",x25,100
