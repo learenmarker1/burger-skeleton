@@ -81,7 +81,7 @@
   <br>
 <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 <p> {{ uiLabels.TotalSum}} {{ price }} kr</p>
-<button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.add_order }}</button>
+<button align ="right" id="placeButton" v-on:click="addBurger();showOrder()"> {{ uiLabels.addToBasket }}</button>
 <p v-show='orderAdded'> {{uiLabels.orderAdded}} </p>
 
 </div>
@@ -327,9 +327,9 @@ button:hover {
   font-size: 70px;
   color: white;
   text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
 </style>
