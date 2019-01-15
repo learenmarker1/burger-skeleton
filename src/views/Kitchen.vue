@@ -66,8 +66,7 @@
 <div class = "buttonGrid">
 
   <div class = "buttonL">
-      <button align = "right" id = "stockButton"
-      > {{ uiLabels.kitchenStaffButton }} </button>
+      <button align = "right" id = "stockButton" onclick="window.location = '/#/kitchen_staff';"> {{ uiLabels.kitchenStaffButton }} </button>
   </div>
 
   <div class = "buttonR">
@@ -162,7 +161,7 @@ button:hover {
   }
   .row {
     display: flex;
-    height: 98%;
+    height: 90%;
   }
 
   .column {
@@ -170,7 +169,7 @@ button:hover {
     border-width: 3px;
     margin: -2px;
     padding: 15px;
-    height: 450px;
+    height: 430px;
   }
   .left {
     width: 20%;

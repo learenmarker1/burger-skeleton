@@ -3,7 +3,7 @@
 		<div v-if="order.status === 'started' || order.status === 'not-started' ">
 				<div class="order"> Order # {{orderId}} </div> {{order.type}}
 				<div v-for="(ing, key) in order.burgers" :key="key">
-					{{ ing.map(item=>item["ingredient_"+ lang]).join(", ") }}
+					<div class = "order" id = "ordinord"> Item {{key + 1}}:</div>{{ ing.map(item=>item["ingredient_"+ lang]).join(", ") }}
 				</div>
 		</div>
 		<div v-if="order.status === 'done'">
@@ -27,6 +27,10 @@ export default {
 .order {
 	text-transform: uppercase;
 	font-weight: bold;
+}
+#ordinord {
+	font-size: 75%;
+	color: MediumVioletRed;
 }
 
 </style>

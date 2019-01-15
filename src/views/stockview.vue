@@ -138,12 +138,11 @@ h1 {
   .column {
     flex: 50%;
     border: solid lightgray;
-    border-bottom:0;
     border-width: 3px;
     margin: -2px;
     padding: 15px;
     overflow: scroll;
-    height: 600px;
+    height: 550px;
   }
 
   #langButton{

@@ -13,7 +13,7 @@
   <div class = "wrapper" align = "center">
 
   <div class = "box left">
-    <h1>STEKBORDET!!</h1>
+    <h1>{{uiLabels.steaktable}}</h1>
     <div class = "box steaktable">
       <ul align = "left" v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
         <div v-if="lang_en"> {{item.ingredient_en}}: </div>
@@ -21,11 +21,14 @@
       </ul>
       </div>
     <div class = "box inner_steaktable ">
+      <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
+        0
+      </ul>
     </div>
   </div>
 
 <div class = "box right">
-  <h1>STEKBORDET 2.0</h1>
+  <h1>{{uiLabels.orderOverview}}</h1>
   <OrderItem
     id = "order_in_que"
     v-for="(order, key) in orders"
@@ -118,10 +121,8 @@ button:hover {
   }
   .wrapper {
     display: grid;
-    grid-gap: 10px;
         grid-template-columns: repeat(2, [col] 25% ) ;
         grid-template-rows: repeat(1, [row] auto  );
-        background-color: #fff;
         color: #444;
     }
 
@@ -130,12 +131,16 @@ button:hover {
     color: #fff;
     border-radius: 5px;
     padding: 20px;
+    margin: 5px;
     font-size: 100%;
+    height: 430px;
+    overflow: scroll;
     }
   .box .box {
     background-color: #ccc;
     color: #444;
-    font-size: 75%;
+    font-size: 60%;
+    height: auto;
     }
   .left {
     grid-column: col / span 2;
@@ -159,6 +164,7 @@ button:hover {
   .inner_steaktable{
     grid-column: 2;
     grid-row: row;
+    text-align: left;
   }
 
   #button{

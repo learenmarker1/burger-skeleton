@@ -70,5 +70,6 @@
   "vegan": "Vegansk",
   "notVegan": "Ej vegansk",
   "sendOrderStock": "Skicka Beställning",
-  "currentStock": "Lagersaldo"
+  "currentStock": "Lagersaldo",
+  "steaktable": "Stekbordet"
 }
