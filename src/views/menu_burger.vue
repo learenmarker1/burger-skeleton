@@ -77,6 +77,7 @@
 </div>
 </div>
 
+<div id="space">
 <h1>{{ uiLabels.my_order }}</h1>
 <div class="myOrder">
   <br>
@@ -86,6 +87,7 @@
 </p>
 </div>
 <p v-show='orderAdded'> {{uiLabels.orderAdded}} </p>
+</div>
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';"> {{ uiLabels.backButton }} </button>
@@ -245,6 +247,10 @@ button:hover {
 
 #yourOrder{
   text-align: right;
+}
+
+#space{
+  padding: 0 5px 0 5px;
 }
 
 #placeButton{

@@ -45,6 +45,9 @@
   <style>
   /* @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; */
 
+  img:hover {
+      cursor: pointer;
+    }
 
 .thanks_background {
       background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");

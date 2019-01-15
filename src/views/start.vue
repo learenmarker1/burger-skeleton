@@ -60,8 +60,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* padding-top: 50px;
-    padding-bottom: 100px; */
+    padding-top: 50px;
+    padding-bottom: 50px;
     position: absolute;
   }
 
@@ -85,6 +85,7 @@
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
+    /* padding-top: 40px; */
   }
 
   @-webkit-keyframes glow {
