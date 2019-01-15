@@ -13,9 +13,9 @@
   <div class = "wrapper" align = "center">
 
   <div class = "box left">
-    <h1>{{uiLabels.steaktable}}</h1>
+    <h1> {{uiLabels.steaktable}} </h1>
     <div class = "box steaktable">
-      <ul align = "left" v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
+      <ul v-for = "item in ingredients" v-if = 'item.category == 1' :key="item.ingredient_id">
         <div v-if="lang_en"> {{item.ingredient_en}}: </div>
         <div v-else-if="lang_sv"> {{item.ingredient_sv}}: </div>
       </ul>
@@ -39,7 +39,6 @@
     :lang="lang"
     :key="key">
   </OrderItem>
-
 
 </div>
 </div>
@@ -134,7 +133,6 @@ button:hover {
     margin: 5px;
     font-size: 100%;
     height: 430px;
-    overflow: scroll;
     }
   .box .box {
     background-color: #ccc;
@@ -148,11 +146,13 @@ button:hover {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
+    overflow: scroll;
     }
 
   .right{
     grid-column: col 3 / span 2;
     grid-row: row;
+    overflow: scroll;
   }
 
   .steaktable{
