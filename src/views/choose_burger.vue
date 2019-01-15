@@ -169,7 +169,7 @@
 </div>
 </div>
 
-
+<div id="space">
 <h1>{{ uiLabels.my_order }}</h1>
 <div class="myOrder">
   <br>
@@ -179,6 +179,7 @@
 </div>
 
 <p v-show='orderAdded'> {{ uiLabels.orderAdded }} </p>
+</div>
 
 <div>
   <button id = "backButton" onclick="window.location = '/#/';" > {{ uiLabels.backButton }} </button>
@@ -283,7 +284,7 @@ function scrollFunction() {
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
 
 #header {
-  /* background-color: lightgray; /* Grey background */*/
+  /* background-color: lightgray; /* Grey background */ */
   background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
   color: white;
   text-align: center;
@@ -293,15 +294,6 @@ function scrollFunction() {
   margin-top: 15px;
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
-
-
-/* #ordering {
-margin: auto;
-padding-top: 50px;
-width: 100%;
-background: radial-gradient(lightgray, darkgray);
-color: white;
-} */
 
 #langButton{
   position: absolute;
@@ -325,12 +317,6 @@ color: white;
   background-color: gray;
   color: pink;
 }
-/* -------- */
-
-/* .panel {
-margin-bottom: 1rem;
-border: 10px solid #ccc;
-} */
 
 .panel-title {
   font-weight: bold;
@@ -339,10 +325,6 @@ border: 10px solid #ccc;
   margin-bottom: 10px;
   cursor: pointer;
 }
-
-/* .panel-body {
-padding: 0.01em 2px;
-} */
 
 .background {
   background-image: url("http://crossbones.org.uk/wp-content/uploads/2016/08/grey-background.jpg");
@@ -405,9 +387,6 @@ padding: 0.01em 2px;
 }
 
 .glow{
-  /* font-size: 60px;
-  color: pink;
-  text-shadow: 0 0 3px #875187, 0 0 5px #875187; */
   font-family: "Snell Roundhand", cursive, sans-serif;
   font-size: 70px;
   color: white;

@@ -62,10 +62,12 @@
         <h3> {{ uiLabels.To_order }} </h3>
         <p> {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}</p>
 
-        <button id = "stockOrderButton" > {{ uiLabels.sendOrderStock }} </button>
+        <button id = "stockOrderButton" v-on:click="thanksOrder()"> {{ uiLabels.sendOrderStock }} </button>
 
         <!-- <button align ="right" id="placeButton" > {{ uiLabels.add_order }}</button> -->
-
+<div>
+  <p v-show="orderThanks"> {{uiLabels.thankOrder}} </p>
+</div>
     </div>
   </div>
 
@@ -90,6 +92,7 @@ name: 'Ordering',
     return {
       chosenIngredients: [],
       price: 0,
+      orderThanks: false,
     }
   },
   methods: {
@@ -101,7 +104,10 @@ name: 'Ordering',
     },
     showOrder: function() {
       this.orderAdded=!this.orderAdded;
-    }
+    },
+    thanksOrder: function() {
+      this.orderThanks=true;
+    },
   }
 }
 </script>
