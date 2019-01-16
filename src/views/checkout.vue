@@ -108,10 +108,11 @@ button:hover {
   border: 5px solid MediumVioletRed;
   color: black;
   font-size: 14px;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
+  margin-left: 5px;
 }
 
 #addButton {
@@ -120,10 +121,11 @@ button:hover {
   border: 5px solid MediumVioletRed;
   color: black;
   font-size: 14px;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-variant: small-caps;
   padding: 10px 10px 10px 10px;
   text-align: center;
+  margin-right: 5px;
 }
 
 
